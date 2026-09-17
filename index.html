@@ -500,7 +500,13 @@ footer{padding:36px 0;border-top:1px solid var(--line);font-size:13px;color:var(
 
   <input type="hidden" name="utf8" value="✓">
 
-  <div class="formkit-fields">
+  <ul class="formkit-alert formkit-alert-error"
+      data-element="errors"
+      data-group="alert"></ul>
+
+  <div class="seva-fields formkit-fields"
+       data-element="fields"
+       data-stacked="false">
 
     <div class="formkit-field">
       <input
@@ -508,10 +514,14 @@ footer{padding:36px 0;border-top:1px solid var(--line);font-size:13px;color:var(
         type="email"
         name="email_address"
         placeholder="Enter your work email"
+        aria-label="Email Address"
         required>
     </div>
 
-    <button class="formkit-submit" type="submit">
+    <button
+      class="formkit-submit"
+      data-element="submit"
+      type="submit">
       Subscribe
     </button>
 
@@ -528,10 +538,12 @@ footer{padding:36px 0;border-top:1px solid var(--line);font-size:13px;color:var(
       hello@kawahive.com
     </a>
   </p>
-</div>
-  <div class="container">
-    <div class="section-label">FAQ</div>
-    <h2>Direct answers.</h2>
+</div>   <!-- closes signup-box -->
+
+<div class="section-label">FAQ</div>
+<h2>Direct answers.</h2>
+  <div class="section-label">FAQ</div>
+  <h2>Direct answers.</h2>
     <div class="faq-grid">
 
       <details open>

@@ -618,7 +618,8 @@ footer{padding:36px 0;border-top:1px solid var(--line);font-size:13px;color:var(
 document.addEventListener("DOMContentLoaded", function () {
 
   const form = document.querySelector(".formkit-form");
-if (!form) return;
+  if (!form) return;
+
   const emailInput = form.querySelector('input[name="email_address"]');
 
   const personalDomains = [
@@ -635,22 +636,24 @@ if (!form) return;
     "gmx.com"
   ];
 
+  // Run BEFORE Kit processes the form.
   form.addEventListener("submit", function (event) {
 
     const email = emailInput.value.trim().toLowerCase();
-    const domain = email.split("@")[1];
+    const domain = email.substring(email.lastIndexOf("@") + 1);
 
     if (personalDomains.includes(domain)) {
       event.preventDefault();
+      event.stopPropagation();
+      event.stopImmediatePropagation();
 
-      alert(
-        "Please use your company or organisation email address to subscribe to KawaHive Insights."
-      );
+      alert("Please use your company or organisation email address to subscribe to KawaHive Insights.");
 
       emailInput.focus();
+      return false;
     }
 
-  });
+  }, true); // <-- important: capture phase
 
 });
 </script>

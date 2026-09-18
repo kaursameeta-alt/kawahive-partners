@@ -260,9 +260,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const domain = email.split("@")[1] || "";
 
     if (personalDomains.includes(domain)) {
-      event.preventDefault();
-      event.stopImmediatePropagation();
-
+     event.preventDefault();
+event.stopPropagation();
+event.stopImmediatePropagation();
       emailInput.setCustomValidity(
         "Please use your company or organisation email address."
       );

@@ -491,6 +491,7 @@ footer{padding:36px 0;border-top:1px solid var(--line);font-size:13px;color:var(
 </p>
 
  <form
+  id="newsletter-form"
   action="https://app.kit.com/forms/9929557/subscriptions"
   class="seva-form formkit-form"
   method="post"
@@ -617,6 +618,7 @@ footer{padding:36px 0;border-top:1px solid var(--line);font-size:13px;color:var(
 document.addEventListener("DOMContentLoaded", function () {
 
   const form = document.querySelector(".formkit-form");
+if (!form) return;
   const emailInput = form.querySelector('input[name="email_address"]');
 
   const personalDomains = [

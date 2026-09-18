@@ -486,8 +486,9 @@ footer{padding:36px 0;border-top:1px solid var(--line);font-size:13px;color:var(
   <h3>Get founder-first commercial insights.</h3>
 
   <p>
-    Practical commercial insights for MedTech, medical device and IVD founders across Asia Pacific — covering Voice of Customer, commercial strategy, market entry, clinical education and commercialisation.
-  </p>
+  Founder-first commercial insights for MedTech, medical device and IVD companies across Asia Pacific.
+  Please subscribe using your company or organisation email address.
+</p>
 
  <form
   action="https://app.kit.com/forms/9929557/subscriptions"
@@ -509,14 +510,16 @@ footer{padding:36px 0;border-top:1px solid var(--line);font-size:13px;color:var(
        data-stacked="false">
 
     <div class="formkit-field">
-      <input
-        class="formkit-input"
-        type="email"
-        name="email_address"
-        placeholder="Enter your work email"
-        aria-label="Email Address"
-        required>
-    </div>
+  <input
+    class="formkit-input"
+    type="email"
+    name="email_address"
+    placeholder="Enter your company or organisation email"
+    aria-label="Company Email"
+    pattern="^[A-Za-z0-9._%+-]+@(?!gmail\.com$|yahoo\.com$|hotmail\.com$|outlook\.com$|icloud\.com$|live\.com$|msn\.com$|aol\.com$)[A-Za-z0-9.-]+\.[A-Za-z]{2,}$"
+    title="Please enter your company or organisation email address (personal email providers like Gmail, Yahoo, Hotmail, Outlook and iCloud are not accepted)."
+    required>
+</div>
 
     <button
       class="formkit-submit"
@@ -540,49 +543,55 @@ footer{padding:36px 0;border-top:1px solid var(--line);font-size:13px;color:var(
   </p>
 </div>   <!-- closes signup-box -->
 
-<div class="section-label">FAQ</div>
-<h2>Direct answers.</h2>
+<div id="faq">
   <div class="section-label">FAQ</div>
   <h2>Direct answers.</h2>
-    <div class="faq-grid">
 
-      <details open>
-        <summary>Are you a regulatory consultancy?</summary>
-        <p>No. We do not handle submissions or compliance. Our work begins on the commercial side: customers, positioning, channels, markets and enablement.</p>
-      </details>
+  <div class="faq-grid">
 
-      <details>
-        <summary>How are you different from a marketing agency?</summary>
-        <p>The starting point is the commercial problem, not the campaign. We look at the product, customer, channel and market together before deciding what communication or action is actually needed.</p>
-      </details>
+    <details open>
+      <summary>Are you a regulatory consultancy?</summary>
+      <p>No. We do not handle submissions or compliance. Our work begins on the commercial side: customers, positioning, channels, markets and enablement.</p>
+    </details>
 
-      <details>
-        <summary>Do you replace an internal Clinical Applications team?</summary>
-        <p>No. Clinical Applications teams are critical for product and clinical support. KawaHive looks more broadly at the commercial question: what is stopping adoption, customer traction or market growth?</p>
-      </details>
+    <details>
+      <summary>How are you different from a marketing agency?</summary>
+      <p>The starting point is the commercial problem, not the campaign. We look at the product, customer, channel and market together before deciding what communication or action is actually needed.</p>
+    </details>
 
-      <details>
-        <summary>Do you work with commercial partners?</summary>
-        <p>Yes. Partner capability, market fit, commercial confidence and customer-facing execution can be important parts of a MedTech market-entry or growth situation.</p>
-      </details>
+    <details>
+      <summary>Do you replace an internal Clinical Applications team?</summary>
+      <p>No. Clinical Applications teams are critical for product and clinical support. KawaHive looks more broadly at the commercial question: what is stopping adoption, customer traction or market growth?</p>
+    </details>
 
-      <details>
-        <summary>When should we engage?</summary>
-        <p>When the product is ready — or already in market — but there is uncertainty around customer demand, positioning, market choice, competitive pressure, partner strategy or the next commercial move.</p>
-      </details>
+    <details>
+      <summary>Do you work with commercial partners?</summary>
+      <p>Yes. Partner capability, market fit, commercial confidence and customer-facing execution can be important parts of a MedTech market-entry or growth situation.</p>
+    </details>
 
+    <details>
+      <summary>When should we engage?</summary>
+      <p>When the product is ready — or already in market — but there is uncertainty around customer demand, positioning, market choice, competitive pressure, partner strategy or the next commercial move.</p>
+    </details>
+</div>   <!-- closes faq-grid -->
+</div>   <!-- closes #faq -->
+
+</div>     <!-- closes container -->
+</section> <!-- closes Insights section -->
+<section class="cta" id="book">
+     <div class="container cta-inner">
+    <div>
+      <h2>Commercial clarity before your next market decision.</h2>
+      <p>A focused conversation to understand the commercial challenge, see whether there is a fit, and decide whether a deeper discussion is worthwhile. No pitch deck. No obligation.</p>
     </div>
+    <a href="https://calendly.com/hello-kawahive/30min"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="btn btn-gold"
+       onclick="gtag('event','calendly_click',{button_location:'cta'});">
+      Book a 30-Minute Fit Call
+    </a>
   </div>
-</section>
-
-  <section class="cta" id="book">
-    <div class="container cta-inner">
-      <div>
-        <h2>Commercial clarity before your next market decision.</h2>
-        <p>A focused conversation to understand the commercial challenge, see whether there is a fit, and decide whether a deeper discussion is worthwhile. No pitch deck. No obligation.</p>
-      </div>
-      <a href="https://calendly.com/hello-kawahive/30min" target="_blank" rel="noopener noreferrer" class="btn btn-gold" onclick="gtag('event','calendly_click',{button_location:'cta'});">Book a 30-Minute Fit Call</a>
-    </div>
   </section>
 </main>
 
@@ -603,5 +612,45 @@ footer{padding:36px 0;border-top:1px solid var(--line);font-size:13px;color:var(
     © 2020 KawaHive &amp; Partners. All rights reserved.
   </div>
 </footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const form = document.querySelector(".formkit-form");
+  const emailInput = form.querySelector('input[name="email_address"]');
+
+  const personalDomains = [
+    "gmail.com",
+    "yahoo.com",
+    "hotmail.com",
+    "outlook.com",
+    "live.com",
+    "icloud.com",
+    "me.com",
+    "aol.com",
+    "protonmail.com",
+    "proton.me",
+    "gmx.com"
+  ];
+
+  form.addEventListener("submit", function (event) {
+
+    const email = emailInput.value.trim().toLowerCase();
+    const domain = email.split("@")[1];
+
+    if (personalDomains.includes(domain)) {
+      event.preventDefault();
+
+      alert(
+        "Please use your company or organisation email address to subscribe to KawaHive Insights."
+      );
+
+      emailInput.focus();
+    }
+
+  });
+
+});
+</script>
 </body>
 </html>

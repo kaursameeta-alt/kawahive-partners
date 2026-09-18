@@ -222,12 +222,50 @@ footer a{color:var(--muted);text-decoration:underline;text-underline-offset:2px}
     </button>
 
   </div>
+<form
+  id="newsletter-form"
+  action="https://app.kit.com/forms/9929557/subscriptions"
+  class="seva-form formkit-form"
+  method="post"
+  data-sv-form="9929557"
+  data-uid="4d009ec565"
+  data-format="inline"
+  data-version="5">
+
+  <input type="hidden" name="utf8" value="✓">
+
+  <ul class="formkit-alert formkit-alert-error"
+      data-element="errors"
+      data-group="alert"></ul>
+
+  <div class="seva-fields formkit-fields"
+       data-element="fields"
+       data-stacked="false">
+
+    <div class="formkit-field">
+      <input
+        class="formkit-input"
+        type="email"
+        name="email_address"
+        placeholder="Enter your company or organisation email"
+        aria-label="Company Email"
+        required>
+    </div>
+
+    <button
+      class="formkit-submit"
+      data-element="submit"
+      type="submit">
+      Subscribe
+    </button>
+
+  </div>
 </form>
 
-  <p style="font-size:13px;color:var(--muted);margin-top:14px;margin-bottom:0;">
-    Questions:
-    <a href="mailto:hello@kawahive.com">hello@kawahive.com</a>
-  </p>
+<p style="font-size:13px;color:var(--muted);margin-top:14px;margin-bottom:0;">
+  Questions:
+  <a href="mailto:hello@kawahive.com">hello@kawahive.com</a>
+</p>
 </div>
 </main>
 
@@ -239,5 +277,43 @@ footer a{color:var(--muted);text-decoration:underline;text-underline-offset:2px}
     © 2020 KawaHive &amp; Partners. All rights reserved.
   </div>
 </footer>
+</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const form = document.querySelector(".formkit-form");
+  if (!form) return;
+
+  const emailInput = form.querySelector('input[name="email_address"]');
+
+  const personalDomains = [
+    "gmail.com","yahoo.com","hotmail.com","outlook.com",
+    "live.com","icloud.com","me.com","aol.com",
+    "protonmail.com","proton.me","gmx.com"
+  ];
+
+  form.addEventListener("submit", function (event) {
+
+    const email = emailInput.value.trim().toLowerCase();
+    const domain = email.substring(email.lastIndexOf("@") + 1);
+
+    if (personalDomains.includes(domain)) {
+      event.preventDefault();
+      event.stopImmediatePropagation();
+
+      alert("Please use your company or organisation email address to subscribe to KawaHive Insights.");
+
+      emailInput.focus();
+      return false;
+    }
+
+  }, true);
+
+});
+</script>
+
+</body>
+</html>
 </body>
 </html>

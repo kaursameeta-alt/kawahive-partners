@@ -71,29 +71,9 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   // -----------------------------
-  // Scroll Depth Tracking (90%)
+  
   // -----------------------------
-  let scrollTracked = false;
-
-  window.addEventListener('scroll', function(){
-
-    if(scrollTracked) return;
-
-    const scrollPosition = window.scrollY + window.innerHeight;
-    const pageHeight = document.documentElement.scrollHeight;
-
-    if(scrollPosition / pageHeight >= 0.9){
-
-      scrollTracked = true;
-
-      gtag('event','scroll_90_percent',{
-        event_category:'Engagement',
-        event_label:'Homepage'
-      });
-    }
-  });
-
-});
+ 
 </script>
 <title>KawaHive | MedTech Market Entry & Growth | Asia Pacific</title>
 <meta name="description" content="Helping MedTech, medical device and IVD founders with market entry, customer insight and commercial growth across Asia Pacific.">
@@ -620,9 +600,7 @@ footer{padding:36px 0;border-top:1px solid var(--line);font-size:13px;color:var(
 
   <p style="font-size:13px;color:var(--muted);margin-top:8px;margin-bottom:0;">
     Questions?
-    <a href="mailto:hello@kawahive.com" style="color:var(--navy);text-decoration:underline;">
-      hello@kawahive.com
-    </a>
+    <a href="mailto:hello@kawahive.com">hello@kawahive.com</a>
   </p>
 </div>   <!-- closes signup-box -->
 

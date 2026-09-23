@@ -13,6 +13,88 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-SYPLY10GMT');
 </script>
+ <!-- KawaHive GA4 Event Tracking -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+  // -----------------------------
+  // Calendly Click Tracking
+  // -----------------------------
+  document.querySelectorAll('a[href*="calendly.com"]').forEach(function(link){
+    link.addEventListener('click', function(){
+      gtag('event','calendly_click',{
+        event_category:'Lead',
+        event_label:this.href
+      });
+    });
+  });
+
+  // -----------------------------
+  // Email Click Tracking
+  // -----------------------------
+  document.querySelectorAll('a[href^="mailto:"]').forEach(function(link){
+    link.addEventListener('click', function(){
+      gtag('event','email_click',{
+        event_category:'Lead',
+        event_label:this.href
+      });
+    });
+  });
+
+  // -----------------------------
+  // LinkedIn Click Tracking
+  // -----------------------------
+  document.querySelectorAll('a[href*="linkedin.com"]').forEach(function(link){
+    link.addEventListener('click', function(){
+      gtag('event','linkedin_click',{
+        event_category:'Social',
+        event_label:this.href
+      });
+    });
+  });
+
+  // -----------------------------
+  // Outbound Link Tracking
+  // -----------------------------
+  document.querySelectorAll('a[href^="http"]').forEach(function(link){
+
+    if(link.hostname !== window.location.hostname){
+
+      link.addEventListener('click', function(){
+        gtag('event','outbound_click',{
+          event_category:'Outbound',
+          event_label:this.href
+        });
+      });
+
+    }
+  });
+
+  // -----------------------------
+  // Scroll Depth Tracking (90%)
+  // -----------------------------
+  let scrollTracked = false;
+
+  window.addEventListener('scroll', function(){
+
+    if(scrollTracked) return;
+
+    const scrollPosition = window.scrollY + window.innerHeight;
+    const pageHeight = document.documentElement.scrollHeight;
+
+    if(scrollPosition / pageHeight >= 0.9){
+
+      scrollTracked = true;
+
+      gtag('event','scroll_90_percent',{
+        event_category:'Engagement',
+        event_label:'Homepage'
+      });
+    }
+  });
+
+});
+</script>
 <title>KawaHive | MedTech Market Entry & Growth | Asia Pacific</title>
 <meta name="description" content="Helping MedTech, medical device and IVD founders with market entry, customer insight and commercial growth across Asia Pacific.">
 <meta name="robots" content="index,follow,max-image-preview:large">

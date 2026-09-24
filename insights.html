@@ -148,6 +148,14 @@ h1{font-size:clamp(28px,4vw,36px);font-weight:800;letter-spacing:-0.8px;color:va
 footer{padding:28px 0;border-top:1px solid var(--line);font-size:13px;color:var(--muted);text-align:center}
 footer a{color:var(--muted);text-decoration:underline;text-underline-offset:2px}
 @media(max-width:600px){.navlinks{display:none}.form-row{flex-direction:column}.form-row button{width:100%}}
+ .hero-image{
+  width:100%;
+  border-radius:16px;
+  margin-top:32px;
+  display:block;
+  object-fit:cover;
+  max-height:520px;
+} 
 </style>
 </head>
 <body>
@@ -166,11 +174,24 @@ footer a{color:var(--muted);text-decoration:underline;text-underline-offset:2px}
 </header>
 
 <main>
+  <section class="hero">
   <div class="container">
-    <div class="eyebrow">KawaHive Insights</div>
-    <h1>Commercial clarity for MedTech founders</h1>
-    <p class="lead">Occasional notes on customers, positioning, clinical education, market entry and commercial execution across Asia Pacific.</p>
 
+    <div class="eyebrow">KawaHive Insights</div>
+
+    <h1>Commercial thinking for MedTech founders.</h1>
+
+    <p class="hero-sub">
+      Evidence-based insights on MedTech commercial strategy, market entry, distributor selection and customer adoption in Asia-Pacific.
+    </p>
+
+    <img
+      src="images/insights-medtech-commercial-strategy.jpg"
+      alt=alt="Minimalist medical device illustrating MedTech market entry and commercial strategy in Asia-Pacific."
+      class="hero-image">
+
+  </div>
+</section>
     <article class="article-card">
       <div class="meta"><span class="tag">KawaHive Insights</span> · 17 September 2026 · 5-minute read</div>
       <h2>Why MedTech Products Don't Sell After Regulatory Approval</h2>

@@ -1,752 +1,630 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<script async src="https://f.convertkit.com/ckjs/ck.5.js"></script>
-<meta name="google-site-verification" content="DlRoCXaO0GegmfshG93VPynMFiUPb10YDqUK4NN3ACQ">
-<!-- ADD THIS LINE -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-SYPLY10GMT"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-SYPLY10GMT');
-</script>
- <!-- KawaHive GA4 Event Tracking -->
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-
-  // -----------------------------
-  // Calendly Click Tracking
-  // -----------------------------
-  document.querySelectorAll('a[href*="calendly.com"]').forEach(function(link){
-    link.addEventListener('click', function(){
-      gtag('event','calendly_click',{
-        event_category:'Lead',
-        event_label:this.href
-      });
-    });
-  });
-
-  // -----------------------------
-  // Email Click Tracking
-  // -----------------------------
-  document.querySelectorAll('a[href^="mailto:"]').forEach(function(link){
-    link.addEventListener('click', function(){
-      gtag('event','email_click',{
-        event_category:'Lead',
-        event_label:this.href
-      });
-    });
-  });
-
-  // -----------------------------
-  // LinkedIn Click Tracking
-  // -----------------------------
-  document.querySelectorAll('a[href*="linkedin.com"]').forEach(function(link){
-    link.addEventListener('click', function(){
-      gtag('event','linkedin_click',{
-        event_category:'Social',
-        event_label:this.href
-      });
-    });
-  });
-
-  // -----------------------------
-  // Outbound Link Tracking
-  // -----------------------------
-  document.querySelectorAll('a[href^="http"]').forEach(function(link){
-
-    if(link.hostname !== window.location.hostname){
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <script async src="https://f.convertkit.com/ckjs/ck.5.js"></script>
+  <meta name="google-site-verification" content="DlRoCXaO0GegmfshG93VPynMFiUPb10YDqUK4NN3ACQ">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SYPLY10GMT"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-SYPLY10GMT');
+  </script>
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('a[href*="calendly.com"]').forEach(function(link){
       link.addEventListener('click', function(){
-        gtag('event','outbound_click',{
-          event_category:'Outbound',
+        gtag('event','calendly_click',{
+          event_category:'Lead',
           event_label:this.href
         });
       });
-
-    }
+    });
+    document.querySelectorAll('a[href^="mailto:"]').forEach(function(link){
+      link.addEventListener('click', function(){
+        gtag('event','email_click',{
+          event_category:'Lead',
+          event_label:this.href
+        });
+      });
+    });
+    document.querySelectorAll('a[href*="linkedin.com"]').forEach(function(link){
+      link.addEventListener('click', function(){
+        gtag('event','linkedin_click',{
+          event_category:'Social',
+          event_label:this.href
+        });
+      });
+    });
+    document.querySelectorAll('a[href*="wa.me"]').forEach(function(link){
+      link.addEventListener('click', function(){
+        gtag('event','whatsapp_click',{
+          event_category:'Lead',
+          event_label:this.href
+        });
+      });
+    });
+    document.querySelectorAll('a[href^="http"]').forEach(function(link){
+      if(link.hostname !== window.location.hostname){
+        link.addEventListener('click', function(){
+          gtag('event','outbound_click',{
+            event_category:'Outbound',
+            event_label:this.href
+          });
+        });
+      }
+    });
   });
-
-  // -----------------------------
-  
-  // -----------------------------
- 
-</script>
-<title>Helping Series A–C MedTech Founders with Market Entry & Growth in Asia-Pacific | KawaHive</title>
-
-<meta name="description" content="KawaHive helps Series A–C MedTech, medical device, IVD and digital health founders make smarter market entry, distributor strategy and commercial growth decisions in Asia-Pacific.">
-
-<meta name="robots" content="index,follow,max-image-preview:large">
-
-<link rel="canonical" href="https://kawahive.com/">
-
-<link rel="icon" type="image/png" href="/favicon.png">
-<link rel="icon" href="/favicon.png" sizes="32x32">
-<link rel="icon" type="image/png" sizes="192x192" href="/favicon.png">
-<link rel="shortcut icon" href="/favicon.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/favicon.png">
-
-<meta name="theme-color" content="#0F172A">
-
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://kawahive.com/">
-<meta property="og:title" content="Helping Series A–C MedTech Founders with Market Entry & Growth in Asia-Pacific | KawaHive">
-<meta property="og:description" content="KawaHive helps Series A–C MedTech, medical device, IVD and digital health founders make smarter market entry, distributor strategy and commercial growth decisions in Asia-Pacific.">
-<meta property="og:site_name" content="KawaHive &amp; Partners">
-<meta property="og:image" content="https://kawahive.com/kawahive-home-preview.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="KawaHive & Partners — Helping Series A–C MedTech founders make smarter market entry and growth decisions in Asia-Pacific.">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Helping Series A–C MedTech Founders with Market Entry & Growth in Asia-Pacific | KawaHive">
-<meta name="twitter:description" content="KawaHive helps Series A–C MedTech, medical device, IVD and digital health founders make smarter market entry, distributor strategy and commercial growth decisions in Asia-Pacific.">
-<meta name="twitter:image" content="https://kawahive.com/kawahive-home-preview.png">
-<meta name="twitter:image:alt" content="KawaHive & Partners — Helping Series A–C MedTech founders make smarter market entry and growth decisions in Asia-Pacific.">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "KawaHive & Partners",
-  "url": "https://kawahive.com/",
-  "logo": "https://kawahive.com/favicon.png",
- "image": "https://kawahive.com/kawahive-home-preview.png",
-  "description": "Helping Series A–C MedTech, medical device and IVD founders make smarter market entry, distributor and growth decisions in Asia-Pacific.",
-"areaServed": "Asia-Pacific",
-  "brand": {"@type": "Brand", "name": "KawaHive & Partners"},
-  "serviceType": [
-    "Voice of Customer Research",
-    "MedTech Commercial Strategy",
-    "Market Entry Strategy",
-    "Clinical Education Strategy",
-    "Product Positioning",
-    "Commercial Enablement"
-  ]
-}
-</script>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Are you a regulatory consultancy?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No. We do not handle submissions or compliance. Our work begins on the commercial side: customers, positioning, channels, markets and enablement."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How are you different from a marketing agency?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The starting point is the commercial problem, not the campaign. We look at the product, customer, channel and market together before deciding what communication or action is actually needed."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do you replace an internal Clinical Applications team?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No. Clinical Applications teams are critical for product and clinical support. KawaHive looks more broadly at the commercial question: what is stopping adoption, customer traction or market growth?"
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do you work with commercial partners?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Partner capability, market fit, commercial confidence and customer-facing execution can be important parts of a MedTech market-entry or growth situation."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "When should we engage?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "When the product is ready — or already in market — but there is uncertainty around customer demand, positioning, market choice, competitive pressure, partner strategy or the next commercial move."
-      }
-    }
-  ]
-}
-</script>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-:root{--ink:#0b1220;--muted:#64748b;--navy:#0f172a;--navy-deep:#020617;--gold:#c9a227;--gold-soft:#e0bc3d;--bg:#ffffff;--bg-soft:#f8fafc;--line:#e2e8f0;--max:1100px}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);line-height:1.6;background:var(--bg);-webkit-font-smoothing:antialiased}
-a{text-decoration:none;color:inherit}
-.container{width:min(var(--max),calc(100% - 48px));margin:0 auto}
-header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
-.nav{height:72px;display:flex;align-items:center;justify-content:space-between}
-.logo{font-size:28px;font-weight:800;letter-spacing:-0.8px;color:var(--navy)}
-.logo span{color:var(--gold)}
-.navlinks{display:flex;gap:24px;align-items:center;font-size:14px;font-weight:500;color:var(--muted)}
-.navlinks a:hover{color:var(--navy)}
-.btn{display:inline-flex;align-items:center;justify-content:center;padding:11px 20px;border-radius:8px;font-weight:600;font-size:14px;border:none;cursor:pointer;transition:all 0.2s ease}
-.btn-primary{background:var(--navy);color:#fff}
-.btn-primary:hover{background:var(--navy-deep)}
-.btn-gold{background:var(--gold);color:var(--navy-deep)}
-.btn-gold:hover{background:var(--gold-soft)}
-.hero{padding:96px 0 88px}
-.hero-grid{display:grid;grid-template-columns:1.35fr 0.65fr;gap:64px;align-items:center}
-.eyebrow{display:inline-block;font-size:12px;font-weight:600;letter-spacing:0.6px;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
-h1{font-size:clamp(36px,5vw,52px);line-height:1.08;letter-spacing:-1.6px;font-weight:800;color:var(--navy);margin-bottom:20px}
-.hero-lead{font-size:18px;color:var(--muted);max-width:480px;margin-bottom:12px}
-.hero-sub{font-size:16px;color:var(--ink);font-weight:500;margin-bottom:32px}
- .hero-proof{
-  font-size:14px;
-  color:var(--muted);
-  margin:-12px 0 28px;
-  max-width:560px;
-}
-.hero-card{background:var(--bg-soft);border:1px solid var(--line);border-radius:16px;padding:28px}
-.hero-card h3{font-size:13px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:20px}
-.signal{display:flex;gap:14px;padding:12px 0;border-bottom:1px solid var(--line)}
-.signal:last-child{border-bottom:none;padding-bottom:0}
-.signal:first-of-type{padding-top:0}
-.num{width:28px;height:28px;display:grid;place-items:center;border-radius:50%;background:var(--navy);color:#fff;font-weight:700;font-size:12px;flex-shrink:0}
-.signal strong{display:block;font-size:14px;font-weight:600;color:var(--navy);margin-bottom:2px}
-.signal span{font-size:13px;color:var(--muted)}
-.cred{background:var(--navy);color:#fff;padding:18px 0;text-align:center;font-size:14px;font-weight:500}
-.cred strong{color:var(--gold)}
-section{padding:88px 0}
-.section-label{font-size:12px;font-weight:600;letter-spacing:0.6px;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
-h2{font-size:clamp(28px,3.5vw,36px);line-height:1.15;letter-spacing:-0.9px;font-weight:750;color:var(--navy);margin-bottom:12px}
-.section-desc{font-size:16px;color:var(--muted);max-width:520px}
-.intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-bottom:40px}
-.lead{font-size:18px;font-weight:600;color:var(--ink);line-height:1.45}
-.copy{font-size:15px;color:var(--muted)}
-.stakeholders{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-.stakeholder{padding:16px;background:var(--bg-soft);border:1px solid var(--line);border-radius:10px;font-weight:600;font-size:13px;text-align:center;color:var(--navy)}
-.services{background:var(--bg-soft)}
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
-.card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:24px}
-.card-num{font-size:12px;font-weight:700;color:var(--gold);margin-bottom:10px}
-.card h3{font-size:16px;font-weight:700;color:var(--navy);margin-bottom:6px}
-.card p{font-size:14px;color:var(--muted);line-height:1.5}
-.process-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
-.step{padding-top:16px;border-top:2px solid var(--gold)}
-.step b{font-size:11px;font-weight:700;color:var(--gold);letter-spacing:0.5px}
-.step h3{font-size:16px;font-weight:700;color:var(--navy);margin:6px 0 4px}
-.step p{font-size:13.5px;color:var(--muted)}
-.who-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
-.who-card{background:var(--bg-soft);border:1px solid var(--line);border-radius:12px;padding:24px}
-.who-card h3{font-size:16px;font-weight:700;color:var(--navy);margin-bottom:6px}
-.who-card p{font-size:14px;color:var(--muted)}
-.position{background:var(--navy);color:#fff;padding:88px 0}
-.position .section-label{color:var(--gold)}
-.position h2{color:#fff}
-.position .section-desc{color:rgba(255,255,255,0.7)}
-.trust-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:40px}
-.trust-card{border:1px solid rgba(255,255,255,0.15);border-radius:12px;padding:24px;background:rgba(255,255,255,0.05)}
-.trust-card h3{font-size:15px;color:#fff;margin-bottom:7px}
-.trust-card p{font-size:14px;color:rgba(255,255,255,0.7);line-height:1.55}
-.quote-band{margin-top:36px;padding:26px 30px;border-left:3px solid var(--gold);background:var(--bg-soft)}
-.quote-band p{font-size:18px;line-height:1.5;font-weight:600;color:var(--navy);max-width:800px}
-.faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:40px}
-details{background:var(--bg-soft);border:1px solid var(--line);border-radius:10px;padding:18px 20px}
-summary{cursor:pointer;font-weight:600;font-size:14px;color:var(--navy);list-style:none}
-summary::-webkit-details-marker{display:none}
-details p{margin-top:10px;font-size:14px;color:var(--muted);line-height:1.5}
-.cta{background:var(--navy);padding:80px 0;color:#fff}
-.cta-inner{display:flex;align-items:center;justify-content:space-between;gap:40px}
-.cta h2{color:#fff;margin-bottom:8px}
-.cta p{color:rgba(255,255,255,0.7);font-size:15px;max-width:460px}
-footer{padding:36px 0;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
-.footer-inner{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;flex-wrap:wrap}
-.footer-inner strong{color:var(--navy)}
-.footer-links{display:flex;gap:20px;flex-wrap:wrap}
-.footer-links a{color:var(--muted)}
-.footer-links a:hover{color:var(--navy)}
-.center{text-align:center;margin-top:40px}
-.mobile{display:none}
-.proof{background:var(--bg-soft)}
-.case-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
-.case-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:26px}
-.case-tag{font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
-.case-card h3{font-size:18px;line-height:1.3;color:var(--navy);margin-bottom:10px}
-.case-card p{font-size:14px;color:var(--muted);line-height:1.55;margin-bottom:10px}
-.case-card p strong{color:var(--navy);font-weight:600}
-.insight-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:28px;margin-top:32px;max-width:640px}
-.insight-card .tag{font-size:12px;font-weight:600;color:var(--gold);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:10px}
-.insight-card h3{font-size:20px;font-weight:700;color:var(--navy);margin-bottom:10px;line-height:1.3}
-.insight-card p{font-size:15px;color:var(--muted);margin-bottom:18px}
-.signup-box{background:var(--bg-soft);border:1px solid var(--line);border-radius:12px;padding:28px;margin-top:40px;max-width:520px}
-.signup-box h3{font-size:18px;font-weight:700;color:var(--navy);margin-bottom:8px}
-.signup-box p{font-size:14px;color:var(--muted);margin-bottom:18px}
-  /* ===== Kit Newsletter Form ===== */
-
-.formkit-fields{
-  display:flex;
-  gap:12px;
-  flex-wrap:wrap;
-  align-items:center;
-}
-
-.formkit-field{
-  flex:1;
-  min-width:220px;
-}
-
-.formkit-input{
-  width:100%;
-  padding:13px 16px;
-  border:1px solid var(--line);
-  border-radius:8px;
-  font-size:15px;
-  font-family:inherit;
-  background:#fff;
-  outline:none;
-}
-
-.formkit-input:focus{
-  border-color:var(--gold);
-}
-
-.formkit-submit{
-  padding:13px 22px;
-  background:var(--navy);
-  color:#fff;
-  border:none;
-  border-radius:8px;
-  font-size:15px;
-  font-weight:600;
-  cursor:pointer;
-}
-
-.formkit-submit:hover{
-  background:var(--navy-deep);
-}
-
-.formkit-alert{
-  list-style:none;
-  margin-bottom:12px;
-  color:#b91c1c;
-  font-size:14px;
-}
-
-@media(max-width:600px){
-  .formkit-fields{
-    flex-direction:column;
+  </script>
+  <title>Helping Series A–C MedTech Founders with Market Entry & Growth in Asia-Pacific | KawaHive</title>
+  <meta name="description" content="KawaHive helps Series A–C MedTech, medical device and IVD founders make smarter market entry, distributor strategy and market growth decisions in Asia-Pacific.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="canonical" href="https://kawahive.com/">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="icon" href="/favicon.png" sizes="32x32">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon.png">
+  <link rel="shortcut icon" href="/favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png">
+  <meta name="theme-color" content="#0F172A">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kawahive.com/">
+  <meta property="og:title" content="Helping Series A–C MedTech Founders with Market Entry & Growth in Asia-Pacific | KawaHive">
+  <meta property="og:description" content="KawaHive helps Series A–C MedTech, medical device and IVD founders make smarter market entry, distributor strategy and market growth decisions in Asia-Pacific.">
+  <meta property="og:site_name" content="KawaHive &amp; Partners">
+  <meta property="og:image" content="https://kawahive.com/kawahive-home-preview.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="KawaHive & Partners — Helping Series A–C MedTech founders make smarter market entry and growth decisions in Asia-Pacific.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Helping Series A–C MedTech Founders with Market Entry & Growth in Asia-Pacific | KawaHive">
+  <meta name="twitter:description" content="KawaHive helps Series A–C MedTech, medical device and IVD founders make smarter market entry, distributor strategy and market growth decisions in Asia-Pacific.">
+  <meta name="twitter:image" content="https://kawahive.com/kawahive-home-preview.png">
+  <meta name="twitter:image:alt" content="KawaHive & Partners — Helping Series A–C MedTech founders make smarter market entry and growth decisions in Asia-Pacific.">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "KawaHive & Partners",
+    "url": "https://kawahive.com/",
+    "logo": "https://kawahive.com/favicon.png",
+    "image": "https://kawahive.com/kawahive-home-preview.png",
+    "description": "Helping Series A–C MedTech, medical device and IVD founders make smarter market entry, distributor and growth decisions in Asia-Pacific.",
+    "areaServed": "Asia-Pacific",
+    "brand": {"@type": "Brand", "name": "KawaHive & Partners"},
+    "serviceType": [
+      "Voice of Customer Research",
+      "Market Entry Strategy",
+      "Distributor Strategy",
+      "Clinical Education Strategy",
+      "Market Due Diligence",
+      "Launch Readiness"
+    ]
   }
-
-  .formkit-field,
-  .formkit-submit{
-    width:100%;
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Are you a regulatory consultancy?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. We do not handle submissions or compliance. Our work begins on the market side: customers, positioning, channels, markets and readiness."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How are you different from a marketing agency?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The starting point is the market problem, not the campaign. We look at the product, customer, channel and market together before deciding what communication or action is actually needed."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you replace an internal Clinical Applications team?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Clinical Applications teams are critical for product and clinical support. KawaHive looks more broadly at the market question: what is stopping adoption, customer traction or market growth?"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you work with distributors and commercial partners?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Partner capability, market fit, distributor readiness and customer-facing execution can be important parts of a MedTech market-entry or growth situation."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "When should we engage?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "When the product is ready — or already in market — but there is uncertainty around customer demand, positioning, market choice, competitive pressure, partner strategy or the next move."
+        }
+      }
+    ]
   }
-}
-.form-row{display:flex;gap:12px;flex-wrap:wrap}
-.form-row input{flex:1;min-width:200px;padding:13px 16px;border:1px solid var(--line);border-radius:8px;font-size:15px;font-family:inherit;outline:none}
-.form-row button{padding:13px 22px;background:var(--navy);color:#fff;border:none;border-radius:8px;font-size:15px;font-weight:600;font-family:inherit;cursor:pointer;white-space:nowrap}
-.pillar-intro{max-width:650px}
-@media(max-width:900px){
-  .navlinks{display:none}
-  .mobile{display:inline-flex}
-  .hero-grid,.intro-grid,.cards,.who-grid,.faq-grid,.case-grid,.trust-grid,.process-grid{grid-template-columns:1fr}
-  .stakeholders{grid-template-columns:1fr 1fr}
-  .cta-inner{flex-direction:column;align-items:flex-start}
-}
-@media(max-width:560px){
-  .container{width:calc(100% - 32px)}
-  section,.position,.cta{padding:64px 0}
-  .hero{padding:56px 0}
-  .process-grid,.stakeholders{grid-template-columns:1fr}
-  .logo{font-size:24px}
-  .nav{height:64px}
-  h1{font-size:32px}
-}
-</style>
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+  :root{--ink:#0b1220;--muted:#64748b;--navy:#0f172a;--navy-deep:#020617;--gold:#c9a227;--gold-soft:#e0bc3d;--bg:#ffffff;--bg-soft:#f8fafc;--line:#e2e8f0;--max:1100px}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);line-height:1.6;background:var(--bg);-webkit-font-smoothing:antialiased}
+  a{text-decoration:none;color:inherit}
+  .container{width:min(var(--max),calc(100% - 48px));margin:0 auto}
+  header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav{height:72px;display:flex;align-items:center;justify-content:space-between}
+  .logo{font-size:28px;font-weight:800;letter-spacing:-0.8px;color:var(--navy)}
+  .logo span{color:var(--gold)}
+  .navlinks{display:flex;gap:24px;align-items:center;font-size:14px;font-weight:500;color:var(--muted)}
+  .navlinks a:hover{color:var(--navy)}
+  .btn{display:inline-flex;align-items:center;justify-content:center;padding:11px 20px;border-radius:8px;font-weight:600;font-size:14px;border:none;cursor:pointer;transition:all 0.2s ease}
+  .btn-primary{background:var(--navy);color:#fff}
+  .btn-primary:hover{background:var(--navy-deep)}
+  .btn-gold{background:var(--gold);color:var(--navy-deep)}
+  .btn-gold:hover{background:var(--gold-soft)}
+  .hero{padding:96px 0 88px}
+  .hero-grid{display:grid;grid-template-columns:1.35fr 0.65fr;gap:64px;align-items:center}
+  .eyebrow{display:inline-block;font-size:12px;font-weight:600;letter-spacing:0.6px;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+  h1{font-size:clamp(36px,5vw,52px);line-height:1.08;letter-spacing:-1.6px;font-weight:800;color:var(--navy);margin-bottom:20px}
+  .hero-sub{font-size:16px;color:var(--ink);font-weight:500;margin-bottom:32px}
+  .hero-proof{font-size:14px;color:var(--muted);margin:-12px 0 28px;max-width:560px}
+  .hero-card{background:var(--bg-soft);border:1px solid var(--line);border-radius:16px;padding:28px}
+  .hero-card h3{font-size:13px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:20px}
+  .signal{display:flex;gap:14px;padding:12px 0;border-bottom:1px solid var(--line)}
+  .signal:last-child{border-bottom:none;padding-bottom:0}
+  .signal:first-of-type{padding-top:0}
+  .num{width:28px;height:28px;display:grid;place-items:center;border-radius:50%;background:var(--navy);color:#fff;font-weight:700;font-size:12px;flex-shrink:0}
+  .signal strong{display:block;font-size:14px;font-weight:600;color:var(--navy);margin-bottom:2px}
+  .signal span{font-size:13px;color:var(--muted)}
+  .cred{background:var(--navy);color:#fff;padding:18px 0;text-align:center;font-size:14px;font-weight:500}
+  .cred strong{color:var(--gold)}
+  section{padding:88px 0}
+  .section-label{font-size:12px;font-weight:600;letter-spacing:0.6px;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+  h2{font-size:clamp(28px,3.5vw,36px);line-height:1.15;letter-spacing:-0.9px;font-weight:750;color:var(--navy);margin-bottom:12px}
+  .section-desc{font-size:16px;color:var(--muted);max-width:520px}
+  .intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-bottom:40px}
+  .lead{font-size:18px;font-weight:600;color:var(--ink);line-height:1.45}
+  .copy{font-size:15px;color:var(--muted)}
+  .stakeholders{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  .stakeholder{padding:16px;background:var(--bg-soft);border:1px solid var(--line);border-radius:10px;font-weight:600;font-size:13px;text-align:center;color:var(--navy)}
+  .services{background:var(--bg-soft)}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+  .card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:24px}
+  .card-num{font-size:12px;font-weight:700;color:var(--gold);margin-bottom:10px}
+  .card h3{font-size:16px;font-weight:700;color:var(--navy);margin-bottom:6px}
+  .card p{font-size:14px;color:var(--muted);line-height:1.5}
+  .process-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+  .step{padding-top:16px;border-top:2px solid var(--gold)}
+  .step b{font-size:11px;font-weight:700;color:var(--gold);letter-spacing:0.5px}
+  .step h3{font-size:16px;font-weight:700;color:var(--navy);margin:6px 0 4px}
+  .step p{font-size:13.5px;color:var(--muted)}
+  .who-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+  .who-card{background:var(--bg-soft);border:1px solid var(--line);border-radius:12px;padding:24px}
+  .who-card h3{font-size:16px;font-weight:700;color:var(--navy);margin-bottom:6px}
+  .who-card p{font-size:14px;color:var(--muted)}
+  .position{background:var(--navy);color:#fff;padding:88px 0}
+  .position .section-label{color:var(--gold)}
+  .position h2{color:#fff}
+  .position .section-desc{color:rgba(255,255,255,0.7)}
+  .trust-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:40px}
+  .trust-card{border:1px solid rgba(255,255,255,0.15);border-radius:12px;padding:24px;background:rgba(255,255,255,0.05)}
+  .trust-card h3{font-size:15px;color:#fff;margin-bottom:7px}
+  .trust-card p{font-size:14px;color:rgba(255,255,255,0.7);line-height:1.55}
+  .quote-band{margin-top:36px;padding:26px 30px;border-left:3px solid var(--gold);background:var(--bg-soft)}
+  .quote-band p{font-size:18px;line-height:1.5;font-weight:600;color:var(--navy);max-width:800px}
+  .faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:40px}
+  details{background:var(--bg-soft);border:1px solid var(--line);border-radius:10px;padding:18px 20px}
+  summary{cursor:pointer;font-weight:600;font-size:14px;color:var(--navy);list-style:none}
+  summary::-webkit-details-marker{display:none}
+  details p{margin-top:10px;font-size:14px;color:var(--muted);line-height:1.5}
+  .cta{background:var(--navy);padding:80px 0;color:#fff}
+  .cta-inner{display:flex;align-items:center;justify-content:space-between;gap:40px}
+  .cta h2{color:#fff;margin-bottom:8px}
+  .cta p{color:rgba(255,255,255,0.7);font-size:15px;max-width:460px}
+  footer{padding:36px 0;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+  .footer-inner{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;flex-wrap:wrap}
+  .footer-inner strong{color:var(--navy)}
+  .footer-links{display:flex;gap:20px;flex-wrap:wrap}
+  .footer-links a{color:var(--muted)}
+  .footer-links a:hover{color:var(--navy)}
+  .center{text-align:center;margin-top:40px}
+  .mobile{display:none}
+  .proof{background:var(--bg-soft)}
+  .case-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+  .case-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:26px}
+  .case-tag{font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+  .case-card h3{font-size:18px;line-height:1.3;color:var(--navy);margin-bottom:10px}
+  .case-card p{font-size:14px;color:var(--muted);line-height:1.55;margin-bottom:10px}
+  .case-card p strong{color:var(--navy);font-weight:600}
+  .insight-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:28px;margin-top:32px;max-width:640px}
+  .insight-card .tag{font-size:12px;font-weight:600;color:var(--gold);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:10px}
+  .insight-card h3{font-size:20px;font-weight:700;color:var(--navy);margin-bottom:10px;line-height:1.3}
+  .insight-card p{font-size:15px;color:var(--muted);margin-bottom:18px}
+  .signup-box{background:var(--bg-soft);border:1px solid var(--line);border-radius:12px;padding:28px;margin-top:40px;max-width:520px}
+  .signup-box h3{font-size:18px;font-weight:700;color:var(--navy);margin-bottom:8px}
+  .signup-box p{font-size:14px;color:var(--muted);margin-bottom:18px}
+  .formkit-fields{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+  .formkit-field{flex:1;min-width:220px}
+  .formkit-input{width:100%;padding:13px 16px;border:1px solid var(--line);border-radius:8px;font-size:15px;font-family:inherit;background:#fff;outline:none}
+  .formkit-input:focus{border-color:var(--gold)}
+  .formkit-submit{padding:13px 22px;background:var(--navy);color:#fff;border:none;border-radius:8px;font-size:15px;font-weight:600;cursor:pointer}
+  .formkit-submit:hover{background:var(--navy-deep)}
+  .formkit-alert{list-style:none;margin-bottom:12px;color:#b91c1c;font-size:14px}
+  @media(max-width:600px){
+    .formkit-fields{flex-direction:column}
+    .formkit-field,.formkit-submit{width:100%}
+  }
+  .pillar-intro{max-width:650px}
+  @media(max-width:900px){
+    .navlinks{display:none}
+    .mobile{display:inline-flex}
+    .hero-grid,.intro-grid,.cards,.who-grid,.faq-grid,.case-grid,.trust-grid,.process-grid{grid-template-columns:1fr}
+    .stakeholders{grid-template-columns:1fr 1fr}
+    .cta-inner{flex-direction:column;align-items:flex-start}
+  }
+  @media(max-width:560px){
+    .container{width:calc(100% - 32px)}
+    section,.position,.cta{padding:64px 0}
+    .hero{padding:56px 0}
+    .process-grid,.stakeholders{grid-template-columns:1fr}
+    .logo{font-size:24px}
+    .nav{height:64px}
+    h1{font-size:32px}
+  }
+  </style>
 </head>
 <body>
-<header>
-  <div class="container nav">
-
-    <a class="logo" href="https://kawahive.com/">
-      KawaHive <span>&amp; Partners</span>
-    </a>
-
-    <nav class="navlinks">
-      <a href="https://kawahive.com/">Home</a>
-      <a href="https://kawahive.com/#services">Services</a>
-      <a href="https://kawahive.com/#who-we-help">Who We Help</a>
-      <a href="https://kawahive.com/#why-kawahive">Why KawaHive</a>
-      <a href="https://kawahive.com/insights.html">Insights</a>
-
+  <header>
+    <div class="container nav">
+      <a class="logo" href="https://kawahive.com/">
+        KawaHive <span>&amp; Partners</span>
+      </a>
+      <nav class="navlinks">
+        <a href="https://kawahive.com/">Home</a>
+        <a href="https://kawahive.com/#services">Services</a>
+        <a href="https://kawahive.com/#who-we-help">Who We Help</a>
+        <a href="https://kawahive.com/#why-kawahive">Why KawaHive</a>
+        <a href="https://kawahive.com/insights.html">Insights</a>
+        <a href="https://calendly.com/hello-kawahive/30min"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="btn btn-primary"
+           onclick="gtag('event','calendly_click',{button_location:'header'});">
+          Book Your Strategy Session
+        </a>
+      </nav>
       <a href="https://calendly.com/hello-kawahive/30min"
          target="_blank"
          rel="noopener noreferrer"
-         class="btn btn-primary"
-         onclick="gtag('event','calendly_click',{button_location:'header'});">
-       Book Your Strategy Session
+         class="btn btn-primary mobile"
+         onclick="gtag('event','calendly_click',{button_location:'mobile_header'});">
+        Book a Strategy Session
       </a>
-    </nav>
-
-    <a href="https://calendly.com/hello-kawahive/30min"
-       target="_blank"
-       rel="noopener noreferrer"
-       class="btn btn-primary mobile"
-       onclick="gtag('event','calendly_click',{button_location:'mobile_header'});">
-      Book a Strategy Session
-    </a>
-
-  </div>
-</header>
-
-<main>
-  <section class="hero">
-    <div class="container hero-grid">
-     <div>
-  <div class="eyebrow">For MedTech · Medical Device · IVD Founders</div>
-
-  <h1>Helping Series A–C MedTech founders make smarter market entry and growth decisions in Asia-Pacific.</h1>
-
-  <p class="hero-sub">
-    KawaHive helps Series A–C MedTech, medical device and IVD founders make evidence-based market entry, distributor and growth decisions in Asia-Pacific.
-  </p>
-
-  <p class="hero-proof">
-    Market entry strategy, distributor selection, customer insight and commercial due diligence for MedTech companies expanding into Asia-Pacific markets.
-  </p>
-
-  <a href="https://calendly.com/hello-kawahive/30min"
-     target="_blank"
-     rel="noopener noreferrer"
-     class="btn btn-primary"
-     onclick="gtag('event','calendly_click',{button_location:'hero'});">
-    Book a 30-Minute Strategy Session
-  </a>
-      <div class="hero-card">
-        <h3>The questions that matter</h3>
-        <div class="signal"><div class="num">1</div><div><strong>Why aren't they buying?</strong><span>Find the real objection, priority or missing value.</span></div></div>
-        <div class="signal"><div class="num">2</div><div><strong>Why isn't the market responding?</strong><span>Separate product, positioning, customer and market-fit issues.</span></div></div>
-        <div class="signal"><div class="num">3</div><div><strong>Where should you compete?</strong><span>Test market, segment, pricing and competitive realities.</span></div></div>
-        <div class="signal"><div class="num">4</div><div><strong>What should you change?</strong><span>Turn evidence into a clearer commercial decision.</span></div></div>
-      </div>
     </div>
-  </section>
-
-  <div class="cred"><div class="container">First-hand MedTech experience across <strong>clinical, commercial, customer &amp; market environments</strong> · Asia-Pacific</div></div>
-
-  <section>
-    <div class="container">
-      <div class="intro-grid">
+  </header>
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
         <div>
-          <div class="section-label">The problem</div>
-          <h2>Clearance is not commercialisation.</h2>
-          <p class="lead">A strong product, funding and regulatory approval are necessary. They do not automatically create adoption, traction or revenue.</p>
+          <div class="eyebrow">For Series A–C MedTech · Medical Device · IVD · Founders</div>
+          <h1>Helping Series A–C MedTech founders make smarter market entry and growth decisions in Asia-Pacific.</h1>
+          <p class="hero-sub">
+            KawaHive helps Series A–C MedTech, medical device and IVD founders make evidence-based market entry, distributor and growth decisions in Asia-Pacific.
+          </p>
+          <p class="hero-proof">
+            Market entry strategy, distributor selection, customer insight and market due diligence for MedTech companies expanding into Asia-Pacific.
+          </p>
+          <a href="https://calendly.com/hello-kawahive/30min"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="btn btn-primary"
+             style="margin-bottom:40px;"
+             onclick="gtag('event','calendly_click',{button_location:'hero'});">
+            Book a 30-Minute Strategy Session
+          </a>
         </div>
-        <div class="copy">
-          <p>We work on the commercial side — understanding customers, validating demand, sharpening positioning, assessing market opportunities and equipping teams to execute. We are not a regulatory consultancy.</p>
+        <div class="hero-card">
+          <h3>The questions that matter</h3>
+          <div class="signal"><div class="num">1</div><div><strong>Why aren't they buying?</strong><span>Find the real objection, priority or missing value.</span></div></div>
+          <div class="signal"><div class="num">2</div><div><strong>Why isn't the market responding?</strong><span>Separate product, positioning, customer and market-fit issues.</span></div></div>
+          <div class="signal"><div class="num">3</div><div><strong>Where should you compete?</strong><span>Test market, segment, pricing and competitive realities.</span></div></div>
+          <div class="signal"><div class="num">4</div><div><strong>What should you change?</strong><span>Turn evidence into a clearer commercial decision.</span></div></div>
         </div>
       </div>
-      <div class="stakeholders">
-        <div class="stakeholder">Clinicians</div>
-        <div class="stakeholder">Decision-makers</div>
-        <div class="stakeholder">Procurement</div>
-        <div class="stakeholder">Commercial teams</div>
+    </section>
+    <div class="cred"><div class="container">First-hand MedTech experience across <strong>clinical, commercial, customer &amp; market environments</strong> · Asia-Pacific</div></div>
+    <section>
+      <div class="container">
+        <div class="intro-grid">
+          <div>
+            <div class="section-label">The problem</div>
+            <h2>Clearance is not market traction.</h2>
+            <p class="lead">A strong product, funding and regulatory approval are necessary. They do not automatically create adoption, traction or revenue.</p>
+          </div>
+          <div class="copy">
+            <p>We help founders understand customers, validate demand, sharpen positioning, assess market opportunities and equip teams to execute across Asia-Pacific. We are not a regulatory consultancy.</p>
+          </div>
+        </div>
+        <div class="stakeholders">
+          <div class="stakeholder">Clinicians</div>
+          <div class="stakeholder">Decision-makers</div>
+          <div class="stakeholder">Procurement</div>
+          <div class="stakeholder">Commercial teams</div>
+        </div>
+        <div class="quote-band">
+          <p>You are not buying more activity. You are getting a clearer view of what is really happening in the market — and what to do about it.</p>
+        </div>
       </div>
-      <div class="quote-band">
-        <p>You are not buying more activity. You are getting a clearer view of what is really happening in the market — and what to do about it.</p>
+    </section>
+    <section id="services" class="services">
+      <div class="container">
+        <div class="section-label">Six market lenses</div>
+        <h2>Where we create market clarity.</h2>
+        <p class="section-desc pillar-intro">Six connected areas help founders diagnose what is getting in the way — and make a better decision before spending more time or money.</p>
+        <div class="cards">
+          <article class="card"><div class="card-num">01</div><h3>Voice of Customer</h3><p>Uncover what clinicians, decision-makers and buyers actually value, object to and need before a major market decision.</p></article>
+          <article class="card"><div class="card-num">02</div><h3>Commercial Strategy</h3><p>Translate clinical and technical strengths into positioning that resonates with clinicians, procurement teams and distributor partners.</p></article>
+          <article class="card"><div class="card-num">03</div><h3>Market Entry Strategy</h3><p>Identify practical opportunities, the right starting point and the market conditions needed to introduce or expand a product across Asia-Pacific.</p></article>
+          <article class="card"><div class="card-num">04</div><h3>Clinical Education Strategy</h3><p>Build the clinical understanding and confidence required for adoption — before and after launch.</p></article>
+          <article class="card"><div class="card-num">05</div><h3>Distributor &amp; Sales Capability</h3><p>Build distributor and sales capability through customer conversations, training, workshops, product demonstrations and practical tools for market growth.</p></article>
+          <article class="card"><div class="card-num">06</div><h3>Launch Readiness</h3><p>Assess whether positioning, distributors, messaging and go-to-market readiness are in place before investing further in growth.</p></article>
+        </div>
+      </div>
+    </section>
+    <section class="proof">
+      <div class="container">
+        <div class="section-label">Selected market experience</div>
+        <h2>What this looks like in the real world.</h2>
+        <p class="section-desc">Examples below are based on market and distributor work undertaken in Asia. They are shared without confidential company or customer information.</p>
+        <div class="case-grid">
+          <article class="case-card">
+            <div class="case-tag">Sri Lanka · Distributor strategy</div>
+            <h3>When the problem wasn't sales.</h3>
+            <p><strong>Market challenge</strong><br>A product was repeatedly losing head-to-head evaluations against stronger higher-end alternatives.</p>
+            <p><strong>Market reality</strong><br>The issue was not simply sales execution — product-market fit and positioning were difficult in that competitive environment.</p>
+            <p><strong>Decision</strong><br>Reassess product-market fit, sharpen positioning and focus commercial effort where the opportunity was stronger.</p>
+          </article>
+          <article class="case-card">
+            <div class="case-tag">South Asia · New clinical opportunity</div>
+            <h3>From overlooked opportunity to tender specification.</h3>
+            <p><strong>Market challenge</strong><br>A new clinical application had little awareness despite clinical value.</p>
+            <p><strong>Market reality</strong><br>Clinicians required sustained education before institutional interest developed.</p>
+            <p><strong>Decision</strong><br>Build clinical education first, then support institutional tender specifications.</p>
+          </article>
+          <article class="case-card">
+            <div class="case-tag">Southeast Asia · Market opportunity</div>
+            <h3>When the obvious market was not the best opening.</h3>
+            <p><strong>Market challenge</strong><br>One clinical segment was heavily contested by low-cost brands, limiting realistic traction.</p>
+            <p><strong>Market reality</strong><br>A different clinical opportunity offered clearer competitive conditions and a more practical opening.</p>
+            <p><strong>Decision</strong><br>Shift focus, support tender specifications and pursue the stronger first breakthrough opportunity.</p>
+          </article>
+        </div>
+        <div class="center">
+          <a href="https://calendly.com/hello-kawahive/30min" target="_blank" rel="noopener noreferrer" class="btn btn-primary" onclick="gtag('event','calendly_click',{button_location:'case_study'});">Book Your Strategy Session</a>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="container">
+        <div class="section-label">How we work</div>
+        <h2>Discover. Clarify. Activate.</h2>
+        <div class="process-grid">
+          <div class="step"><b>01</b><h3>Discover</h3><p>Understand the product, the market question and what customers or partners are saying.</p></div>
+          <div class="step"><b>02</b><h3>Clarify</h3><p>Separate symptoms from the underlying issue — product, positioning, channel, market or execution — and pressure-test assumptions.</p></div>
+          <div class="step"><b>03</b><h3>Activate</h3><p>Turn the findings into a practical decision, message, partner plan, market action or market readiness tool.</p></div>
+        </div>
+      </div>
+    </section>
+    <section id="who-we-help">
+      <div class="container">
+        <div class="section-label">Who we help</div>
+        <h2>For founders trying to turn a good product into a real market opportunity.</h2>
+        <div class="who-grid">
+          <div class="who-card"><h3>MedTech &amp; Medical Device Founders</h3><p>Founders entering, expanding or reassessing markets in Asia — especially when traction is slower, harder or less predictable than expected.</p></div>
+          <div class="who-card"><h3>IVD &amp; Diagnostics Companies</h3><p>Teams bringing diagnostic platforms to market that need clearer customer insight, positioning or market entry focus.</p></div>
+          <div class="who-card"><h3>Growth-Stage MedTech Companies</h3><p>Growth-stage teams that need to validate an opportunity, reassess market traction or make a more confident next move.</p></div>
+        </div>
+        <p class="section-desc" style="margin-top:28px;max-width:720px;">We also work with medical device manufacturers, disposable medical products manufacturers, diagnostics manufacturers and clinical consumables manufacturers expanding through distributor networks across Asia-Pacific.</p>
+      </div>
+    </section>
+    <section class="position" id="why-kawahive">
+      <div class="container">
+        <div class="section-label">Why KawaHive</div>
+        <h2>Closer to what actually happens between the product and the purchase.</h2>
+        <p class="section-desc">Our perspective is built at the intersection of clinical understanding, customer conversations, market realities and commercial execution across Asia.</p>
+        <p style="font-size:15px;color:rgba(255,255,255,0.75);max-width:640px;margin-top:16px;line-height:1.55;">KawaHive brings first-hand MedTech experience across clinical education, market development, distributor engagement and market entry strategy in Asia-Pacific.</p>
+        <div class="trust-grid">
+          <div class="trust-card"><h3>Built from the field</h3><p>Experience spans clinical education, product and market work, channel support and customer-facing problem solving — not just strategy documents.</p></div>
+          <div class="trust-card"><h3>Independent perspective</h3><p>We are not selling a manufacturer portfolio, a regulatory service or a marketing campaign. The question is what makes commercial sense for the situation.</p></div>
+          <div class="trust-card"><h3>Asia is part of the lens</h3><p>Tender dynamics, competitive pressure, pricing, local buying behaviour and partner capability can materially change the route to market.</p></div>
+          <div class="trust-card"><h3>Evidence before opinion</h3><p>We start with the customer, channel and market signals available — then challenge assumptions and translate them into a decision.</p></div>
+        </div>
+      </div>
+    </section>
+    <section id="insights">
+      <div class="container">
+        <div class="section-label">KawaHive Insights</div>
+        <h2>Market thinking for MedTech founders.</h2>
+        <p class="section-desc">Occasional notes on customers, positioning, clinical education, market entry and commercial execution across Asia-Pacific.</p>
+        <div class="insight-card">
+          <div class="tag">Featured Insight · 17 September 2026 · 5-minute read</div>
+          <h3>Why MedTech Products Don't Sell After Regulatory Approval</h3>
+          <p>Five commercial gaps founders miss between regulatory approval and real commercial traction across Asia-Pacific.</p>
+          <a href="https://kawahive.com/why-medtech-products-dont-sell-after-regulatory-approval.html" class="btn btn-primary">
+            Read Insight
+          </a>
+        </div>
+        <div class="signup-box">
+          <h3>Get founder-first market insights.</h3>
+          <p>
+            Founder-first market insights for MedTech, medical device and IVD companies across Asia-Pacific.
+            Please subscribe using your company or organisation email address.
+          </p>
+          <form
+            id="newsletter-form"
+            action="https://app.kit.com/forms/9929557/subscriptions"
+            class="seva-form formkit-form"
+            method="post"
+            data-sv-form="9929557"
+            data-uid="4d009ec565"
+            data-format="inline"
+            data-version="5">
+            <input type="hidden" name="utf8" value="✓">
+            <ul class="formkit-alert formkit-alert-error"
+                data-element="errors"
+                data-group="alert"></ul>
+            <div class="seva-fields formkit-fields"
+                 data-element="fields"
+                 data-stacked="false">
+              <div class="formkit-field">
+                <input
+                  class="formkit-input"
+                  type="email"
+                  name="email_address"
+                  placeholder="Enter your company or organisation email"
+                  aria-label="Company Email"
+                  pattern="^[A-Za-z0-9._%+-]+@(?!gmail\.com$|yahoo\.com$|hotmail\.com$|outlook\.com$|icloud\.com$|live\.com$|msn\.com$|aol\.com$)[A-Za-z0-9.-]+\.[A-Za-z]{2,}$"
+                  title="Please enter your company or organisation email address (personal email providers like Gmail, Yahoo, Hotmail, Outlook and iCloud are not accepted)."
+                  required>
+              </div>
+              <button
+                class="formkit-submit"
+                data-element="submit"
+                type="submit">
+                Subscribe
+              </button>
+            </div>
+          </form>
+          <p style="font-size:13px;color:var(--muted);margin-top:12px;margin-bottom:0;">
+            Occasional founder-first market insights for MedTech leaders across Asia-Pacific. No spam. Unsubscribe anytime.
+          </p>
+          <p style="font-size:13px;color:var(--muted);margin-top:8px;margin-bottom:0;">
+            Questions about market entry or distributor strategy?
+            <a href="mailto:hello@kawahive.com">hello@kawahive.com</a>
+          </p>
+        </div>
+        <div id="faq">
+          <div class="section-label">FAQ</div>
+          <h2>Direct answers.</h2>
+          <div class="faq-grid">
+            <details open>
+              <summary>Are you a regulatory consultancy?</summary>
+              <p>No. We do not handle submissions or compliance. Our work begins on the market side: customers, positioning, channels, markets and readiness.</p>
+            </details>
+            <details>
+              <summary>How are you different from a marketing agency?</summary>
+              <p>The starting point is the market problem, not the campaign. We look at the product, customer, channel and market together before deciding what communication or action is actually needed.</p>
+            </details>
+            <details>
+              <summary>Do you replace an internal Clinical Applications team?</summary>
+              <p>No. Clinical Applications teams are critical for product and clinical support. KawaHive looks more broadly at the market question: what is stopping adoption, customer traction or market growth?</p>
+            </details>
+            <details>
+              <summary>Do you work with distributors and commercial partners?</summary>
+              <p>Yes. Partner capability, market fit, distributor readiness and customer-facing execution can be important parts of a MedTech market-entry or growth situation.</p>
+            </details>
+            <details>
+              <summary>When should we engage?</summary>
+              <p>When the product is ready — or already in market — but there is uncertainty around customer demand, positioning, market choice, competitive pressure, partner strategy or the next move.</p>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="cta" id="book">
+      <div class="container cta-inner">
+        <div>
+          <h2>Before you invest in your next market, make sure you're solving the right problem.</h2>
+          <p>A focused 30-minute strategy session for Series A–C MedTech, medical device and IVD founders expanding across Asia-Pacific.</p>
+          <p>Bring one market entry, distributor or customer adoption challenge. We'll pressure-test your current approach, challenge assumptions where needed, and help you identify practical next steps before you commit more time, budget or resources.</p>
+          <p style="margin-top:16px;font-size:14px;color:rgba(255,255,255,0.75);">
+            No pitch deck required. Bring one real market challenge you're working through.
+          </p>
+        </div>
+        <a href="https://calendly.com/hello-kawahive/30min"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="btn btn-gold"
+           onclick="gtag('event','calendly_click',{button_location:'cta'});">
+          Book Your Strategy Session
+        </a>
+        <p style="margin-top:18px;font-size:14px;color:rgba(255,255,255,0.75);line-height:1.6;">
+          Prefer to ask a question first?
+          <a href="mailto:hello@kawahive.com"
+             style="color:#E0BC3D;text-decoration:underline;"
+             onclick="gtag('event','email_click',{button_location:'cta'});">
+            Email hello@kawahive.com
+          </a>
+          or
+          <a href="https://wa.me/601162232739?text=Hi%20KawaHive%2C%20I'd%20like%20to%20discuss%20a%20market%20entry%20or%20distributor%20challenge%20in%20Asia-Pacific."
+             target="_blank"
+             rel="noopener noreferrer"
+             style="color:#E0BC3D;text-decoration:underline;"
+             onclick="gtag('event','whatsapp_click',{button_location:'cta'});">
+            message us on WhatsApp
+          </a>.
+        </p>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="container footer-inner">
+      <div>
+        <strong>KawaHive &amp; Partners</strong><br>
+        MedTech Market Entry, Customer Insight &amp; Market Growth Strategy · Asia-Pacific
+      </div>
+      <div class="footer-links">
+        <a href="https://kawahive.com/insights.html">Insights</a>
+        <a href="https://kawahive.com/#services">Services</a>
+        <a href="https://kawahive.com/#faq">FAQ</a>
+        <a href="https://kawahive.com/terms.html">Terms of Use</a>
       </div>
     </div>
-  </section>
-
-  <section id="services" class="services">
-    <div class="container">
-      <div class="section-label">Six commercial lenses</div>
-      <h2>Where we create commercial clarity.</h2>
-      <p class="section-desc pillar-intro">Six connected areas help founders diagnose what is getting in the way — and make a better commercial decision before spending more time or money.</p>
-      <div class="cards">
-        <article class="card"><div class="card-num">01</div><h3>Voice of Customer</h3><p>Uncover what clinicians, decision-makers and buyers actually value, object to and need before a major commercial decision.</p></article>
-        <article class="card"><div class="card-num">02</div><h3>Commercial Strategy</h3><p>Translate clinical and technical strengths into a value proposition and commercial model that makes sense to the people who influence the purchase.</p></article>
-        <article class="card"><div class="card-num">03</div><h3>Market Entry Strategy</h3><p>Identify practical opportunities, the right starting point and the commercial conditions needed to introduce or expand a product across Asia-Pacific.</p></article>
-        <article class="card"><div class="card-num">04</div><h3>Clinical Education Strategy</h3><p>Build the clinical understanding and confidence required for adoption — before and after launch.</p></article>
-        <article class="card"><div class="card-num">05</div><h3>Commercial Enablement</h3><p>Build sales and distributor capability through customer conversations, training, workshops, product demonstrations and practical tools for market growth.</p></article>
-        <article class="card"><div class="card-num">06</div><h3>Launch Readiness</h3><p>Assess whether the commercial model, messaging, partners and team are ready before investing further in growth.</p></article>
-      </div>
+    <div class="container" style="margin-top:20px;font-size:13px;color:var(--muted);">
+      © 2020 KawaHive &amp; Partners. All rights reserved.
     </div>
-  </section>
-
-  <section class="proof">
-    <div class="container">
-      <div class="section-label">Selected market experience</div>
-      <h2>What this looks like in the real world.</h2>
-      <p class="section-desc">Examples below are based on market and distributor work undertaken in Asia. They are shared without confidential company or customer information.</p>
-      <div class="case-grid">
-        <article class="case-card">
-          <div class="case-tag">Sri Lanka · Distributor strategy</div>
-          <h3>When the problem wasn't sales.</h3>
-          <p><strong>Commercial challenge</strong><br>A product was repeatedly losing head-to-head evaluations against stronger higher-end alternatives.</p>
-          <p><strong>Market reality</strong><br>The issue was not simply sales execution — product-market fit and positioning were difficult in that competitive environment.</p>
-          <p><strong>Commercial decision</strong><br>Reassess product-market fit, sharpen positioning and focus commercial effort where the opportunity was stronger.</p>
-        </article>
-        <article class="case-card">
-          <div class="case-tag">South Asia · New clinical opportunity</div>
-          <h3>From overlooked opportunity to tender specification.</h3>
-          <p><strong>Commercial challenge</strong><br>A new clinical application had little awareness despite clinical value.</p>
-          <p><strong>Market reality</strong><br>Clinicians required sustained education before institutional interest developed.</p>
-          <p><strong>Commercial decision</strong><br>Build clinical education first, then support institutional tender specifications.</p>
-        </article>
-        <article class="case-card">
-          <div class="case-tag">Southeast Asia · Market opportunity</div>
-          <h3>When the obvious market was not the best opening.</h3>
-          <p><strong>Commercial challenge</strong><br>One clinical segment was heavily contested by low-cost brands, limiting realistic traction.</p>
-          <p><strong>Market reality</strong><br>A different clinical opportunity offered clearer competitive conditions and a more practical opening.</p>
-          <p><strong>Commercial decision</strong><br>Shift focus, support tender specifications and pursue the stronger first breakthrough opportunity.</p>
-        </article>
-      </div>
-      <div class="center">
-        <a href="https://calendly.com/hello-kawahive/30min" target="_blank" rel="noopener noreferrer" class="btn btn-primary" onclick="gtag('event','calendly_click',{button_location:'case_study'});">Book Your Strategy Session</a>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="container">
-      <div class="section-label">How we work</div>
-      <h2>Discover. Clarify. Activate.</h2>
-      <div class="process-grid">
-        <div class="step"><b>01</b><h3>Discover</h3><p>Understand the product, the commercial question and what customers or partners are saying.</p></div>
-        <div class="step"><b>02</b><h3>Clarify</h3><p>Separate symptoms from the underlying issue — product, positioning, channel, market or execution — and pressure-test assumptions.</p></div>
-        <div class="step"><b>03</b><h3>Activate</h3><p>Turn the findings into a practical decision, message, partner plan, market action or enablement tool.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="who-we-help">
-    <div class="container">
-      <div class="section-label">Who we help</div>
-      <h2>For founders trying to turn a good product into a real market opportunity.</h2>
-      <div class="who-grid">
-        <div class="who-card"><h3>MedTech &amp; medical device founders</h3><p>Founders entering, expanding or reassessing markets in Asia — especially when traction is slower, harder or less predictable than expected.</p></div>
-        <div class="who-card"><h3>IVD &amp; diagnostics companies</h3><p>Teams commercialising diagnostic platforms that need clearer customer insight, positioning or market entry focus.</p></div>
-        <div class="who-card"><h3>Digital health &amp; growth-stage teams</h3><p>Growth-stage teams that need to validate an opportunity, reassess market traction or make a more confident commercial move.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="position" id="why-kawahive">
-    <div class="container">
-      <div class="section-label">Why KawaHive</div>
-      <h2>Closer to what actually happens between the product and the purchase.</h2>
-      <p class="section-desc">Our perspective is built at the intersection of clinical understanding, customer conversations, market realities and commercial execution across Asia.</p>
-      <p style="font-size:15px;color:rgba(255,255,255,0.75);max-width:640px;margin-top:16px;line-height:1.55;">KawaHive is led by a MedTech commercial professional with first-hand experience across clinical education, market development, distributor engagement and commercial strategy in Asia-Pacific.</p>
-      <div class="trust-grid">
-        <div class="trust-card"><h3>Built from the field</h3><p>Experience spans clinical education, product and market work, channel support and customer-facing problem solving — not just strategy documents.</p></div>
-        <div class="trust-card"><h3>Independent perspective</h3><p>We are not selling a manufacturer portfolio, a regulatory service or a marketing campaign. The question is what makes commercial sense for the situation.</p></div>
-        <div class="trust-card"><h3>Asia is part of the lens</h3><p>Tender dynamics, competitive pressure, pricing, local buying behaviour and partner capability can materially change the route to market.</p></div>
-        <div class="trust-card"><h3>Evidence before opinion</h3><p>We start with the customer, channel and market signals available — then challenge assumptions and translate them into a decision.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="insights">
-    <div class="container">
-      <div class="section-label">KawaHive Insights</div>
-      <h2>Commercial thinking for MedTech founders.</h2>
-      <p class="section-desc">Occasional notes on customers, positioning, clinical education, market entry and commercial execution across Asia-Pacific.</p>
-      <div class="insight-card">
-        <div class="tag">Featured Insight · 17 September 2026 · 5-minute read</div>
-        <h3>Why MedTech Products Don't Sell After Regulatory Approval</h3>
-        <p>Five commercial gaps founders miss between regulatory approval and real commercial traction across Asia-Pacific.</p>
-<a href="https://kawahive.com/why-medtech-products-dont-sell-after-regulatory-approval.html"
-   class="btn btn-primary">
-  Read Insight
-</a>
-</div>
-
-<div class="signup-box">
-  <h3>Get founder-first commercial insights.</h3>
-
-  <p>
-  Founder-first commercial insights for MedTech, medical device and IVD companies across Asia-Pacific.
-  Please subscribe using your company or organisation email address.
-</p>
-
- <form
-  id="newsletter-form"
-  action="https://app.kit.com/forms/9929557/subscriptions"
-  class="seva-form formkit-form"
-  method="post"
-  data-sv-form="9929557"
-  data-uid="4d009ec565"
-  data-format="inline"
-  data-version="5">
-
-  <input type="hidden" name="utf8" value="✓">
-
-  <ul class="formkit-alert formkit-alert-error"
-      data-element="errors"
-      data-group="alert"></ul>
-
-  <div class="seva-fields formkit-fields"
-       data-element="fields"
-       data-stacked="false">
-
-    <div class="formkit-field">
-  <input
-    class="formkit-input"
-    type="email"
-    name="email_address"
-    placeholder="Enter your company or organisation email"
-    aria-label="Company Email"
-    pattern="^[A-Za-z0-9._%+-]+@(?!gmail\.com$|yahoo\.com$|hotmail\.com$|outlook\.com$|icloud\.com$|live\.com$|msn\.com$|aol\.com$)[A-Za-z0-9.-]+\.[A-Za-z]{2,}$"
-    title="Please enter your company or organisation email address (personal email providers like Gmail, Yahoo, Hotmail, Outlook and iCloud are not accepted)."
-    required>
-</div>
-
-    <button
-      class="formkit-submit"
-      data-element="submit"
-      type="submit">
-      Subscribe
-    </button>
-
-  </div>
-</form>
-
-  <p style="font-size:13px;color:var(--muted);margin-top:12px;margin-bottom:0;">
-    Occasional founder-first commercial insights for MedTech leaders across Asia-Pacific. No spam. Unsubscribe anytime.
-  </p>
-
-  <p style="font-size:13px;color:var(--muted);margin-top:8px;margin-bottom:0;">
-    Questions?
-    <a href="mailto:hello@kawahive.com">hello@kawahive.com</a>
-  </p>
-</div>   <!-- closes signup-box -->
-
-<div id="faq">
-  <div class="section-label">FAQ</div>
-  <h2>Direct answers.</h2>
-
-  <div class="faq-grid">
-
-    <details open>
-      <summary>Are you a regulatory consultancy?</summary>
-      <p>No. We do not handle submissions or compliance. Our work begins on the commercial side: customers, positioning, channels, markets and enablement.</p>
-    </details>
-
-    <details>
-      <summary>How are you different from a marketing agency?</summary>
-      <p>The starting point is the commercial problem, not the campaign. We look at the product, customer, channel and market together before deciding what communication or action is actually needed.</p>
-    </details>
-
-    <details>
-      <summary>Do you replace an internal Clinical Applications team?</summary>
-      <p>No. Clinical Applications teams are critical for product and clinical support. KawaHive looks more broadly at the commercial question: what is stopping adoption, customer traction or market growth?</p>
-    </details>
-
-    <details>
-      <summary>Do you work with commercial partners?</summary>
-      <p>Yes. Partner capability, market fit, commercial confidence and customer-facing execution can be important parts of a MedTech market-entry or growth situation.</p>
-    </details>
-
-    <details>
-      <summary>When should we engage?</summary>
-      <p>When the product is ready — or already in market — but there is uncertainty around customer demand, positioning, market choice, competitive pressure, partner strategy or the next commercial move.</p>
-    </details>
-</div>   <!-- closes faq-grid -->
-</div>   <!-- closes #faq -->
-
-</div>     <!-- closes container -->
-</section> <!-- closes Insights section -->
-<section class="cta" id="book">
-  <div class="container cta-inner">
-
-    <div>
-      <h2>Before you invest in your next market, make sure you're solving the right problem.</h2>
-
-      <p>A focused 30-minute strategy session for Series A–C MedTech, medical device, IVD and digital health founders expanding across Asia-Pacific.</p>
-
-      <p>Bring one market entry, distributor or customer adoption challenge.We'll discuss your current situation, challenge assumptions where needed, and help you identify practical next steps before you commit more time, budget or resources.</p>
-
-      <p style="margin-top:16px;font-size:14px;color:rgba(255,255,255,0.75);">
-        No pitch deck required. Bring one real commercial challenge you're working through.
-      </p>
-    </div>
-
-    <a href="https://calendly.com/hello-kawahive/30min"
-       target="_blank"
-       rel="noopener noreferrer"
-       class="btn btn-gold"
-       onclick="gtag('event','calendly_click',{button_location:'cta'});">
-      Book Your Strategy Session
-    </a>
-
-  </div>
-</section>
-</main>
-
-<footer>
-  <div class="container footer-inner">
-    <div>
-      <strong>KawaHive &amp; Partners</strong><br>
-MedTech Market Entry, Customer Insight & Growth Strategy · Asia-Pacific
-    </div>
-    <div class="footer-links">
-      <a href="https://kawahive.com/insights.html">Insights</a>
-      <a href="https://kawahive.com/#services">Services</a>
-      <a href="https://kawahive.com/#faq">FAQ</a>
-      <a href="https://kawahive.com/terms.html">Terms of Use</a>
-    </div>
-  </div>
-  <div class="container" style="margin-top:20px;font-size:13px;color:var(--muted);">
-    © 2020 KawaHive &amp; Partners. All rights reserved.
-  </div>
-</footer>
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-
-  const form = document.querySelector(".formkit-form");
-  if (!form) return;
-
-  const emailInput = form.querySelector('input[name="email_address"]');
-
-  const personalDomains = [
-    "gmail.com",
-    "yahoo.com",
-    "hotmail.com",
-    "outlook.com",
-    "live.com",
-    "icloud.com",
-    "me.com",
-    "aol.com",
-    "protonmail.com",
-    "proton.me",
-    "gmx.com"
-  ];
-
-  // Run BEFORE Kit processes the form.
-  form.addEventListener("submit", function (event) {
-
-    const email = emailInput.value.trim().toLowerCase();
-    const domain = email.substring(email.lastIndexOf("@") + 1);
-
-    if (personalDomains.includes(domain)) {
-      event.preventDefault();
-      event.stopPropagation();
-      event.stopImmediatePropagation();
-
-      alert("Please use your company or organisation email address to subscribe to KawaHive Insights.");
-
-      emailInput.focus();
-      return false;
-    }
-
-  }, true); // <-- important: capture phase
-
-});
-</script>
+  </footer>
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.querySelector(".formkit-form");
+    if (!form) return;
+    const emailInput = form.querySelector('input[name="email_address"]');
+    const personalDomains = [
+      "gmail.com",
+      "yahoo.com",
+      "hotmail.com",
+      "outlook.com",
+      "live.com",
+      "icloud.com",
+      "me.com",
+      "aol.com",
+      "protonmail.com",
+      "proton.me",
+      "gmx.com"
+    ];
+    form.addEventListener("submit", function (event) {
+      const email = emailInput.value.trim().toLowerCase();
+      const domain = email.substring(email.lastIndexOf("@") + 1);
+      if (personalDomains.includes(domain)) {
+        event.preventDefault();
+        event.stopPropagation();
+        event.stopImmediatePropagation();
+        alert("Please use your company or organisation email address to subscribe to KawaHive Insights.");
+        emailInput.focus();
+        return false;
+      }
+    }, true);
+  });
+  </script>
 </body>
 </html>

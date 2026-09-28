@@ -10,7 +10,7 @@
 
   <url>
     <loc>https://kawahive.com/insights.html</loc>
-    <lastmod>2026-09-17</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -21,10 +21,19 @@
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
-<url>
-  <loc>https://kawahive.com/why-medtech-products-dont-sell-after-regulatory-approval.html</loc>
-  <lastmod>2026-09-17</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.90</priority>
-</url>
+
+  <url>
+    <loc>https://kawahive.com/why-hospital-demos-dont-convert-to-purchase-orders-asia-pacific.html</loc>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <url>
+    <loc>https://kawahive.com/why-medtech-products-dont-sell-after-regulatory-approval.html</loc>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
 </urlset>

@@ -264,9 +264,18 @@
   .signup-box{background:var(--bg-soft);border:1px solid var(--line);border-radius:12px;padding:28px;margin-top:40px;max-width:520px}
   .signup-box h3{font-size:18px;font-weight:700;color:var(--navy);margin-bottom:8px}
   .signup-box p{font-size:14px;color:var(--muted);margin-bottom:18px}
-  .kawahive-hubspot-form{width:100%;max-width:520px;margin:0}
-  .kawahive-hubspot-form .hs-form-frame{width:100%;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-  .kawahive-hubspot-form:focus-within{outline:none}
+  .kawahive-subscribe-form{display:flex;gap:12px;width:100%;max-width:520px;align-items:stretch}
+  .kawahive-subscribe-form input{flex:1;min-width:0;padding:13px 16px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--ink);font:400 15px/1.4 Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;outline:none;transition:border-color .2s,box-shadow .2s}
+  .kawahive-subscribe-form input::placeholder{color:#94a3b8}
+  .kawahive-subscribe-form input:focus{border-color:var(--navy);box-shadow:0 0 0 3px rgba(15,23,42,.08)}
+  .kawahive-subscribe-form button{border:0;border-radius:8px;background:var(--navy);color:#fff;padding:13px 20px;font:600 15px/1.4 Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;cursor:pointer;white-space:nowrap;transition:background .2s,transform .2s}
+  .kawahive-subscribe-form button:hover{background:#1e293b}
+  .kawahive-subscribe-form button:disabled{opacity:.65;cursor:wait}
+  .kawahive-form-message{font-size:13px;line-height:1.5;margin-top:10px;min-height:20px;color:var(--muted)}
+  .kawahive-form-message.is-error{color:#b91c1c}
+  .kawahive-form-message.is-success{color:#166534}
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  @media (max-width:640px){.kawahive-subscribe-form{flex-direction:column}.kawahive-subscribe-form button{width:100%}}
   .formkit-fields{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
   .formkit-field{flex:1;min-width:220px}
   .formkit-input{width:100%;padding:13px 16px;border:1px solid var(--line);border-radius:8px;font-size:15px;font-family:inherit;background:#fff;outline:none}
@@ -489,12 +498,19 @@
             Founder-first market insights for MedTech, medical device and IVD companies across Asia-Pacific.
             Please subscribe using your company or organisation email address.
           </p>
-          <div class="kawahive-hubspot-form" aria-label="KawaHive Insights subscription form">
-            <div class="hs-form-frame"
-                 data-region="na2"
-                 data-form-id="0a8a8f33-4dee-4363-b1b0-7aaea674e57f"
-                 data-portal-id="247566228"></div>
-          </div>
+          <form id="kawahive-insights-form" class="kawahive-subscribe-form" novalidate>
+            <label class="sr-only" for="kawahive-email">Company or organisation email</label>
+            <input
+              id="kawahive-email"
+              name="email"
+              type="email"
+              autocomplete="email"
+              placeholder="Enter your company or organisation email"
+              required
+              aria-describedby="kawahive-form-message">
+            <button type="submit">Subscribe</button>
+          </form>
+          <div id="kawahive-form-message" class="kawahive-form-message" role="status" aria-live="polite"></div>
           <p style="font-size:13px;color:var(--muted);margin-top:12px;margin-bottom:0;">
             Occasional founder-first market insights for MedTech leaders across Asia-Pacific. No spam. Unsubscribe anytime.
           </p>
@@ -585,5 +601,73 @@
     </div>
   </footer>
 
+  <script>
+  (function(){
+    const form=document.getElementById('kawahive-insights-form');
+    const emailInput=document.getElementById('kawahive-email');
+    const message=document.getElementById('kawahive-form-message');
+    if(!form) return;
+
+    const personalDomains=new Set([
+      'gmail.com','yahoo.com','hotmail.com','outlook.com','live.com',
+      'icloud.com','me.com','aol.com','protonmail.com','proton.me','gmx.com'
+    ]);
+
+    form.addEventListener('submit',async function(e){
+      e.preventDefault();
+      const email=emailInput.value.trim().toLowerCase();
+      const domain=email.split('@')[1] || '';
+
+      message.className='kawahive-form-message';
+      message.textContent='';
+
+      if(!emailInput.checkValidity()){
+        message.classList.add('is-error');
+        message.textContent='Please enter a valid company or organisation email address.';
+        emailInput.focus();
+        return;
+      }
+
+      if(personalDomains.has(domain)){
+        message.classList.add('is-error');
+        message.textContent='Please use your company or organisation email address.';
+        emailInput.focus();
+        return;
+      }
+
+      const button=form.querySelector('button');
+      button.disabled=true;
+      button.textContent='Subscribing…';
+
+      try{
+        const response=await fetch('https://api.hsforms.com/submissions/v3/integration/submit/247566228/0a8a8f33-4dee-4363-b1b0-7aaea674e57f',{
+          method:'POST',
+          headers:{'Content-Type':'application/json'},
+          body:JSON.stringify({
+            fields:[{objectTypeId:'0-1',name:'email',value:email}],
+            context:{
+              pageUri:window.location.href,
+              pageName:document.title
+            }
+          })
+        });
+        const data=await response.json().catch(()=>({}));
+
+        if(!response.ok){
+          throw new Error(data.inlineMessage || 'Unable to subscribe right now.');
+        }
+
+        form.style.display='none';
+        message.className='kawahive-form-message is-success';
+        message.textContent='You’re subscribed. We’ll send occasional founder-first market insights to your company email.';
+      }catch(err){
+        message.className='kawahive-form-message is-error';
+        message.textContent=err.message || 'Something went wrong. Please try again.';
+        button.disabled=false;
+        button.textContent='Subscribe';
+      }
+    });
+  })();
+  </script>
 </body>
 </html>

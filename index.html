@@ -153,7 +153,7 @@
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;750;800&display=swap" rel="stylesheet">
   <style>
   :root{--ink:#0b1220;--muted:#64748b;--navy:#0f172a;--navy-deep:#020617;--gold:#c9a227;--gold-soft:#e0bc3d;--bg:#ffffff;--bg-soft:#f8fafc;--line:#e2e8f0;--max:1100px}
   *{box-sizing:border-box;margin:0;padding:0}
@@ -168,9 +168,9 @@
   .navlinks{display:flex;gap:24px;align-items:center;font-size:14px;font-weight:500;color:var(--muted)}
   .navlinks a:hover{color:var(--navy)}
   .btn{display:inline-flex;align-items:center;justify-content:center;padding:11px 20px;border-radius:8px;font-weight:600;font-size:14px;border:none;cursor:pointer;transition:all 0.2s ease}
-  .btn-primary{background:var(--navy);color:#fff}
+  .btn-primary{background:var(--navy);color:#fff;font-weight:600;}
   .btn-primary:hover{background:var(--navy-deep)}
-  .btn-gold{background:var(--gold);color:var(--navy-deep)}
+  .btn-gold{background:var(--gold);color:var(--navy-deep);font-weight:600;}
   .btn-gold:hover{background:var(--gold-soft)}
   .hero{padding:96px 0 88px}
   .hero-grid{display:grid;grid-template-columns:1.35fr 0.65fr;gap:64px;align-items:center}
@@ -179,7 +179,7 @@
   .hero-sub{font-size:16px;color:var(--ink);font-weight:500;margin-bottom:32px}
   .hero-proof{font-size:14px;color:var(--muted);margin:-12px 0 28px;max-width:560px}
   .hero-card{background:var(--bg-soft);border:1px solid var(--line);border-radius:16px;padding:28px}
-  .hero-card h3{font-size:13px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:20px}
+  .hero-card h3{font-size:13px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:20px}
   .signal{display:flex;gap:14px;padding:12px 0;border-bottom:1px solid var(--line)}
   .signal:last-child{border-bottom:none;padding-bottom:0}
   .signal:first-of-type{padding-top:0}
@@ -191,10 +191,10 @@
   section{padding:88px 0}
   .section-label{font-size:12px;font-weight:600;letter-spacing:0.6px;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
   h2{font-size:clamp(28px,3.5vw,36px);line-height:1.15;letter-spacing:-0.9px;font-weight:750;color:var(--navy);margin-bottom:12px}
-  .section-desc{font-size:16px;color:var(--muted);max-width:520px}
+  .section-desc{font-size:16px;color:var(--muted);max-width:520pxfont-weight:500;}
   .intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-bottom:40px}
   .lead{font-size:18px;font-weight:600;color:var(--ink);line-height:1.45}
-  .copy{font-size:15px;color:var(--muted)}
+  .copy{font-size:15px;color:var(--muted)font-weight:500;}
   .stakeholders{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
   .stakeholder{padding:16px;background:var(--bg-soft);border:1px solid var(--line);border-radius:10px;font-weight:600;font-size:13px;text-align:center;color:var(--navy)}
   .services{background:var(--bg-soft)}
@@ -215,7 +215,7 @@
   .position{background:var(--navy);color:#fff;padding:88px 0}
   .position .section-label{color:var(--gold)}
   .position h2{color:#fff}
-  .position .section-desc{color:rgba(255,255,255,0.7)}
+  .position .section-desc{color:rgba(255,255,255,0.7)font-weight:500;}
   .trust-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:40px}
   .trust-card{border:1px solid rgba(255,255,255,0.15);border-radius:12px;padding:24px;background:rgba(255,255,255,0.05)}
   .trust-card h3{font-size:15px;color:#fff;margin-bottom:7px}
@@ -262,7 +262,7 @@
   .formkit-alert{list-style:none;margin-bottom:12px;color:#b91c1c;font-size:14px}
   @media(max-width:600px){
     .formkit-fields{flex-direction:column}
-    .formkit-field,.formkit-submit{width:100%}
+    .formkit-field,.formkit-submit{width:100%;font-weight:600;}
   }
   .pillar-intro{max-width:650px}
   @media(max-width:900px){
@@ -281,7 +281,8 @@
     .nav{height:64px}
     h1{font-size:32px}
   }
-  </style>
+  /* KawaHive Typography System: Inter | H1 800 | H2 750 | H3 700 | Body 400 | Supporting 500 | Buttons 600 */
+</style>
 </head>
 <body>
   <header>

@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <script async src="https://f.convertkit.com/ckjs/ck.5.js"></script>
+  <script async src="https://js-na2.hsforms.net/forms/embed/247566228.js"></script>
+  <script async src="https://js-na2.hs-scripts.com/247566228.js"></script>
   <meta name="google-site-verification" content="DlRoCXaO0GegmfshG93VPynMFiUPb10YDqUK4NN3ACQ">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-SYPLY10GMT"></script>
   <script>
@@ -263,6 +264,9 @@
   .signup-box{background:var(--bg-soft);border:1px solid var(--line);border-radius:12px;padding:28px;margin-top:40px;max-width:520px}
   .signup-box h3{font-size:18px;font-weight:700;color:var(--navy);margin-bottom:8px}
   .signup-box p{font-size:14px;color:var(--muted);margin-bottom:18px}
+  .kawahive-hubspot-form{width:100%;max-width:520px;margin:0}
+  .kawahive-hubspot-form .hs-form-frame{width:100%;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+  .kawahive-hubspot-form:focus-within{outline:none}
   .formkit-fields{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
   .formkit-field{flex:1;min-width:220px}
   .formkit-input{width:100%;padding:13px 16px;border:1px solid var(--line);border-radius:8px;font-size:15px;font-family:inherit;background:#fff;outline:none}
@@ -485,41 +489,12 @@
             Founder-first market insights for MedTech, medical device and IVD companies across Asia-Pacific.
             Please subscribe using your company or organisation email address.
           </p>
-          <form
-            id="newsletter-form"
-            action="https://app.kit.com/forms/9929557/subscriptions"
-            class="seva-form formkit-form"
-            method="post"
-            data-sv-form="9929557"
-            data-uid="4d009ec565"
-            data-format="inline"
-            data-version="5">
-            <input type="hidden" name="utf8" value="✓">
-            <ul class="formkit-alert formkit-alert-error"
-                data-element="errors"
-                data-group="alert"></ul>
-            <div class="seva-fields formkit-fields"
-                 data-element="fields"
-                 data-stacked="false">
-              <div class="formkit-field">
-                <input
-                  class="formkit-input"
-                  type="email"
-                  name="email_address"
-                  placeholder="Enter your company or organisation email"
-                  aria-label="Company Email"
-                  pattern="^[A-Za-z0-9._%+-]+@(?!gmail\.com$|yahoo\.com$|hotmail\.com$|outlook\.com$|icloud\.com$|live\.com$|msn\.com$|aol\.com$)[A-Za-z0-9.-]+\.[A-Za-z]{2,}$"
-                  title="Please enter your company or organisation email address (personal email providers like Gmail, Yahoo, Hotmail, Outlook and iCloud are not accepted)."
-                  required>
-              </div>
-              <button
-                class="formkit-submit"
-                data-element="submit"
-                type="submit">
-                Subscribe
-              </button>
-            </div>
-          </form>
+          <div class="kawahive-hubspot-form" aria-label="KawaHive Insights subscription form">
+            <div class="hs-form-frame"
+                 data-region="na2"
+                 data-form-id="0a8a8f33-4dee-4363-b1b0-7aaea674e57f"
+                 data-portal-id="247566228"></div>
+          </div>
           <p style="font-size:13px;color:var(--muted);margin-top:12px;margin-bottom:0;">
             Occasional founder-first market insights for MedTech leaders across Asia-Pacific. No spam. Unsubscribe anytime.
           </p>
@@ -609,37 +584,6 @@
       © 2026 KawaHive &amp; Partners. All rights reserved.
     </div>
   </footer>
-  <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const form = document.querySelector(".formkit-form");
-    if (!form) return;
-    const emailInput = form.querySelector('input[name="email_address"]');
-    const personalDomains = [
-      "gmail.com",
-      "yahoo.com",
-      "hotmail.com",
-      "outlook.com",
-      "live.com",
-      "icloud.com",
-      "me.com",
-      "aol.com",
-      "protonmail.com",
-      "proton.me",
-      "gmx.com"
-    ];
-    form.addEventListener("submit", function (event) {
-      const email = emailInput.value.trim().toLowerCase();
-      const domain = email.substring(email.lastIndexOf("@") + 1);
-      if (personalDomains.includes(domain)) {
-        event.preventDefault();
-        event.stopPropagation();
-        event.stopImmediatePropagation();
-        alert("Please use your company or organisation email address to subscribe to KawaHive Insights.");
-        emailInput.focus();
-        return false;
-      }
-    }, true);
-  });
-  </script>
+
 </body>
 </html>

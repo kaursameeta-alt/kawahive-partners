@@ -6,58 +6,7 @@
   <script async src="https://js-na2.hs-scripts.com/247566228.js"></script>
   <meta name="google-site-verification" content="DlRoCXaO0GegmfshG93VPynMFiUPb10YDqUK4NN3ACQ">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-SYPLY10GMT"></script>
-  <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-SYPLY10GMT');
-  </script>
-  <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    document.querySelectorAll('a[href*="calendly.com"]').forEach(function(link){
-      link.addEventListener('click', function(){
-        gtag('event','calendly_click',{
-          event_category:'Lead',
-          event_label:this.href
-        });
-      });
-    });
-    document.querySelectorAll('a[href^="mailto:"]').forEach(function(link){
-      link.addEventListener('click', function(){
-        gtag('event','email_click',{
-          event_category:'Lead',
-          event_label:this.href
-        });
-      });
-    });
-    document.querySelectorAll('a[href*="linkedin.com"]').forEach(function(link){
-      link.addEventListener('click', function(){
-        gtag('event','linkedin_click',{
-          event_category:'Social',
-          event_label:this.href
-        });
-      });
-    });
-    document.querySelectorAll('a[href*="wa.me"]').forEach(function(link){
-      link.addEventListener('click', function(){
-        gtag('event','whatsapp_click',{
-          event_category:'Lead',
-          event_label:this.href
-        });
-      });
-    });
-    document.querySelectorAll('a[href^="http"]').forEach(function(link){
-      if(link.hostname !== window.location.hostname){
-        link.addEventListener('click', function(){
-          gtag('event','outbound_click',{
-            event_category:'Outbound',
-            event_label:this.href
-          });
-        });
-      }
-    });
-  });
-  </script>
+<script src="/analytics.js"></script>
   <title>Helping Series A–C MedTech Founders with Market Entry & Growth in Asia-Pacific | KawaHive</title>
   <meta name="description" content="KawaHive helps Series A–C MedTech, medical device and IVD founders make smarter market entry, distributor strategy and market growth decisions in Asia-Pacific.">
   <meta name="robots" content="index,follow,max-image-preview:large">

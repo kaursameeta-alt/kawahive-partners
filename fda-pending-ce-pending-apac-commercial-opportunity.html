@@ -32,6 +32,59 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;750;800&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#0f172a;background:#fff;line-height:1.7;font-weight:400}a{color:inherit}.container{max-width:1120px;margin:auto;padding:0 24px}header{border-bottom:1px solid #e2e8f0;background:#fff}.nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}.logo{font-size:27px;font-weight:800;letter-spacing:-.8px;text-decoration:none}.logo span{color:#c9a227}.nav a.back{font-size:14px;font-weight:600;text-decoration:none;color:#334155}.hero{padding:66px 0 36px;background:#f8fafc;border-bottom:1px solid #e2e8f0}.eyebrow{font-size:12px;letter-spacing:.13em;text-transform:uppercase;color:#9b7a11;font-weight:700;margin:0 0 16px}.hero h1{font-size:clamp(2rem,5vw,3.25rem);line-height:1.12;letter-spacing:-.04em;font-weight:800;max-width:900px;margin:0 0 20px}.dek{font-size:1.18rem;line-height:1.65;color:#475569;max-width:760px;margin:0}.meta{font-size:13px;color:#64748b;font-weight:500;margin-top:22px}.article-cover{max-width:900px;padding-top:32px}.article-cover img{width:100%;height:auto;border-radius:12px;border:1px solid #e2e8f0}.article{max-width:760px;margin:0 auto;padding:48px 24px 72px}.article h2{font-size:clamp(1.45rem,3vw,1.85rem);line-height:1.3;letter-spacing:-.025em;font-weight:750;margin:48px 0 16px}.article h3{font-size:1.18rem;line-height:1.4;font-weight:750;margin:30px 0 12px}.article p{margin:0 0 19px;color:#334155}.article ul{padding-left:24px;margin:0 0 22px;color:#334155}.article li{margin:0 0 9px}.article strong{color:#0f172a}.decision{border-left:4px solid #c9a227;background:#f8fafc;padding:18px 22px;margin:20px 0 24px}.references a{color:#1d4ed8;text-decoration:underline;overflow-wrap:anywhere}.note{font-size:.94rem;color:#475569}.cta{background:#0f172a;color:#fff;text-align:center;padding:64px 24px}.cta h2{max-width:760px;margin:0 auto 16px;font-size:clamp(1.5rem,3vw,2rem);line-height:1.3;font-weight:750}.cta p{max-width:680px;margin:0 auto 28px;color:#cbd5e1}.btn{display:inline-block;background:#c9a227;color:#0f172a;padding:14px 22px;border-radius:6px;font-weight:700;text-decoration:none}.about{text-align:center;padding:42px 24px;border-bottom:1px solid #e2e8f0}.about a{text-decoration:none}.about h2{font-size:1.2rem;font-weight:750}.about p{max-width:620px;margin:auto;color:#475569}footer{text-align:center;padding:30px 24px;color:#64748b;font-size:13px}footer a{display:inline-block;margin-bottom:12px;color:#334155;text-decoration:none;font-weight:600}@media(max-width:600px){.container{padding:0 18px}.hero{padding:46px 0 28px}.article{padding:34px 20px 54px}.nav{height:64px}.logo{font-size:23px}.nav a.back{font-size:12px}}
+
+/* ===== Match the established KawaHive Insights article design ===== */
+:root{--ink:#0b1220;--muted:#64748b;--navy:#0f172a;--navy-deep:#020617;--gold:#c9a227;--gold-soft:#e0bc3d;--bg:#fff;--bg-soft:#f8fafc;--line:#e2e8f0;--max:720px}
+body{-webkit-font-smoothing:antialiased}
+.container{width:min(var(--max),calc(100% - 48px));max-width:720px;padding:0;margin-left:auto;margin-right:auto}
+header{padding:28px 0;border-bottom:1px solid var(--line);background:#fff}
+.nav{height:auto;justify-content:flex-start;gap:20px}
+.logo{font-size:28px;font-weight:800;letter-spacing:-.8px;color:var(--navy)}
+.logo span{color:var(--gold);font-weight:800}
+.nav a.back{font-size:14px;font-weight:600;color:var(--navy);text-decoration:none}
+.hero{padding:0;background:#fff;border:0}
+.hero .container{padding-top:48px}
+.eyebrow{display:inline-block;font-size:12px;letter-spacing:.6px;text-transform:uppercase;color:var(--gold);font-weight:600;margin:0 0 12px}
+.hero h1{font-size:clamp(28px,4.5vw,38px);line-height:1.2;letter-spacing:-.9px;font-weight:800;color:var(--navy);max-width:none;margin:0 0 12px}
+.dek{font-size:18px;line-height:1.7;color:var(--muted);font-weight:500;max-width:760px;margin:0 0 16px}
+.meta{font-size:14px;color:var(--muted);font-weight:500;margin:0 0 32px}
+.article-cover{width:min(720px,calc(100% - 48px));max-width:720px;padding:0;margin:0 auto 48px}
+.article-cover img{display:block;width:100%;height:auto;max-height:520px;object-fit:cover;border-radius:18px;border:0}
+.article{max-width:720px;margin:0 auto;padding:0 0 24px}
+.article p{font-size:16px;line-height:1.7;color:var(--ink);margin:0 0 20px}
+.article h2{font-size:22px;line-height:1.3;letter-spacing:-.4px;font-weight:750;color:var(--navy);margin:48px 0 16px}
+.article h3{font-size:18px;line-height:1.4;font-weight:700;color:var(--navy);margin:30px 0 12px}
+.article ul{margin:16px 0 24px 20px;padding-left:0;color:var(--ink)}
+.article li{font-size:16px;line-height:1.7;color:var(--ink);margin:0 0 8px}
+.article strong{color:var(--navy)}
+.decision{background:var(--bg-soft);border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:0 12px 12px 0;padding:20px 24px;margin:24px 0 32px}
+.decision p{margin-bottom:12px}
+.decision p:last-child{margin-bottom:0}
+.references a{color:#1d4ed8;text-decoration:underline;overflow-wrap:anywhere}
+.note{font-size:.94rem;color:var(--muted)}
+.cta{background:var(--navy);color:#fff;padding:64px 0;margin-top:64px;text-align:left}
+.cta h2{font-size:clamp(24px,3.5vw,30px);line-height:1.3;font-weight:750;color:#fff;max-width:none;margin:0 0 16px}
+.cta p{font-size:16px;line-height:1.6;color:rgba(255,255,255,.8);max-width:520px;margin:0 0 28px}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 24px;border-radius:8px;font-size:15px;font-weight:600;text-decoration:none}
+.about{text-align:left;padding:56px 0;border-top:1px solid var(--line);border-bottom:0}
+.about h2{font-size:20px;font-weight:750;color:var(--navy);margin:0 0 12px}
+.about p{font-size:15px;color:var(--muted);line-height:1.6;max-width:580px;margin:0}
+footer{text-align:left;padding:28px 0 40px;border-top:1px solid var(--line);font-size:14px;color:var(--muted)}
+footer a{color:var(--navy);font-weight:500;text-decoration:underline;text-underline-offset:2px}
+footer div{margin-top:10px;font-size:13px}
+@media(max-width:600px){
+ .container,.article-cover{width:calc(100% - 32px)}
+ .hero .container{padding-top:36px}
+ .hero h1{font-size:26px}
+ .article{padding:0 0 20px}
+ .article h2{font-size:20px}
+ .nav{height:auto;gap:12px;flex-wrap:wrap}
+ .logo{font-size:24px}
+ .nav a.back{font-size:12px}
+ .cta{padding:48px 0}
+ .decision{padding:18px}
+}
+
 </style>
 </head>
 <body>

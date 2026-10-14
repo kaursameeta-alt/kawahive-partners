@@ -56,14 +56,56 @@ section{padding:78px 0}.section-intro{max-width:760px;margin-bottom:34px}.sectio
 <footer><div class="container"><div class="footer-top"><div><div class="footer-brand">KawaHive <span>&amp; Partners</span></div><p class="footer-note">Helping MedTech and medical device founders navigate commercial challenges across Asia-Pacific.</p></div><nav class="footer-links" aria-label="Footer navigation"><a href="/">Home</a><a href="/lab.html">Lab</a><a href="/insights.html">Insights</a><a href="/about.html">About</a><a href="/contact.html#discovery">Contact</a></nav></div><div class="footer-bottom">© 2026 KawaHive &amp; Partners. All rights reserved. · <a href="/terms.html">Terms of Use</a></div></div></footer>
 <script>const menuButton=document.querySelector('.menu-toggle');const nav=document.querySelector('.navlinks');menuButton.addEventListener('click',()=>{const open=nav.classList.toggle('open');menuButton.setAttribute('aria-expanded',String(open));});</script>
 
-<script charset="utf-8" type="text/javascript" src="https://js-na2.hsforms.net/forms/embed/v2.js"></script>
+<script src="https://js-na2.hsforms.net/forms/embed/v2.js"></script>
 <script>
+(function () {
+  var personalEmailDomains = new Set([
+    "gmail.com","googlemail.com","yahoo.com","yahoo.co.uk","yahoo.com.my",
+    "outlook.com","hotmail.com","hotmail.co.uk","live.com","live.co.uk",
+    "msn.com","icloud.com","me.com","mac.com","aol.com","protonmail.com",
+    "proton.me","pm.me","tutanota.com","tuta.com","gmx.com","gmx.net",
+    "mail.com","yandex.com","yandex.ru","qq.com","163.com","126.com",
+    "rediffmail.com","fastmail.com","hey.com"
+  ]);
   hbspt.forms.create({
     portalId: "247566228",
     formId: "20bde399-40cf-48bb-8aab-997c7d9217e1",
     region: "na2",
-    target: "#hubspot-discovery-form"
+    target: "#hubspot-discovery-form",
+    onFormReady: function ($form) {
+      var form = $form && $form[0];
+      if (!form) return;
+      var email = form.querySelector('input[type="email"], input[name="email"]');
+      if (!email) return;
+      var error = document.createElement("p");
+      error.id = "company-email-error";
+      error.setAttribute("role", "alert");
+      error.style.cssText = "display:none;color:#b42318;font-size:13px;line-height:1.5;margin:6px 0 0;";
+      error.textContent = "Please use your company email address. Personal email providers such as Gmail and Yahoo are not accepted.";
+      email.insertAdjacentElement("afterend", error);
+      email.setAttribute("aria-describedby", (email.getAttribute("aria-describedby") || "").concat(" company-email-error").trim());
+      email.addEventListener("input", function () { error.style.display = "none"; });
+      form.addEventListener("submit", function (event) {
+        var value = (email.value || "").trim().toLowerCase();
+        var domain = value.includes("@") ? value.split("@").pop() : "";
+        if (!value || personalEmailDomains.has(domain)) {
+          event.preventDefault();
+          event.stopImmediatePropagation();
+          error.style.display = "block";
+          email.setAttribute("aria-invalid", "true");
+          email.focus();
+        } else {
+          error.style.display = "none";
+          email.removeAttribute("aria-invalid");
+        }
+      }, true);
+    },
+    onFormSubmitted: function ($form) {
+      var form = $form && $form[0];
+      if (form && typeof form.reset === "function") form.reset();
+    }
   });
+})();
 </script>
 <style>
 .discovery-form-wrap { width:100%; max-width:680px; background:#fff; border:1px solid #e1e6ec; border-radius:12px; padding:clamp(20px,3vw,32px); box-shadow:0 12px 34px rgba(11,31,58,.08); }

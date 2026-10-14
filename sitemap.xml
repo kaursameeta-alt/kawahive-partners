@@ -31,23 +31,30 @@
 
   <url>
     <loc>https://kawahive.com/why-hospital-demos-dont-convert-to-purchase-orders-asia-pacific.html</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-10-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.90</priority>
   </url>
 
   <url>
     <loc>https://kawahive.com/why-medtech-products-dont-sell-after-regulatory-approval.html</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-10-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.90</priority>
   </url>
 
   <url>
     <loc>https://kawahive.com/stocked-by-the-distributor-bought-by-whom.html</loc>
-    <lastmod>2026-10-05</lastmod>
+    <lastmod>2026-10-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.90</priority>
+  </url>
+
+  <url>
+    <loc>https://kawahive.com/fda-pending-ce-pending-apac-commercial-opportunity.html</loc>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 
 </urlset>

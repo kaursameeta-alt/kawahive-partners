@@ -24,15 +24,22 @@ h1 { font-weight: 800; }
 h2 { font-weight: 750; }
 h3 { font-weight: 700; }
 p, li, label, input, select, textarea { font-family: Inter, Arial, sans-serif; }
-.brand, .logo, .footer-brand {
+.brand, .logo, .footer-brand,
+header .brand, header .logo, header .footer-brand,
+a.brand, a.logo, a.footer-brand {
   font-family: Inter, Arial, sans-serif !important;
-  font-size: 1.28rem !important;
+  font-size: 24px !important;
+  line-height: 1.2 !important;
   font-weight: 800 !important;
-  letter-spacing: -0.04em !important;
-  color: var(--navy) !important;
+  letter-spacing: -0.8px !important;
+  color: #0b1f3a !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
 }
-.brand span, .logo span, .footer-brand span, .brand-gold {
-  color: var(--gold-dark) !important;
+.brand span, .logo span, .footer-brand span,
+header .brand span, header .logo span, a.brand span, a.logo span,
+.brand-gold {
+  color: #99752f !important;
   font-weight: 800 !important;
 }
 .btn-gold, .footer-gold {

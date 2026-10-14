@@ -78,8 +78,23 @@ section{padding:78px 0}.section-intro{max-width:760px;margin-bottom:34px}.sectio
       }, true);
     },
     onFormSubmitted: function ($form) {
-      var form = $form && $form[0];
-      if (form && typeof form.reset === "function") form.reset();
+      var form = $form && ($form[0] || $form);
+      if (!form || typeof form.querySelectorAll !== "function") return;
+      window.setTimeout(function () {
+        form.querySelectorAll("input, textarea, select").forEach(function (field) {
+          var type = (field.type || "").toLowerCase();
+          if (["hidden", "submit", "button", "reset", "image"].includes(type)) return;
+          if (type === "checkbox" || type === "radio") {
+            field.checked = false;
+          } else if (field.tagName === "SELECT") {
+            field.selectedIndex = 0;
+          } else {
+            field.value = "";
+          }
+          field.dispatchEvent(new Event("input", { bubbles: true }));
+          field.dispatchEvent(new Event("change", { bubbles: true }));
+        });
+      }, 150);
     }
   });
 })();

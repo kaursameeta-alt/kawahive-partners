@@ -1,0 +1,42 @@
+/* KawaHive & Partners — shared brand system */
+:root {
+  --navy: #0b1f3a;
+  --navy-deep: #0b1f3a;
+  --gold: #d6b66b;
+  --gold-dark: #99752f;
+  --gold-soft: #d6b66b;
+  --ink: #1b2b3e;
+  --muted: #617084;
+  --paper: #f7f8fa;
+  --cream: #f4f0e7;
+  --line: #e1e6ec;
+  --white: #ffffff;
+  --bg: #ffffff;
+  --bg-soft: #f7f8fa;
+  --soft: #f7f8fa;
+}
+html { -webkit-font-smoothing: antialiased; }
+body {
+  font-family: Inter, Arial, sans-serif !important;
+  color: var(--ink);
+}
+h1 { font-weight: 800; }
+h2 { font-weight: 750; }
+h3 { font-weight: 700; }
+p, li, label, input, select, textarea { font-family: Inter, Arial, sans-serif; }
+.brand, .logo, .footer-brand {
+  font-family: Inter, Arial, sans-serif !important;
+  font-size: 24px !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.5px !important;
+  color: var(--navy) !important;
+}
+.brand span, .logo span, .footer-brand span, .brand-gold {
+  color: var(--gold) !important;
+  font-weight: 800 !important;
+}
+.btn-gold, .footer-gold {
+  background-color: var(--gold) !important;
+  border-color: var(--gold) !important;
+}
+a { text-underline-offset: 3px; }

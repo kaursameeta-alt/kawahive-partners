@@ -671,13 +671,12 @@ font-weight:500;}
 
       <a
         href="mailto:hello@kawahive.com?subject=Free%2030-minute%20discovery%20session"
-        target="_blank"
-        rel="noopener noreferrer"
+        
         class="btn btn-gold"
-        data-cta="calendly"
+        data-cta="email"
         data-location="article-2-cta"
       >
-        Book a 30-minute Strategy Session
+        Email for a free 30-minute discovery session
       </a>
 
     </div>
@@ -727,27 +726,7 @@ font-weight:500;}
 </footer>
 
 
-<!-- Calendly click tracking -->
-<script>
-document.querySelectorAll('a[href*="calendly.com"]').forEach(function(link) {
 
-  link.addEventListener('click', function() {
-
-    if (typeof gtag === 'function') {
-
-      gtag('event', 'calendly_click', {
-        event_category: 'engagement',
-        event_label: 'article_2_cta',
-        button_location: 'article-2-cta',
-        page_location: window.location.href
-      });
-
-    }
-
-  });
-
-});
-</script>
 
 </body>
 </html>

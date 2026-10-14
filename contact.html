@@ -34,5 +34,54 @@ section{padding:78px 0}.section-intro{max-width:760px;margin-bottom:34px}.sectio
 </style>
 </head><body><header class="site-header"><div class="container header-inner"><a class="logo" href="/">KawaHive <span>&amp; Partners</span></a><nav class="navlinks" aria-label="Main navigation"><a href="/">Home</a><a href="/lab.html">Lab</a><a href="/insights.html">Insights</a><a href="/about.html">About</a><a href="/contact.html">Contact</a><a class="btn btn-gold" href="/contact.html#discovery">Book a Free 30-Minute Discovery Session</a></nav></div></header><main class="page-main"><section class="final-cta" id="discovery"><div class="container final-inner"><div><p class="eyebrow">KawaHive &amp; Partners · Asia-Pacific</p><h1>Book a Free 30-Minute Discovery Session</h1><p>Tell us about your MedTech or medical device business and the commercial challenge you are working through. We will listen first, ask clarifying questions and be honest about whether we can help.</p><p>Further advisory work, if appropriate, will be scoped and agreed with you upfront.</p></div><div class="discovery-form-wrap"><div id="hubspot-discovery-form"></div><p class="form-note">Would you like to share an NDA or pitch deck before the call? After submitting the form, email the documents to <a href="mailto:hello@kawahive.com">hello@kawahive.com</a>. Sharing documents is optional.</p></div></div></section>
 <script src="https://js-na2.hsforms.net/forms/embed/v2.js"></script>
-<script>hbspt.forms.create({portalId:"247566228",formId:"20bde399-40cf-48bb-8aab-997c7d9217e1",region:"na2",target:"#hubspot-discovery-form"});</script>
+<script>
+(function () {
+  var personalEmailDomains = new Set([
+    "gmail.com","googlemail.com","yahoo.com","yahoo.co.uk","yahoo.com.my",
+    "outlook.com","hotmail.com","hotmail.co.uk","live.com","live.co.uk",
+    "msn.com","icloud.com","me.com","mac.com","aol.com","protonmail.com",
+    "proton.me","pm.me","tutanota.com","tuta.com","gmx.com","gmx.net",
+    "mail.com","yandex.com","yandex.ru","qq.com","163.com","126.com",
+    "rediffmail.com","fastmail.com","hey.com"
+  ]);
+  hbspt.forms.create({
+    portalId: "247566228",
+    formId: "20bde399-40cf-48bb-8aab-997c7d9217e1",
+    region: "na2",
+    target: "#hubspot-discovery-form",
+    onFormReady: function ($form) {
+      var form = $form && $form[0];
+      if (!form) return;
+      var email = form.querySelector('input[type="email"], input[name="email"]');
+      if (!email) return;
+      var error = document.createElement("p");
+      error.id = "company-email-error";
+      error.setAttribute("role", "alert");
+      error.style.cssText = "display:none;color:#b42318;font-size:13px;line-height:1.5;margin:6px 0 0;";
+      error.textContent = "Please use your company email address. Personal email providers such as Gmail and Yahoo are not accepted.";
+      email.insertAdjacentElement("afterend", error);
+      email.setAttribute("aria-describedby", (email.getAttribute("aria-describedby") || "").concat(" company-email-error").trim());
+      email.addEventListener("input", function () { error.style.display = "none"; });
+      form.addEventListener("submit", function (event) {
+        var value = (email.value || "").trim().toLowerCase();
+        var domain = value.includes("@") ? value.split("@").pop() : "";
+        if (!value || personalEmailDomains.has(domain)) {
+          event.preventDefault();
+          event.stopImmediatePropagation();
+          error.style.display = "block";
+          email.setAttribute("aria-invalid", "true");
+          email.focus();
+        } else {
+          error.style.display = "none";
+          email.removeAttribute("aria-invalid");
+        }
+      }, true);
+    },
+    onFormSubmitted: function ($form) {
+      var form = $form && $form[0];
+      if (form && typeof form.reset === "function") form.reset();
+    }
+  });
+})();
+</script>
 <style>.page-main{max-width:1180px;margin:0 auto;padding:60px 24px 80px}.final-inner{display:grid;grid-template-columns:minmax(0,0.9fr) minmax(0,1.1fr);gap:40px;align-items:start}.discovery-form-wrap{width:100%;max-width:680px;background:#fff;border:1px solid #e1e6ec;border-radius:12px;padding:clamp(20px,3vw,32px);box-shadow:0 12px 34px rgba(11,31,58,.08)}.form-note{margin:18px 0 0;color:#617084;font-size:13px;line-height:1.6}.form-note a{color:#99752f;font-weight:600}.eyebrow{font-weight:700;color:#99752f;text-transform:uppercase;letter-spacing:.08em;font-size:12px}h1{font-family:Inter,Arial,sans-serif;color:#0b1f3a;font-size:clamp(32px,4vw,48px);line-height:1.1;font-weight:800}p{line-height:1.7}@media(max-width:800px){.final-inner{grid-template-columns:1fr;gap:24px}}</style></main><footer><div class="container footer-top"><div class="footer-brand">KawaHive <span>&amp; Partners</span></div><nav class="footer-links" aria-label="Footer navigation"><a href="/">Home</a><a href="/lab.html">Lab</a><a href="/insights.html">Insights</a><a href="/about.html">About</a><a href="/contact.html">Contact</a><a href="/terms.html">Terms of Use</a></nav><p>© 2026 KawaHive &amp; Partners. All rights reserved.</p></div></footer></body></html>

@@ -47,3 +47,108 @@ header .brand span, header .logo span, a.brand span, a.logo span,
   border-color: var(--gold) !important;
 }
 a { text-underline-offset: 3px; }
+
+/* HubSpot forms — match KawaHive & Partners brand */
+.hs-form,
+.hs-form fieldset,
+.hs-form .hs-form-field,
+.hs-form label,
+.hs-form .hs-form-required,
+.hs-form .hs-richtext,
+.hs-form .hs-field-desc,
+.hs-form .hs-error-msg,
+.hs-form input,
+.hs-form select,
+.hs-form textarea,
+.hs-form .hs-input,
+.hs-form .hs-button,
+.hs-form .hs-submit,
+form[data-form-id],
+form[data-form-id] label,
+form[data-form-id] input,
+form[data-form-id] select,
+form[data-form-id] textarea,
+form[data-form-id] button {
+  font-family: Inter, Arial, sans-serif !important;
+}
+.hs-form label,
+.hs-form .hs-form-field > label,
+.hs-form .hs-form-required,
+form[data-form-id] label {
+  color: #0b1f3a !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+}
+.hs-form input.hs-input,
+.hs-form select.hs-input,
+.hs-form textarea.hs-input,
+form[data-form-id] input,
+form[data-form-id] select,
+form[data-form-id] textarea {
+  box-sizing: border-box !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  color: #1b2b3e !important;
+  background: #ffffff !important;
+  border: 1px solid #cbd3dd !important;
+  border-radius: 6px !important;
+  padding: 12px 14px !important;
+  font-size: 15px !important;
+  line-height: 1.45 !important;
+  box-shadow: none !important;
+}
+.hs-form input.hs-input:focus,
+.hs-form select.hs-input:focus,
+.hs-form textarea.hs-input:focus,
+form[data-form-id] input:focus,
+form[data-form-id] select:focus,
+form[data-form-id] textarea:focus {
+  outline: 2px solid #d6b66b !important;
+  outline-offset: 1px !important;
+  border-color: #99752f !important;
+}
+.hs-form textarea.hs-input,
+form[data-form-id] textarea {
+  min-height: 110px !important;
+  resize: vertical;
+}
+.hs-form .hs-button,
+.hs-form input[type="submit"],
+.hs-form .actions input,
+form[data-form-id] button[type="submit"],
+form[data-form-id] input[type="submit"] {
+  appearance: none !important;
+  background: #d6b66b !important;
+  background-color: #d6b66b !important;
+  color: #0b1f3a !important;
+  border: 1px solid #d6b66b !important;
+  border-radius: 6px !important;
+  padding: 13px 20px !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  line-height: 1.3 !important;
+  cursor: pointer !important;
+  box-shadow: none !important;
+}
+.hs-form .hs-button:hover,
+.hs-form input[type="submit"]:hover,
+form[data-form-id] button[type="submit"]:hover,
+form[data-form-id] input[type="submit"]:hover {
+  background: #99752f !important;
+  background-color: #99752f !important;
+  color: #ffffff !important;
+  border-color: #99752f !important;
+}
+.hs-form .hs-error-msg,
+.hs-form .hs-error-msgs label {
+  color: #a12b2b !important;
+  font-size: 13px !important;
+}
+.hs-form .hs-form-field {
+  margin-bottom: 18px !important;
+}
+.hs-form .legal-consent-container,
+.hs-form .hs-dependent-field {
+  color: #617084 !important;
+  font-size: 13px !important;
+}

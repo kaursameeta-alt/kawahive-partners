@@ -42,9 +42,14 @@ header .brand span, header .logo span, a.brand span, a.logo span,
   color: #99752f !important;
   font-weight: 800 !important;
 }
-.btn-gold, .footer-gold {
+.btn-gold {
   background-color: var(--gold) !important;
   border-color: var(--gold) !important;
+}
+.footer-gold {
+  color: #99752f !important;
+  background: transparent !important;
+  border: 0 !important;
 }
 a { text-underline-offset: 3px; }
 

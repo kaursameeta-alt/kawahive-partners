@@ -36,6 +36,17 @@ a.brand, a.logo, a.footer-brand {
   text-decoration: none !important;
   white-space: nowrap !important;
 }
+/* Keep footer brand readable on the dark footer background. */
+footer .footer-brand,
+.footer .footer-brand {
+  color: #ffffff !important;
+}
+footer .footer-brand span,
+.footer .footer-brand span {
+  color: #d6b66b !important;
+  background: transparent !important;
+}
+
 .brand span, .logo span, .footer-brand span,
 header .brand span, header .logo span, a.brand span, a.logo span,
 .brand-gold {

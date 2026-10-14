@@ -581,8 +581,8 @@ footer a:hover {
 
       <p>KawaHive helps MedTech and medical device founders pressure-test distributor performance, market entry strategy and customer adoption decisions before investing further in commercial expansion across Asia-Pacific.</p>
 
-      <a href="mailto:hello@kawahive.com?subject=Free%2030-minute%20discovery%20session" target="_blank" rel="noopener noreferrer" class="btn btn-gold" data-cta="calendly" data-location="article-stocked-distributor-cta">
-        Book a 30-minute Strategy Session
+      <a href="mailto:hello@kawahive.com?subject=Free%2030-minute%20discovery%20session"  class="btn btn-gold" data-cta="email" data-location="article-stocked-distributor-cta">
+        Email for a free 30-minute discovery session
       </a>
 
     </div>
@@ -632,27 +632,7 @@ footer a:hover {
 </footer>
 
 
-<!-- Calendly click tracking -->
-<script>
-document.querySelectorAll('a[href*="calendly.com"]').forEach(function(link) {
 
-  link.addEventListener('click', function() {
-
-    if (typeof gtag === 'function') {
-
-      gtag('event', 'calendly_click', {
-        event_category: 'engagement',
-        event_label: 'article_stocked_distributor_cta',
-        button_location: 'article-stocked-distributor-cta',
-        page_location: window.location.href
-      });
-
-    }
-
-  });
-
-});
-</script>
 
 
 

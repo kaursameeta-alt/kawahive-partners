@@ -113,342 +113,51 @@
 
 
 <style>
-
-:root {
-  --ink: #0b1220;
-  --muted: #64748b;
-  --navy: #0f172a;
-  --navy-deep: #020617;
-  --gold: #c9a227;
-  --gold-soft: #e0bc3d;
-  --bg: #ffffff;
-  --bg-soft: #f8fafc;
-  --line: #e2e8f0;
-  --max: 720px;
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  font-weight: 400;
-  color: var(--ink);
-  line-height: 1.7;
-  background: var(--bg);
-  -webkit-font-smoothing: antialiased;
-}
-
-a {
-  color: var(--navy);
-  text-decoration: none;
-}
-
-a:hover {
-  color: var(--gold);
-}
-
-.container {
-  width: min(var(--max), calc(100% - 48px));
-  margin: 0 auto;
-}
-
-header {
-  padding: 28px 0;
-  border-bottom: 1px solid var(--line);
-}
-
-.logo {
-  font-size: 28px;
-  font-weight: 800;
-  letter-spacing: -0.8px;
-  color: var(--navy);
-}
-
-.brand-gold { color: var(--gold); }
-
-.logo span {
-  color: var(--gold);
-
-  font-weight: 800;
-}
-
-.article-meta {
-  margin-top: 48px;
-  margin-bottom: 32px;
-}
-
-.badge {
-  display: inline-block;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.6px;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 12px;
-}
-
-.meta-line {
-  font-size: 14px;
-  color: var(--muted);
-}
-
-h1 {
-  font-size: clamp(28px, 4.5vw, 38px);
-  font-weight: 800;
-  letter-spacing: -0.9px;
-  line-height: 1.2;
-  color: var(--navy);
-  margin-bottom: 12px;
-}
-
-.subtitle {
-  font-size: 18px;
-  color: var(--muted);
-  margin-bottom: 40px;
-  font-weight: 500;
-}
-
-article p {
-  font-size: 16px;
-  margin-bottom: 20px;
-  color: var(--ink);
-}
-
-article h2 {
-  font-size: 22px;
-  font-weight: 750;
-  color: var(--navy);
-  margin: 48px 0 16px;
-  letter-spacing: -0.4px;
-  line-height: 1.3;
-}
-
-article ul {
-  margin: 16px 0 24px 20px;
-}
-
-article li {
-  font-size: 16px;
-  margin-bottom: 8px;
-  color: var(--ink);
-}
-
-article blockquote {
-  font-size: 20px;
-  font-weight: 600;
-  color: var(--navy);
-  border-left: 4px solid var(--gold);
-  padding: 12px 0 12px 24px;
-  margin: 28px 0;
-  line-height: 1.45;
-}
-
-.question-card {
-  background: var(--bg-soft);
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  padding: 20px 24px;
-  margin: 24px 0 32px;
-}
-
-.question-card strong {
-  display: block;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.4px;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 8px;
-}
-
-.question-card p {
-  font-size: 16px;
-  font-weight: 500;
-  color: var(--navy);
-  margin: 0;
-}
-
-.signature-box {
-  background: #fefce8;
-  border-left: 4px solid var(--gold);
-  border-radius: 0 12px 12px 0;
-  padding: 28px 28px 28px 32px;
-  margin: 48px 0;
-}
-
-.signature-box p {
-  margin-bottom: 12px;
-}
-
-.signature-box p:last-child {
-  margin-bottom: 0;
-}
-
-.signature-box .prompt {
-  font-size: 18px;
-  font-weight: 600;
-  color: var(--navy);
-  font-style: italic;
-}
-
-.cta {
-  background: var(--navy);
-  color: #fff;
-  padding: 64px 0;
-  margin-top: 64px;
-}
-
-.cta h2 {
-  font-size: clamp(24px, 3.5vw, 30px);
-  font-weight: 750;
-  color: #fff;
-  margin-bottom: 16px;
-  letter-spacing: -0.5px;
-}
-
-.cta p {
-  font-size: 16px;
-  color: rgba(255,255,255,0.8);
-  max-width: 520px;
-  margin-bottom: 28px;
-  line-height: 1.6;
-}
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 14px 24px;
-  border-radius: 8px;
-  font-weight: 600;
-  font-size: 15px;
-  border: none;
-  cursor: pointer;
-  transition: background 0.2s;
-  text-decoration: none;
-}
-
-.btn-gold {
-  background: var(--gold);
-  color: var(--navy-deep);
-}
-
-.btn-gold:hover {
-  background: var(--gold-soft);
-  color: var(--navy-deep);
-}
-
-.about {
-  padding: 56px 0;
-  border-top: 1px solid var(--line);
-}
-
-.about h2 {
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--navy);
-  margin-bottom: 12px;
-}
-
-.about h2 a {
-  color: var(--navy);
-  text-decoration: none;
-}
-
-.about h2 a:hover {
-  color: var(--gold);
-}
-
-.about p {
-  font-size: 15px;
-  color: var(--muted);
-  line-height: 1.6;
-  max-width: 580px;
-}
-
-footer {
-  padding: 28px 0 40px;
-  border-top: 1px solid var(--line);
-  font-size: 14px;
-  color: var(--muted);
-}
-
-footer a {
-  color: var(--navy);
-  font-weight: 500;
-  text-decoration: underline;
-  text-underline-offset: 2px;
-}
-
-footer a:hover {
-  color: var(--gold);
-}
-
-.footer-note {
-  margin-top: 10px;
-  font-size: 13px;
-}
-
-@media (max-width: 560px) {
-
-  .container {
-    width: calc(100% - 32px);
-  }
-
-  h1 {
-    font-size: 26px;
-  }
-
-  article h2 {
-    font-size: 20px;
-  }
-
-  .cta {
-    padding: 48px 0;
-  }
-
-  .signature-box {
-    padding: 22px;
-  }
-
-  article blockquote {
-    font-size: 18px;
-  }
-}
-
-
-/* ===== KawaHive Insight Hero ===== */
-
-.article-intro {
-  font-size: 20px;
-  line-height: 1.7;
-  color: var(--muted);
-  max-width: 760px;
-  margin: 24px 0 36px;
-}
-
-.article-hero-image {
-  width: 100%;
-  display: block;
-  border-radius: 18px;
-  margin: 0 0 48px;
-  max-height: 520px;
-  object-fit: cover;
-}
-
-/* KawaHive Typography System: Inter | H1 800 | H2 750 | H3 700 | Body 400 | Supporting 500 | Buttons 600 */
-
-/* Shared Insights brand lockup: match the main Insights page */
-header .logo, header a.logo { font-family: Inter, Arial, sans-serif !important; font-size: 24px !important; line-height: 1.2 !important; font-weight: 800 !important; letter-spacing: -0.8px !important; color: #0b1f3a !important; text-decoration: none !important; white-space: nowrap !important; }
-header .logo span, header a.logo span { color: #99752f !important; font-weight: 800 !important; }
+:root{--ink:#1b2b3e;--muted:#617084;--navy:#0b1f3a;--gold:#d6b66b;--gold-dark:#99752f;--paper:#f7f8fa;--line:#e1e6ec;--cream:#f4f0e7;--max:850px}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,Arial,sans-serif;color:var(--ink);line-height:1.75;-webkit-font-smoothing:antialiased}
+a{color:var(--gold-dark);text-underline-offset:4px}
+.container{width:min(var(--max),calc(100% - 36px));margin:auto}
+.topbar{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}
+.nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{font-weight:800;font-size:1.25rem;letter-spacing:-.04em;color:var(--navy);white-space:nowrap;text-decoration:none}
+.brand span{color:var(--gold-dark)}
+.navlinks{display:flex;align-items:center;gap:18px;font-size:.9rem;font-weight:600}
+.navlinks a{color:var(--ink);text-decoration:none}
+.navlinks .btn{background:var(--gold);color:var(--navy);padding:10px 14px;border-radius:7px}
+.hero{background:var(--navy);color:#fff;padding:55px 0 42px}
+.hero h1{font-size:clamp(2rem,4vw,3.2rem);line-height:1.13;letter-spacing:-.04em;margin:0 0 16px;color:#fff}
+.hero .eyebrow{font-size:.75rem;text-transform:uppercase;letter-spacing:.14em;color:var(--gold);font-weight:800;margin-bottom:16px}
+.hero .subtitle{font-size:1.12rem;color:#dce4ef;margin:0 0 26px}
+.hero img{width:100%;max-height:420px;object-fit:cover;border-radius:14px;border:1px solid rgba(255,255,255,.16);display:block}
+main article{padding:38px 0 10px}
+article p{margin:0 0 18px}
+article h2{font-size:1.65rem;line-height:1.3;color:var(--navy);letter-spacing:-.03em;margin:42px 0 14px}
+article h3{font-size:1.15rem;color:var(--navy);margin:27px 0 9px}
+article ul,article ol{padding-left:24px;margin:12px 0 24px}
+article li{margin-bottom:8px}
+.callout,.decision,.question-card,.signature-box,.prompt{background:var(--paper);border:1px solid var(--line);border-left:4px solid var(--gold);padding:20px 22px;border-radius:10px;margin:26px 0}
+.table-wrap{overflow-x:auto;margin:22px 0 30px}
+table{width:100%;border-collapse:collapse;font-size:.91rem;background:#fff}
+th,td{border:1px solid var(--line);padding:12px;text-align:left;vertical-align:top}
+th{background:var(--navy);color:#fff}
+.cta{background:var(--navy);color:#fff;padding:48px 0;margin-top:50px}
+.cta h2{color:#fff;margin:0 0 12px;font-size:1.8rem}
+.cta p{color:#dce4ef;max-width:690px}
+.btn{display:inline-block;padding:13px 18px;border-radius:7px;background:var(--gold);color:var(--navy);font-weight:800;text-decoration:none;margin:7px 8px 0 0}
+.about{padding:36px 0 48px;border-top:1px solid var(--line)}
+.about h2{font-size:1.3rem;color:var(--navy)}
+footer{background:#07172b;color:#d7dfeb;padding:30px 0;font-size:.9rem}
+footer .brand{color:#fff}
+footer .brand span{color:var(--gold)}
+footer a{color:#d7dfeb}
+.meta{font-size:.82rem;color:#dce4ef;margin-top:14px}
+.note{font-size:.94rem;color:var(--muted)}
+.references a{overflow-wrap:anywhere}
+blockquote{margin:24px 0;padding:16px 22px;border-left:4px solid var(--gold);background:var(--paper);color:var(--navy);font-size:1.05rem}
+.article-hero-image{width:100%;height:auto;border-radius:14px}
+@media(max-width:760px){.navlinks{gap:10px;font-size:.8rem;flex-wrap:wrap;justify-content:flex-end}.navlinks .btn{display:none}.nav{min-height:68px}.hero{padding:38px 0 30px}}
+@media(max-width:560px){.nav{align-items:flex-start;padding:15px 0;flex-direction:column}.navlinks{justify-content:flex-start;gap:14px}.hero h1{font-size:2.15rem}}
 </style>
 
 </head>
@@ -456,49 +165,9 @@ header .logo span, header a.logo span { color: #99752f !important; font-weight: 
 
 <body>
 
-<header>
-
-  <div class="container">
-
-    <a class="logo" href="https://kawahive.com/">
-      KawaHive <span>&amp; Partners</span>
-    </a>
-
-  </div>
-
-</header>
-
-
-<main>
-
-  <article class="container">
-
-    <div class="article-meta">
-
-      <div class="badge">
-        KawaHive Insights
-      </div>
-
-      <div class="meta-line">Go-to-Market Strategy · 5 October 2026 · 5-minute read</div>
-
-    </div>
-
-
-    <h1>Stocked by the Distributor. Bought by Whom?</h1>
-
-
-    <p class="subtitle">A practical sell-through test for MedTech and medical device founders whose medical device distributor has stocked the product but has not generated customer orders.</p>
-
-
-    <p class="article-intro">Distributor sell-through and customer demand in Asia-Pacific MedTech depend on what happens after the opening order. This applies to any medical device distributor in APAC that has placed an opening order but not generated customer orders.</p>
-
-
-    <p style="font-size:15px;color:#64748b;margin-bottom:28px;">
-      ← <a href="https://kawahive.com/insights.html">Back to KawaHive Insights</a>
-    </p>
-
-
-    <img src="/images/insights-distributor-sell-through-asia-pacific.png" alt="Distributor sell-through and customer demand in Asia-Pacific MedTech." class="article-hero-image">
+<header class="topbar"><div class="container nav"><a class="brand" href="/">KawaHive <span>&amp; Partners</span></a><nav class="navlinks" aria-label="Main navigation"><a href="/">Home</a><a href="/lab.html">Lab</a><a href="/insights.html" aria-current="page">Insights</a><a href="/about.html">About</a><a href="/contact.html#contact">Contact</a><a class="btn" href="/contact.html#contact">Book a Free 30-Minute Call</a></nav></div></header>
+<section class="hero"><div class="container"><div class="eyebrow">KawaHive Insights · Distributor Performance</div><h1>Stocked by the Distributor. Bought by Whom?</h1><p class="subtitle">A practical sell-through test for MedTech and medical device founders whose medical device distributor has stocked the product but has not generated customer orders.</p><img src="/images/insights-distributor-sell-through-asia-pacific.png" alt="Distributor sell-through and customer demand in Asia-Pacific MedTech." width="1200" height="630" fetchpriority="high"><p class="meta">5 October 2026 · 5-minute read · KawaHive &amp; Partners</p></div></section>
+<main class="container"><article><p class="article-intro">Distributor sell-through and customer demand in Asia-Pacific MedTech depend on what happens after the opening order. This applies to any medical device distributor in APAC that has placed an opening order but not generated customer orders.</p>
 
     <p>
       A large distributor, strong hospital access, exclusivity, and a big opening order can make a launch look successful. But these signals show reach and willingness to stock. They do not show that customers are buying. The question is simple: what happens after the product arrives? Does the distributor generate customer orders and repeat purchases, or only report more activity?
@@ -599,9 +268,7 @@ header .logo span, header a.logo span { color: #99752f !important; font-weight: 
 
       <p>KawaHive helps MedTech and medical device founders assess distributor performance and customer demand before investing further in Asia-Pacific.</p>
 
-      <a href="/contact.html#contact"  class="btn btn-gold" data-cta="email" data-location="article-stocked-distributor-cta">
-        Book a Free 30-Minute Call
-      </a>
+      <a href="/contact.html#contact"  class="btn btn-gold" data-cta="email" data-location="article-stocked-distributor-cta">Book a Free 30-Minute Call</a>
 
     </div>
 

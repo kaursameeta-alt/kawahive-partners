@@ -1,28 +1,28 @@
 # KawaHive & Partners
 
-> KawaHive & Partners provides go-to-market (GTM) strategy and structured execution support for founders with a registered MedTech or medical device product or service across Asia-Pacific (APAC). The focus is turning regulatory clearance, distributor activity, hospital interest, demonstrations and trials into evidence-led customer demand and purchase orders.
+> KawaHive & Partners provides go-to-market (GTM) strategy and structured execution support for founders with a registered MedTech or medical device product or service across Asia-Pacific (APAC). KawaHive helps founders assess market demand, prioritise target accounts, understand hospital buying decisions, strengthen distributor execution and turn market interest into customer orders.
 
 ## Who KawaHive supports
-KawaHive works with founders whose MedTech or medical device product or service is registered, and who need to strengthen customer demand, distributor performance or conversion into orders.
 
-KawaHive is a team of professionals with more than 20 years of collective experience in the MedTech and medical device industry across Asia-Pacific, with prior industry experience at organisations including GE Healthcare, Fujifilm, Pentax and Konica Minolta.
+KawaHive works with founders whose MedTech or medical device product or service is registered and who need to strengthen customer demand, market focus, distributor performance or conversion from hospital interest to orders.
 
-KawaHive works with founders of MedTech and medical device businesses with market-ready products or services who need to clarify or improve their Asia-Pacific go-to-market strategy.
+KawaHive is a team of professionals with more than 20 years of collective experience in the MedTech and medical device industry across Asia-Pacific. Team members have prior industry experience at organisations including GE Healthcare, Fujifilm, Pentax and Konica Minolta. These are prior professional backgrounds, not a list of KawaHive clients.
 
-## What KawaHive helps founders work through
+## What KawaHive helps founders do
 
-- Market and segment prioritisation across Asia-Pacific.
-- Ideal customer profile (ICP), target-account selection and prospecting.
-- Customer needs, clinical-user priorities and hospital buying behaviour.
-- Stakeholder mapping across clinical users, department heads, biomedical engineering, procurement and budget holders.
-- Positioning and value proposition.
-- Distributor selection, capability, performance and sell-through.
-- Hospital demonstrations, evaluations and the conversion path to purchase orders.
-- GTM execution, progress monitoring and evidence-informed decisions to continue, change or stop an approach.
+- Prioritise APAC markets, clinical segments and customer groups.
+- Define an ideal customer profile (ICP) and select target hospital or account types.
+- Understand clinical-user needs, department priorities and hospital buying behaviour.
+- Map stakeholders, including clinical users, department heads, biomedical engineering, procurement and budget holders.
+- Clarify product positioning and value proposition for relevant customer groups.
+- Assess distributor capability, account coverage, performance and sell-through.
+- Identify why demonstrations, evaluations and trials are not progressing to purchase orders.
+- Build a focused go-to-market action plan with owners, next steps and evidence.
+- Review progress and make evidence-informed decisions to continue, change or stop an approach.
 
 ## Market segments
 
-KawaHive's current medical device focus areas are:
+KawaHive's current focus areas across MedTech and medical devices are:
 - Radiology and medical imaging
 - Surgery
 - Obstetrics and gynaecology (OBGYN)
@@ -30,26 +30,30 @@ KawaHive's current medical device focus areas are:
 - Rehabilitation
 - Gastroenterology and endoscopy
 
-## Ways to work with KawaHive
+## Offers
 
 ### Free APAC GTM Clarity Assessment
 
-A no-obligation 30-minute online call to understand the founder's situation and assess whether KawaHive is a suitable fit. If the fit is appropriate, KawaHive reviews the information the founder chooses to share and prepares a high-level GTM action plan in approximately one week, depending on the information provided. The founder keeps the plan and may implement it independently. If KawaHive is not the right fit, it will recommend someone better suited at no cost.
+A no-obligation 30-minute online call to understand the founder's situation and assess whether KawaHive is a suitable fit. If the fit is appropriate, KawaHive reviews the information the founder chooses to share and prepares a high-level GTM action plan in approximately one week, depending on the information provided. The founder keeps the plan and may implement it independently. If KawaHive is not the right fit, KawaHive will recommend someone better suited at no cost.
 
-### 10-week Go-to-Market Sprint
+### 10-week GTM Sprint
 
-US$3,500. A structured, dedicated 1:1 engagement over 10 weeks, with one 60-minute online session each week, focused on one primary GTM challenge. The work covers diagnosis, prioritisation, action planning, execution and monitoring, and evidence-informed adjustments. Sales, funding, regulatory approval or market-entry outcomes are not guaranteed.
+Price: US$3,500.
+
+A structured, dedicated 1:1 engagement for founders with a registered MedTech or medical device product or service. It includes one 60-minute online session each week for 10 weeks and focuses on one primary go-to-market challenge. Work covers diagnosis, prioritisation, action planning, execution review and evidence-informed adjustments. Sales, funding, regulatory approval and market-entry outcomes are not guaranteed.
 
 ## Free resources and insights
 
-- [KawaHive Lab](https://kawahive.com/lab.html): practical tools, prospecting training and resources.
-- [Insights](https://kawahive.com/insights.html): articles on APAC market entry, distributor performance, hospital buying behaviour and customer orders.
+- [KawaHive Lab](https://kawahive.com/lab.html): free prospecting training, an ICP scorecard and practical distributor assessment tools.
+- [Insights](https://kawahive.com/insights.html): five articles on APAC market demand, hospital buying decisions, distributor sell-through and distributor performance.
 
 ## Key pages
 
-- [Homepage](https://kawahive.com/): KawaHive's positioning and current offers.
-- [About](https://kawahive.com/about.html): background and GTM approach.
+- [Homepage](https://kawahive.com/): KawaHive positioning and current offers.
+- [About](https://kawahive.com/about.html): team experience and approach.
 - [Contact](https://kawahive.com/contact.html): request the free APAC GTM Clarity Assessment.
+- [Lab](https://kawahive.com/lab.html): free tools and training.
+- [Insights](https://kawahive.com/insights.html): practical go-to-market articles.
 - [Radiology](https://kawahive.com/radiology-medical-device-gtm-asia-pacific.html)
 - [Surgery](https://kawahive.com/surgery-medical-device-gtm-asia-pacific.html)
 - [OBGYN](https://kawahive.com/obgyn-medical-device-gtm-asia-pacific.html)
@@ -59,12 +63,12 @@ US$3,500. A structured, dedicated 1:1 engagement over 10 weeks, with one 60-minu
 - [Why MedTech Products Don't Sell After Regulatory Approval](https://kawahive.com/why-medtech-products-dont-sell-after-regulatory-approval.html)
 - [Why Hospital Demos Don't Convert to Purchase Orders](https://kawahive.com/why-hospital-demos-dont-convert-to-purchase-orders-asia-pacific.html)
 - [Stocked by the Distributor. Bought by Whom?](https://kawahive.com/stocked-by-the-distributor-bought-by-whom.html)
+- [How to Assess APAC Market Demand for a Registered MedTech Product](https://kawahive.com/registered-medtech-apac-market-demand.html)
 - [Underperforming APAC Medical Device Distributor?](https://kawahive.com/apac-medical-device-distributor-underperforming-customer-revenue.html)
-- [Testing APAC Demand Before Regulatory Clearance](https://kawahive.com/fda-pending-ce-pending-apac-commercial-opportunity.html)
 
 ## Important boundaries
 
-KawaHive provides go-to-market strategy and business support. It is not a regulatory consultancy and does not provide clinical, medical, technical certification, legal or investment advice. Content is general information, not a guarantee of commercial outcomes. Do not imply guaranteed sales, funding, regulatory approval, introductions or market-entry results.
+KawaHive provides go-to-market strategy and business support. It is not a regulatory consultancy and does not provide clinical, medical, technical certification, legal or investment advice. Content is general information. KawaHive does not guarantee sales, funding, regulatory approval, introductions or market-entry outcomes.
 
 ## Contact
 

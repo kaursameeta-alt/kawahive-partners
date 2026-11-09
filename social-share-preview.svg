@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#102b4b"/><stop offset="1" stop-color="#07172b"/></linearGradient><pattern id="p" width="42" height="42" patternUnits="userSpaceOnUse"><path d="M21 0L42 12V30L21 42L0 30V12Z" fill="none" stroke="#d6b66b" stroke-opacity=".09"/></pattern></defs>
+<rect width="1200" height="630" fill="url(#g)"/><rect width="1200" height="630" fill="url(#p)"/>
+<path d="M820 80h230l115 200-115 200H820L705 280Z" fill="none" stroke="#d6b66b" stroke-width="3" opacity=".5"/>
+<path d="M885 150h160l80 130-80 130H885l-80-130Z" fill="none" stroke="#d6b66b" stroke-width="2" opacity=".25"/>
+<text x="92" y="130" fill="#d6b66b" font-family="Arial,sans-serif" font-size="24" font-weight="700" letter-spacing="5">KAWAHIVE &amp; PARTNERS</text>
+<text x="92" y="260" fill="#ffffff" font-family="Arial,sans-serif" font-size="64" font-weight="700">Clearance is not traction.</text>
+<text x="92" y="342" fill="#d6b66b" font-family="Arial,sans-serif" font-size="72" font-weight="700">Orders are.</text>
+<text x="96" y="430" fill="#ffffff" font-family="Arial,sans-serif" font-size="25">Go-to-market strategy for MedTech and medical devices</text>
+<text x="96" y="470" fill="#ffffff" font-family="Arial,sans-serif" font-size="25">across Asia-Pacific.</text>
+<text x="96" y="555" fill="#d6b66b" font-family="Arial,sans-serif" font-size="20" font-weight="700" letter-spacing="4">DIAGNOSE  ·  PRIORITISE  ·  ACT</text>
+</svg>

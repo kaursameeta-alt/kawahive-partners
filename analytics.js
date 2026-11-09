@@ -40,12 +40,6 @@
   }
 
   function bindTracking() {
-    document.querySelectorAll('a[href*="calendly.com"]').forEach(function (link) {
-      link.addEventListener('click', function () {
-        trackLead('strategy_session', this.href);
-      });
-    });
-
     document.querySelectorAll('a[href^="mailto:"]').forEach(function (link) {
       link.addEventListener('click', function () {
         trackLead('email', this.href);

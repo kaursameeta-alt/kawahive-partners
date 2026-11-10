@@ -33,10 +33,10 @@
     try { return JSON.parse(sessionStorage.getItem('kawahive_utm') || '{}'); } catch (e) { return {}; }
   }
   function loadAnalytics() {
-    if (analyticsLoaded) return;
-    analyticsLoaded = true;
     consentGranted = true;
     window.gtag('consent', 'update', { analytics_storage: 'granted' });
+    if (analyticsLoaded) return;
+    analyticsLoaded = true;
     window.gtag('js', new Date());
     window.gtag('config', MEASUREMENT_ID, { anonymize_ip: true });
     var script = document.createElement('script');

@@ -92,6 +92,7 @@ const fail = (message) => { results.failures = results.failures || []; results.f
       analyticsScriptLoaded: [...document.scripts].some(s => (s.src || '').includes('googletagmanager.com/gtag/js'))
     }));
     if (!entry.analyticsConsent.bannerVisible) fail('Analytics consent banner missing on first visit: ' + route);
+    if (!entry.analyticsConsent.cookieSettingsPresent) fail('Cookie settings control missing from footer: ' + route);
     if (entry.analyticsConsent.analyticsScriptLoaded) fail('Google Analytics loaded before consent on ' + route);
     if (!meta.title || !meta.description || !meta.canonical || !meta.viewport) fail('Missing SEO metadata: ' + route);
     if (!meta.ogImage || !meta.twitterImage || !meta.ogSiteName) fail('Missing social sharing metadata: ' + route);
@@ -150,11 +151,15 @@ const fail = (message) => { results.failures = results.failures || []; results.f
           formCount: el?.querySelectorAll('form').length || 0,
           iframeCount: el?.querySelectorAll('iframe').length || 0,
           fields: form ? [...form.querySelectorAll('input,select,textarea')].filter(x=>!['hidden','submit'].includes((x.type||'').toLowerCase())).map(x=>({type:x.type||x.tagName.toLowerCase(),name:x.name,required:x.required,placeholder:x.placeholder})) : [],
-          requiredEmailPresent: !!form?.querySelector('input[type="email"][required]')
+          requiredEmailPresent: !!form?.querySelector('input[type="email"][required]'),
+          hasNameField: !!form?.querySelector('input[name*="firstname"], input[name*="lastname"], input[name*="name"]'),
+          hasChallengeField: !!form?.querySelector('textarea, input[name*="message"], input[name*="challenge"]')
         };
       });
       if (!results.form.formRendered) fail('HubSpot form did not render on Contact page');
       if (results.form.formRendered && results.form.formCount && !results.form.requiredEmailPresent) fail('Contact form has no required email field');
+      if (results.form.formRendered && results.form.formCount && !results.form.hasNameField) fail('Contact form has no name field');
+      if (results.form.formRendered && results.form.formCount && !results.form.hasChallengeField) fail('Contact form has no current-challenge/message field');
     }
 
     await page.setViewportSize({width:390,height:844});

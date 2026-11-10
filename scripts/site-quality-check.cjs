@@ -83,7 +83,7 @@ const fail = (message) => { results.failures = results.failures || []; results.f
       await page.waitForFunction(() => {
         const el = document.querySelector('#hubspot-contact-form');
         return !!(el && (el.querySelector('form') || el.querySelector('iframe')));
-      }, {timeout:30000}).catch(()=>null);
+      }, null, {timeout:30000}).catch(()=>null);
       results.form = await page.evaluate(() => {
         const el = document.querySelector('#hubspot-contact-form');
         const form = el?.querySelector('form');

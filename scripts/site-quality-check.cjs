@@ -77,12 +77,13 @@ const fail = (message) => { results.failures = results.failures || []; results.f
           results.internalLinks.push({from:route, url:target.href, status:check?.status() ?? null});
           if (!check || check.status() >= 400) fail('Broken internal link from ' + route + ': ' + target.href);
         }
-        if (target.hash && target.pathname !== route) {
-          const checkPage = await context.newPage();
-          await checkPage.goto(target.href, {waitUntil:'domcontentloaded', timeout:30000}).catch(()=>null);
+        if (target.hash) {
+          const samePage = target.pathname === route;
+          const checkPage = samePage ? page : await context.newPage();
+          if (!samePage) await checkPage.goto(target.href, {waitUntil:'domcontentloaded', timeout:30000}).catch(()=>null);
           const found = await checkPage.locator(target.hash).count().catch(()=>0);
           if (!found) fail('Missing internal anchor from ' + route + ': ' + target.href);
-          await checkPage.close();
+          if (!samePage) await checkPage.close();
         }
       } else if (target.protocol === 'https:' && (target.hostname.endsWith('kawahive.com') || target.hostname.endsWith('hubspot.com'))) {
         if (!results.externalLinks.some(x=>x.url===target.href)) {

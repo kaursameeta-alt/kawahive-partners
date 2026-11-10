@@ -78,4 +78,40 @@
     <priority>0.5</priority>
   </url>
   <url><loc>https://kawahive.com/privacy.html</loc><lastmod>2026-11-10</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url>
+    <loc>https://kawahive.com/radiology-medical-device-gtm-asia-pacific.html</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kawahive.com/surgery-medical-device-gtm-asia-pacific.html</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kawahive.com/obgyn-medical-device-gtm-asia-pacific.html</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://kawahive.com/urology-medical-device-gtm-asia-pacific.html</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://kawahive.com/rehabilitation-medical-device-gtm-asia-pacific.html</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://kawahive.com/gastroenterology-medical-device-gtm-asia-pacific.html</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
 </urlset>

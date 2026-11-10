@@ -22,6 +22,19 @@ const fail = (message) => { results.failures = results.failures || []; results.f
   const page = await context.newPage();
   page.setDefaultTimeout(15000);
 
+  const robotsResponse = await context.request.get(base + '/robots.txt', { timeout: 20000 }).catch(e => null);
+  const robotsText = robotsResponse ? await robotsResponse.text() : '';
+  results.robots = { status: robotsResponse?.status() ?? null, hasSitemap: /Sitemap:\\s*https:\\/\\/kawahive\\.com\\/sitemap\\.xml/i.test(robotsText), allowsRoot: /Allow:\\s*\\//i.test(robotsText) };
+  if (!robotsResponse || robotsResponse.status() >= 400 || !results.robots.hasSitemap || !results.robots.allowsRoot) fail('robots.txt missing, blocked, or does not reference sitemap');
+
+  const sitemapResponse = await context.request.get(base + '/sitemap.xml', { timeout: 20000 }).catch(e => null);
+  const sitemapText = sitemapResponse ? await sitemapResponse.text() : '';
+  const sitemapUrls = [...sitemapText.matchAll(/<loc>(.*?)<\\/loc>/g)].map(m => m[1]);
+  results.sitemap = { status: sitemapResponse?.status() ?? null, urlCount: sitemapUrls.length, urls: sitemapUrls, containsRetiredFDA: sitemapText.includes('fda-pending-ce-pending-apac-commercial-opportunity.html'), containsNoindexSegmentStubs: /(?:radiology|surgery|obgyn|urology|rehabilitation|gastroenterology)-medical-device-gtm-asia-pacific\\.html/.test(sitemapText) };
+  if (!sitemapResponse || sitemapResponse.status() >= 400 || !sitemapText.includes('<urlset')) fail('Live sitemap.xml is unavailable or invalid');
+  if (results.sitemap.containsRetiredFDA || results.sitemap.containsNoindexSegmentStubs) fail('Sitemap contains retired or noindex redirect URLs');
+  if (sitemapUrls.length !== pages.length) fail('Expected ' + pages.length + ' indexable sitemap URLs, found ' + sitemapUrls.length);
+
   for (const route of pages) {
     const url = new URL(route, base).href;
     const entry = { route, url, desktop: {}, mobile: {} };

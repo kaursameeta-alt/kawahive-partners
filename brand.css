@@ -4,6 +4,7 @@
   --navy-deep: #0b1f3a;
   --gold: #d6b66b;
   --gold-dark: #99752f;
+  --gold-ink: #8a6525;
   --gold-soft: #d6b66b;
   --ink: #1b2b3e;
   --muted: #617084;
@@ -50,7 +51,7 @@ footer .footer-brand span,
 .brand span, .logo span, .footer-brand span,
 header .brand span, header .logo span, a.brand span, a.logo span,
 .brand-gold {
-  color: #99752f !important;
+  color: var(--gold-ink) !important;
   font-weight: 800 !important;
 }
 .btn-gold {
@@ -167,4 +168,27 @@ form[data-form-id] input[type="submit"]:hover {
 .hs-form .hs-dependent-field {
   color: #617084 !important;
   font-size: 13px !important;
+}
+
+/* Accessibility and responsive safety defaults */
+img, video, iframe { max-width: 100%; }
+img { height: auto; }
+a:focus-visible, button:focus-visible, input:focus-visible,
+select:focus-visible, textarea:focus-visible, summary:focus-visible {
+  outline: 3px solid #8a6525 !important;
+  outline-offset: 3px !important;
+}
+button, input, select, textarea { max-width: 100%; }
+.hs-form .hs-button:focus-visible, .hs-form input[type="submit"]:focus-visible {
+  outline: 3px solid #8a6525 !important;
+  outline-offset: 3px !important;
+}
+@media (max-width: 600px) {
+  html { scroll-padding-top: 76px; }
+  .container { max-width: 100%; }
+  .footer-links, .footer-links nav { flex-wrap: wrap; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }

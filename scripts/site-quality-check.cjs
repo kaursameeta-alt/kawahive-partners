@@ -46,6 +46,12 @@ const fail = (message) => { results.failures = results.failures || []; results.f
   if (!results.trainingPage.hasProspecting || !results.trainingPage.hasICPScorecard) fail('External training page naming is not aligned with Prospecting Training with ICP Scorecard');
   await trainingPage.close();
 
+  const retiredPage = await context.newPage();
+  const retiredResponse = await retiredPage.goto(base + '/fda-pending-ce-pending-apac-commercial-opportunity.html', {waitUntil:'domcontentloaded',timeout:45000}).catch(()=>null);
+  results.retiredArticleRedirect = {status:retiredResponse?.status() ?? null, finalUrl:retiredPage.url(), redirectedToReplacement:retiredPage.url().includes('/registered-medtech-apac-market-demand.html')};
+  if (!results.retiredArticleRedirect.redirectedToReplacement) fail('Retired FDA/CE URL does not navigate to the registered APAC demand article');
+  await retiredPage.close();
+
   const robotsResponse = await context.request.get(base + '/robots.txt', { timeout: 20000 }).catch(e => null);
   const robotsText = robotsResponse ? await robotsResponse.text() : '';
   results.robots = { status: robotsResponse?.status() ?? null, hasSitemap: /Sitemap:\s*https:\/\/kawahive\.com\/sitemap\.xml/i.test(robotsText), allowsRoot: /Allow:\s*\//i.test(robotsText) };

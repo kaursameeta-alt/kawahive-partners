@@ -53,6 +53,13 @@ const fail = (message) => { results.failures = results.failures || []; results.f
       jsonld: [...document.querySelectorAll('script[type="application/ld+json"]')].map(s => s.textContent)
     }));
     entry.meta = { title: meta.title, descriptionLength: meta.description.length, canonical: meta.canonical, h1: meta.h1, imageCount: meta.images.length, missingAlt: meta.images.filter(i => i.alt === null || i.alt.trim() === '').map(i=>i.src) };
+    entry.analyticsConsent = await page.evaluate(() => ({
+      bannerVisible: !!document.querySelector('#kawahive-cookie-banner'),
+      cookieSettingsPresent: !!document.querySelector('[data-kawahive-cookie-settings]'),
+      analyticsScriptLoaded: [...document.scripts].some(s => (s.src || '').includes('googletagmanager.com/gtag/js'))
+    }));
+    if (!entry.analyticsConsent.bannerVisible) fail('Analytics consent banner missing on first visit: ' + route);
+    if (entry.analyticsConsent.analyticsScriptLoaded) fail('Google Analytics loaded before consent on ' + route);
     if (!meta.title || !meta.description || !meta.canonical || !meta.viewport) fail('Missing SEO metadata: ' + route);
     if (meta.h1 !== 1) fail('Expected exactly one H1 on ' + route + ', got ' + meta.h1);
     if (meta.canonical !== url) fail('Canonical mismatch on ' + route + ': ' + meta.canonical);
@@ -105,10 +112,12 @@ const fail = (message) => { results.failures = results.failures || []; results.f
           formRendered: !!form || !!el?.querySelector('iframe'),
           formCount: el?.querySelectorAll('form').length || 0,
           iframeCount: el?.querySelectorAll('iframe').length || 0,
-          fields: form ? [...form.querySelectorAll('input,select,textarea')].filter(x=>!['hidden','submit'].includes((x.type||'').toLowerCase())).map(x=>({type:x.type||x.tagName.toLowerCase(),name:x.name,required:x.required,placeholder:x.placeholder})) : []
+          fields: form ? [...form.querySelectorAll('input,select,textarea')].filter(x=>!['hidden','submit'].includes((x.type||'').toLowerCase())).map(x=>({type:x.type||x.tagName.toLowerCase(),name:x.name,required:x.required,placeholder:x.placeholder})) : [],
+          requiredEmailPresent: !!form?.querySelector('input[type="email"][required]')
         };
       });
       if (!results.form.formRendered) fail('HubSpot form did not render on Contact page');
+      if (results.form.formRendered && results.form.formCount && !results.form.requiredEmailPresent) fail('Contact form has no required email field');
     }
 
     await page.setViewportSize({width:390,height:844});

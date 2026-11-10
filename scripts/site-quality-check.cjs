@@ -50,7 +50,10 @@ const fail = (message) => { results.failures = results.failures || []; results.f
       viewport: document.querySelector('meta[name="viewport"]')?.content || '',
       h1: document.querySelectorAll('h1').length,
       images: [...document.images].map(i => ({src:i.currentSrc || i.src, alt:i.getAttribute('alt')})),
-      jsonld: [...document.querySelectorAll('script[type="application/ld+json"]')].map(s => s.textContent)
+      jsonld: [...document.querySelectorAll('script[type="application/ld+json"]')].map(s => s.textContent),
+      ogImage: document.querySelector('meta[property="og:image"]')?.content || '',
+      twitterImage: document.querySelector('meta[name="twitter:image"]')?.content || '',
+      ogSiteName: document.querySelector('meta[property="og:site_name"]')?.content || ''
     }));
     entry.meta = { title: meta.title, descriptionLength: meta.description.length, canonical: meta.canonical, h1: meta.h1, imageCount: meta.images.length, missingAlt: meta.images.filter(i => i.alt === null || i.alt.trim() === '').map(i=>i.src) };
     entry.analyticsConsent = await page.evaluate(() => ({
@@ -61,9 +64,12 @@ const fail = (message) => { results.failures = results.failures || []; results.f
     if (!entry.analyticsConsent.bannerVisible) fail('Analytics consent banner missing on first visit: ' + route);
     if (entry.analyticsConsent.analyticsScriptLoaded) fail('Google Analytics loaded before consent on ' + route);
     if (!meta.title || !meta.description || !meta.canonical || !meta.viewport) fail('Missing SEO metadata: ' + route);
+    if (!meta.ogImage || !meta.twitterImage || !meta.ogSiteName) fail('Missing social sharing metadata: ' + route);
+    if (meta.ogImage !== meta.twitterImage || !meta.ogImage.endsWith('.png')) fail('Social preview must use the same PNG for Open Graph and Twitter: ' + route);
     if (meta.h1 !== 1) fail('Expected exactly one H1 on ' + route + ', got ' + meta.h1);
     if (meta.canonical !== url) fail('Canonical mismatch on ' + route + ': ' + meta.canonical);
     if (entry.meta.missingAlt.length) fail('Images missing alt on ' + route);
+    if (route === '/about.html' && meta.images.length) fail('About page includes images; review that no individual is presented as the public face');
     for (const raw of meta.jsonld) { try { JSON.parse(raw); } catch (e) { fail('Invalid JSON-LD on ' + route + ': ' + e.message); } }
 
     const links = await page.locator('a[href]').evaluateAll(as => as.map(a => ({href:a.href, text:(a.innerText || a.getAttribute('aria-label') || '').trim()})));
@@ -131,6 +137,9 @@ const fail = (message) => { results.failures = results.failures || []; results.f
       navLinks: [...document.querySelectorAll('header nav a')].filter(a=>getComputedStyle(a).display!=='none').length
     }));
     if (entry.mobile.horizontalOverflow) fail('Horizontal overflow at 390px on ' + route);
+    const axeMobile = await new AxeBuilder({ page }).withTags(['wcag2a','wcag2aa','wcag21a','wcag21aa']).analyze().catch(e=>({violations:[{id:'axe-mobile-run-error',impact:'critical',description:e.message,nodes:[]}]}));
+    results.accessibility.push({route, viewport:'mobile', violations:axeMobile.violations.map(v=>({id:v.id,impact:v.impact,description:v.description,nodes:v.nodes.length}))});
+    for (const v of axeMobile.violations) if (v.impact === 'critical' || v.impact === 'serious') fail('Mobile accessibility ' + v.impact + ' on ' + route + ': ' + v.id);
     if (!entry.mobile.h1Visible) fail('H1 not visible at 390px on ' + route);
     await page.screenshot({path:path.join('audit-results', route==='/'?'home-mobile.png':route.replaceAll('/','').replace('.html','')+'-mobile.png'), fullPage:true}).catch(()=>null);
     await page.setViewportSize({width:1440,height:1000});

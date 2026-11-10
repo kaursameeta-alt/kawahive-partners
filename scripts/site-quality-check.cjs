@@ -22,6 +22,22 @@ const fail = (message) => { results.failures = results.failures || []; results.f
   const page = await context.newPage();
   page.setDefaultTimeout(15000);
 
+  const releaseMarker = '2026-11-10-conversion-seo-geo';
+  let releaseDetected = false;
+  let releaseStatus = null;
+  for (let attempt = 0; attempt < 12; attempt++) {
+    const homeResponse = await context.request.get(base + '/', {timeout:20000}).catch(()=>null);
+    releaseStatus = homeResponse?.status() ?? null;
+    const homeHtml = homeResponse ? await homeResponse.text() : '';
+    if (homeResponse && homeResponse.status() < 400 && homeHtml.includes('name="kawahive-release" content="' + releaseMarker + '"')) {
+      releaseDetected = true;
+      break;
+    }
+    await new Promise(resolve => setTimeout(resolve, 30000));
+  }
+  results.release = {marker:releaseMarker, detected:releaseDetected, status:releaseStatus};
+  if (!releaseDetected) fail('Latest KawaHive release marker is not live yet; Pages deployment may still be pending');
+
   const trainingPage = await context.newPage();
   const trainingResponse = await trainingPage.goto('https://lab.kawahive.com/kawahive-prospecting-training', {waitUntil:'domcontentloaded',timeout:45000}).catch(()=>null);
   const trainingInfo = await trainingPage.evaluate(() => ({title:document.title,h1:document.querySelector('h1')?.innerText || '',text:(document.body?.innerText || '').slice(0,12000)})).catch(()=>({title:'',h1:'',text:''}));

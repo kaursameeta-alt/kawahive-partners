@@ -1,0 +1,44 @@
+name: KawaHive website quality checks
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  browser-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install browser test dependencies
+        run: |
+          npm install --no-save playwright @axe-core/playwright lighthouse
+          npx playwright install --with-deps chromium
+      - name: Run desktop, mobile, form, SEO, link and accessibility checks
+        run: |
+          mkdir -p audit-results
+          node scripts/site-quality-check.cjs
+      - name: Run Lighthouse on key conversion pages
+        if: always()
+        run: |
+          for page in / /contact.html /insights.html; do
+            name=$(echo "$page" | sed 's#^/$#home#; s#^/##; s#\.html$##')
+            npx lighthouse "https://kawahive.com$page" --chrome-flags="--headless --no-sandbox" --output=json --output-path="audit-results/lighthouse-$name-mobile.json" --form-factor=mobile --only-categories=performance,accessibility,best-practices,seo || true
+            npx lighthouse "https://kawahive.com$page" --chrome-flags="--headless --no-sandbox" --output=json --output-path="audit-results/lighthouse-$name-desktop.json" --preset=desktop --only-categories=performance,accessibility,best-practices,seo || true
+          done
+      - name: Upload audit report and screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: kawahive-website-quality-report
+          path: audit-results/
+          if-no-files-found: warn

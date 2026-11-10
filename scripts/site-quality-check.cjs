@@ -25,7 +25,7 @@ const fail = (message) => { results.failures = results.failures || []; results.f
   const trainingPage = await context.newPage();
   const trainingResponse = await trainingPage.goto('https://lab.kawahive.com/kawahive-prospecting-training', {waitUntil:'domcontentloaded',timeout:45000}).catch(()=>null);
   const trainingInfo = await trainingPage.evaluate(() => ({title:document.title,h1:document.querySelector('h1')?.innerText || '',text:(document.body?.innerText || '').slice(0,12000)})).catch(()=>({title:'',h1:'',text:''}));
-  results.trainingPage = {status:trainingResponse?.status() ?? null,title:trainingInfo.title,h1:trainingInfo.h1,hasProspecting:/prospecting/i.test(trainingInfo.title+' '+trainingInfo.h1+' '+trainingInfo.text),hasICPScorecard:/ICP\\s*Scorecard/i.test(trainingInfo.title+' '+trainingInfo.h1+' '+trainingInfo.text)};
+  results.trainingPage = {status:trainingResponse?.status() ?? null,title:trainingInfo.title,h1:trainingInfo.h1,hasProspecting:/prospecting/i.test(trainingInfo.title+' '+trainingInfo.h1+' '+trainingInfo.text),hasICPScorecard:/ICP\s*Scorecard/i.test(trainingInfo.title+' '+trainingInfo.h1+' '+trainingInfo.text)};
   if (!trainingResponse || trainingResponse.status() >= 400) fail('KawaHive prospecting training page unavailable');
   if (!results.trainingPage.hasProspecting || !results.trainingPage.hasICPScorecard) fail('External training page naming is not aligned with Prospecting Training with ICP Scorecard');
   await trainingPage.close();

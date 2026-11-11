@@ -43,8 +43,8 @@ jobs:
         run: |
           for page in / /contact.html /insights.html; do
             name=$(echo "$page" | sed 's#^/$#home#; s#^/##; s#\.html$##')
-            npx lighthouse "https://kawahive.com$page" --chrome-flags="--headless --no-sandbox" --output=json --output-path="audit-results/lighthouse-$name-mobile.json" --form-factor=mobile --only-categories=performance,accessibility,best-practices,seo || true
-            npx lighthouse "https://kawahive.com$page" --chrome-flags="--headless --no-sandbox" --output=json --output-path="audit-results/lighthouse-$name-desktop.json" --preset=desktop --only-categories=performance,accessibility,best-practices,seo || true
+            npx lighthouse "http://127.0.0.1:8080$page" --chrome-flags="--headless --no-sandbox" --output=json --output-path="audit-results/lighthouse-$name-mobile.json" --form-factor=mobile --only-categories=performance,accessibility,best-practices,seo || true
+            npx lighthouse "http://127.0.0.1:8080$page" --chrome-flags="--headless --no-sandbox" --output=json --output-path="audit-results/lighthouse-$name-desktop.json" --preset=desktop --only-categories=performance,accessibility,best-practices,seo || true
           done
       - name: Upload audit report and screenshots
         if: always()

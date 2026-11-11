@@ -156,7 +156,7 @@ const fail = (message) => { results.failures = results.failures || []; results.f
       await formContainer.waitFor({state:'attached'});
       await page.waitForFunction(() => {
         const el = document.querySelector('#hubspot-contact-form');
-        return !!(el && (el.querySelector('form') || el.querySelector('iframe')));
+        return !!(el && ((el.matches('form') && el.querySelectorAll('input,select,textarea').length > 0) || el.querySelector('form,iframe')));
       }, null, {timeout:30000}).catch(()=>null);
       results.form = await page.evaluate(() => {
         const form = document.querySelector('#hubspot-contact-form');
@@ -177,8 +177,10 @@ const fail = (message) => { results.failures = results.failures || []; results.f
       if (!results.form.requiredNamePresent) fail('Contact form first and last name fields are not required');
       if (!results.form.hasChallengeField) fail('Contact form has no current-challenge field');
       if (!results.form.submitPresent) fail('Contact form has no submit control');
-      const contactSource = await page.locator('#hubspot-contact-form').evaluate(el => el.outerHTML + '\\n' + (el.parentElement?.nextElementSibling?.textContent || ''));
-      if (!contactSource.includes('api.hsforms.com/submissions/v3/integration/submit/247566228/20bde399-40cf-48bb-8aab-997c7d9217e1')) fail('Contact form does not point to the expected HubSpot CRM form endpoint');
+      const contactSource = await page.locator('script:not([src])').evaluateAll(scripts => scripts.map(script => script.textContent || '').join('\\n'));
+      const expectedEndpoint = 'https://api.hsforms.com/submissions/v3/integration/submit/247566228/20bde399-40cf-48bb-8aab-997c7d9217e1';
+      results.form.endpointFoundInSubmissionScript = contactSource.includes(expectedEndpoint);
+      if (!results.form.endpointFoundInSubmissionScript) fail('Contact form submission script does not contain the expected HubSpot CRM form endpoint');
     }
 
     await page.setViewportSize({width:390,height:844});

@@ -152,23 +152,28 @@ const fail = (message) => { results.failures = results.failures || []; results.f
     for (const v of axe.violations) if (v.impact === 'critical' || v.impact === 'serious') fail('Accessibility ' + v.impact + ' on ' + route + ': ' + v.id);
 
     if (route === '/contact.html') {
-      const formContainer = page.locator('#hubspot-contact-form');
-      await formContainer.waitFor({state:'attached'});
+      await page.locator('#hubspot-contact-form, form.kawahive-contact-form').first().waitFor({state:'attached'});
       await page.waitForFunction(() => {
         const el = document.querySelector('#hubspot-contact-form');
-        return !!(el && ((el.matches('form') && el.querySelectorAll('input,select,textarea').length > 0) || el.querySelector('form,iframe')));
+        const form = el?.matches('form') ? el : (el?.querySelector('form') || document.querySelector('form.kawahive-contact-form'));
+        return !!(form && form.querySelectorAll('input,select,textarea').length > 0);
       }, null, {timeout:30000}).catch(()=>null);
       results.form = await page.evaluate(() => {
-        const form = document.querySelector('#hubspot-contact-form');
+        const container = document.querySelector('#hubspot-contact-form');
+        const form = container?.matches('form') ? container : (container?.querySelector('form') || document.querySelector('form.kawahive-contact-form'));
         const fields = form ? [...form.querySelectorAll('input,select,textarea')].map(x=>({type:x.type||x.tagName.toLowerCase(),name:x.name,required:x.required,autocomplete:x.autocomplete})) : [];
+        const submit = form?.querySelector('button[type="submit"],input[type="submit"]');
         return {
-          containerPresent:!!form,
+          containerPresent:!!container || !!form,
           formRendered:!!form && fields.length > 0,
           fields,
           requiredEmailPresent:!!form?.querySelector('input[type="email"][name="email"][required]'),
           requiredNamePresent:!!form?.querySelector('input[name="firstname"][required]') && !!form?.querySelector('input[name="lastname"][required]'),
           hasChallengeField:!!form?.querySelector('textarea[name="our_current_challenge_that_we_need_advice_on_is__"]'),
-          submitPresent:!!form?.querySelector('button[type="submit"]'),
+          submitPresent:!!submit,
+          submitContrast: submit ? {background:getComputedStyle(submit).backgroundColor,color:getComputedStyle(submit).color} : null,
+          nativeValidationEnabled:!!form && !form.noValidate,
+          emptyFormBlocked:!!form && !form.checkValidity(),
           directHubSpotEndpoint:form ? 'https://api.hsforms.com/submissions/v3/integration/submit/247566228/20bde399-40cf-48bb-8aab-997c7d9217e1' : ''
         };
       });
@@ -201,6 +206,36 @@ const fail = (message) => { results.failures = results.failures || []; results.f
     await page.setViewportSize({width:1440,height:1000});
     entry.desktop = { viewport: 1440, titleVisible: !!meta.title };
     results.pages.push(entry);
+  }
+
+  // Exercise consent choices in isolated browser contexts so tests do not inherit a real visitor's choice.
+  results.cookieInteractions = {};
+  for (const choice of ['reject','accept']) {
+    const consentContext = await browser.newContext({viewport:{width:1280,height:900}});
+    const consentPage = await consentContext.newPage();
+    await consentPage.goto(base + '/contact.html', {waitUntil:'domcontentloaded',timeout:45000});
+    await consentPage.waitForSelector('#kawahive-cookie-banner', {timeout:15000});
+    const buttonSelector = choice === 'reject' ? '#kawahive-cookie-banner .kh-reject' : '#kawahive-cookie-banner .kh-accept';
+    await consentPage.locator(buttonSelector).click();
+    await consentPage.waitForTimeout(1200);
+    const firstChoice = await consentPage.evaluate(() => ({
+      stored:localStorage.getItem('kawahive_analytics_consent'),
+      bannerVisible:!!document.querySelector('#kawahive-cookie-banner'),
+      analyticsScriptLoaded:[...document.scripts].some(s=>(s.src||'').includes('googletagmanager.com/gtag/js')),
+      gaCookies:document.cookie.split(';').map(x=>x.trim().split('=')[0]).filter(x=>x.startsWith('_ga'))
+    }));
+    await consentPage.reload({waitUntil:'domcontentloaded'});
+    await consentPage.waitForTimeout(700);
+    const afterReload = await consentPage.evaluate(() => ({
+      stored:localStorage.getItem('kawahive_analytics_consent'),
+      bannerVisible:!!document.querySelector('#kawahive-cookie-banner'),
+      analyticsScriptLoaded:[...document.scripts].some(s=>(s.src||'').includes('googletagmanager.com/gtag/js'))
+    }));
+    results.cookieInteractions[choice] = {firstChoice,afterReload};
+    if (choice==='reject' && (firstChoice.stored!=='denied' || firstChoice.analyticsScriptLoaded || afterReload.stored!=='denied' || afterReload.analyticsScriptLoaded)) fail('Reject analytics interaction did not persist a denied state');
+    if (choice==='accept' && (firstChoice.stored!=='granted' || !firstChoice.analyticsScriptLoaded || afterReload.stored!=='granted')) fail('Accept analytics interaction did not persist a granted state');
+    if (firstChoice.bannerVisible) fail('Cookie banner remained visible after '+choice+' choice');
+    await consentContext.close();
   }
 
   await browser.close();

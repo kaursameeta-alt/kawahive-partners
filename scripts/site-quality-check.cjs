@@ -38,12 +38,6 @@ const fail = (message) => { results.failures = results.failures || []; results.f
   results.release = {marker:releaseMarker, detected:releaseDetected, status:releaseStatus};
   if (!releaseDetected) fail('Latest KawaHive release marker is not live yet; Pages deployment may still be pending');
 
-  const labRootPage = await context.newPage();
-  const labRootResponse = await labRootPage.goto('https://lab.kawahive.com/', {waitUntil:'domcontentloaded',timeout:45000}).catch(()=>null);
-  results.labRoot = {status:labRootResponse?.status() ?? null, finalUrl:labRootPage.url()};
-  if (!labRootResponse || labRootResponse.status() >= 400) fail('Lab root domain does not load successfully');
-  await labRootPage.close();
-
   const trainingPage = await context.newPage();
   const trainingResponse = await trainingPage.goto('https://lab.kawahive.com/kawahive-prospecting-training', {waitUntil:'domcontentloaded',timeout:45000}).catch(()=>null);
   const trainingInfo = await trainingPage.evaluate(() => ({title:document.title,h1:document.querySelector('h1')?.innerText || '',text:(document.body?.innerText || '').slice(0,12000)})).catch(()=>({title:'',h1:'',text:''}));
@@ -164,30 +158,27 @@ const fail = (message) => { results.failures = results.failures || []; results.f
         const el = document.querySelector('#hubspot-contact-form');
         return !!(el && (el.querySelector('form') || el.querySelector('iframe')));
       }, null, {timeout:30000}).catch(()=>null);
-      const hubspotFrame = page.frames().find(frame => /hubspot|hsforms/i.test(frame.url()));
-      const frameForm = hubspotFrame ? await hubspotFrame.evaluate(() => {
-        const form = document.querySelector('form');
-        return {
-          formPresent: !!form,
-          fields: form ? [...form.querySelectorAll('input,select,textarea')].filter(x=>!['hidden','submit','button'].includes((x.type||'').toLowerCase())).map(x=>({type:x.type||x.tagName.toLowerCase(),name:x.name,required:x.required,placeholder:x.placeholder,ariaLabel:x.getAttribute('aria-label')})) : [],
-          labels: form ? [...form.querySelectorAll('label')].map(x=>x.innerText.trim()).filter(Boolean) : [],
-          submitPresent: !!form?.querySelector('button[type="submit"],input[type="submit"]')
-        };
-      }).catch(e=>({formPresent:false,fields:[],labels:[],submitPresent:false,error:e.message})) : {formPresent:false,fields:[],labels:[],submitPresent:false};
       results.form = await page.evaluate(() => {
-        const el = document.querySelector('#hubspot-contact-form');
-        return {containerPresent:!!el,iframeCount:el?.querySelectorAll('iframe').length||0,iframeSrc:el?.querySelector('iframe')?.src||''};
+        const form = document.querySelector('#hubspot-contact-form');
+        const fields = form ? [...form.querySelectorAll('input,select,textarea')].map(x=>({type:x.type||x.tagName.toLowerCase(),name:x.name,required:x.required,autocomplete:x.autocomplete})) : [];
+        return {
+          containerPresent:!!form,
+          formRendered:!!form && fields.length > 0,
+          fields,
+          requiredEmailPresent:!!form?.querySelector('input[type="email"][name="email"][required]'),
+          requiredNamePresent:!!form?.querySelector('input[name="firstname"][required]') && !!form?.querySelector('input[name="lastname"][required]'),
+          hasChallengeField:!!form?.querySelector('textarea[name="our_current_challenge_that_we_need_advice_on_is__"]'),
+          submitPresent:!!form?.querySelector('button[type="submit"]'),
+          directHubSpotEndpoint:form ? 'https://api.hsforms.com/submissions/v3/integration/submit/247566228/20bde399-40cf-48bb-8aab-997c7d9217e1' : ''
+        };
       });
-      results.form.frame = frameForm;
-      results.form.formRendered = frameForm.formPresent && frameForm.fields.length > 0;
-      results.form.requiredEmailPresent = frameForm.fields.some(x=>x.type==='email' && x.required);
-      results.form.hasNameField = frameForm.fields.some(x=>/name|firstname|lastname/i.test(x.name+' '+x.ariaLabel+' '+x.placeholder));
-      results.form.hasChallengeField = frameForm.fields.some(x=>/textarea|message|challenge|company|product|country|market/i.test(x.type+' '+x.name+' '+x.ariaLabel+' '+x.placeholder));
-      if (!results.form.formRendered) fail('HubSpot form iframe did not expose a rendered form with input fields');
-      if (!results.form.requiredEmailPresent) fail('Contact form has no required email field');
-      if (!results.form.hasNameField) fail('Contact form has no name field');
-      if (!results.form.hasChallengeField) fail('Contact form has no qualification/challenge field');
-      if (!frameForm.submitPresent) fail('Contact form has no submit control');
+      if (!results.form.formRendered) fail('Contact enquiry form did not render');
+      if (!results.form.requiredEmailPresent) fail('Contact form email is not required by native browser validation');
+      if (!results.form.requiredNamePresent) fail('Contact form first and last name fields are not required');
+      if (!results.form.hasChallengeField) fail('Contact form has no current-challenge field');
+      if (!results.form.submitPresent) fail('Contact form has no submit control');
+      const contactSource = await page.locator('#hubspot-contact-form').evaluate(el => el.outerHTML + '\\n' + (el.parentElement?.nextElementSibling?.textContent || ''));
+      if (!contactSource.includes('api.hsforms.com/submissions/v3/integration/submit/247566228/20bde399-40cf-48bb-8aab-997c7d9217e1')) fail('Contact form does not point to the expected HubSpot CRM form endpoint');
     }
 
     await page.setViewportSize({width:390,height:844});

@@ -22,7 +22,7 @@ const fail = (message) => { results.failures = results.failures || []; results.f
   const page = await context.newPage();
   page.setDefaultTimeout(15000);
 
-  const releaseMarker = '2026-11-10-conversion-seo-geo';
+  const releaseMarker = '2026-11-11-grok-checklist-complete';
   let releaseDetected = false;
   let releaseStatus = null;
   for (let attempt = 0; attempt < 12; attempt++) {

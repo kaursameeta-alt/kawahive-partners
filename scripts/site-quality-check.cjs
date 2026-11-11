@@ -132,7 +132,7 @@ const fail = (message) => { results.failures = results.failures || []; results.f
     }
 
     const axe = await new AxeBuilder({ page }).withTags(['wcag2a','wcag2aa','wcag21a','wcag21aa']).analyze().catch(e=>({violations:[{id:'axe-run-error',impact:'critical',description:e.message,nodes:[]}]}));
-    results.accessibility.push({route, violations:axe.violations.map(v=>({id:v.id,impact:v.impact,description:v.description,nodes:v.nodes.length}))});
+    results.accessibility.push({route, violations:axe.violations.map(v=>({id:v.id,impact:v.impact,description:v.description,nodes:v.nodes.map(n=>({html:n.html,summary:n.failureSummary}))}))});
     for (const v of axe.violations) if (v.impact === 'critical' || v.impact === 'serious') fail('Accessibility ' + v.impact + ' on ' + route + ': ' + v.id);
 
     if (route === '/contact.html') {
@@ -142,24 +142,30 @@ const fail = (message) => { results.failures = results.failures || []; results.f
         const el = document.querySelector('#hubspot-contact-form');
         return !!(el && (el.querySelector('form') || el.querySelector('iframe')));
       }, null, {timeout:30000}).catch(()=>null);
+      const hubspotFrame = page.frames().find(frame => /hubspot|hsforms/i.test(frame.url()));
+      const frameForm = hubspotFrame ? await hubspotFrame.evaluate(() => {
+        const form = document.querySelector('form');
+        return {
+          formPresent: !!form,
+          fields: form ? [...form.querySelectorAll('input,select,textarea')].filter(x=>!['hidden','submit','button'].includes((x.type||'').toLowerCase())).map(x=>({type:x.type||x.tagName.toLowerCase(),name:x.name,required:x.required,placeholder:x.placeholder,ariaLabel:x.getAttribute('aria-label')})) : [],
+          labels: form ? [...form.querySelectorAll('label')].map(x=>x.innerText.trim()).filter(Boolean) : [],
+          submitPresent: !!form?.querySelector('button[type="submit"],input[type="submit"]')
+        };
+      }).catch(e=>({formPresent:false,fields:[],labels:[],submitPresent:false,error:e.message})) : {formPresent:false,fields:[],labels:[],submitPresent:false};
       results.form = await page.evaluate(() => {
         const el = document.querySelector('#hubspot-contact-form');
-        const form = el?.querySelector('form');
-        return {
-          containerPresent: !!el,
-          formRendered: !!form || !!el?.querySelector('iframe'),
-          formCount: el?.querySelectorAll('form').length || 0,
-          iframeCount: el?.querySelectorAll('iframe').length || 0,
-          fields: form ? [...form.querySelectorAll('input,select,textarea')].filter(x=>!['hidden','submit'].includes((x.type||'').toLowerCase())).map(x=>({type:x.type||x.tagName.toLowerCase(),name:x.name,required:x.required,placeholder:x.placeholder})) : [],
-          requiredEmailPresent: !!form?.querySelector('input[type="email"][required]'),
-          hasNameField: !!form?.querySelector('input[name*="firstname"], input[name*="lastname"], input[name*="name"]'),
-          hasChallengeField: !!form?.querySelector('textarea, input[name*="message"], input[name*="challenge"]')
-        };
+        return {containerPresent:!!el,iframeCount:el?.querySelectorAll('iframe').length||0,iframeSrc:el?.querySelector('iframe')?.src||''};
       });
-      if (!results.form.formRendered) fail('HubSpot form did not render on Contact page');
-      if (results.form.formRendered && results.form.formCount && !results.form.requiredEmailPresent) fail('Contact form has no required email field');
-      if (results.form.formRendered && results.form.formCount && !results.form.hasNameField) fail('Contact form has no name field');
-      if (results.form.formRendered && results.form.formCount && !results.form.hasChallengeField) fail('Contact form has no current-challenge/message field');
+      results.form.frame = frameForm;
+      results.form.formRendered = frameForm.formPresent && frameForm.fields.length > 0;
+      results.form.requiredEmailPresent = frameForm.fields.some(x=>x.type==='email' && x.required);
+      results.form.hasNameField = frameForm.fields.some(x=>/name|firstname|lastname/i.test(x.name+' '+x.ariaLabel+' '+x.placeholder));
+      results.form.hasChallengeField = frameForm.fields.some(x=>/textarea|message|challenge|company|product|country|market/i.test(x.type+' '+x.name+' '+x.ariaLabel+' '+x.placeholder));
+      if (!results.form.formRendered) fail('HubSpot form iframe did not expose a rendered form with input fields');
+      if (!results.form.requiredEmailPresent) fail('Contact form has no required email field');
+      if (!results.form.hasNameField) fail('Contact form has no name field');
+      if (!results.form.hasChallengeField) fail('Contact form has no qualification/challenge field');
+      if (!frameForm.submitPresent) fail('Contact form has no submit control');
     }
 
     await page.setViewportSize({width:390,height:844});

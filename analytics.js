@@ -93,6 +93,7 @@
     if (!footer || footer.querySelector('[data-kawahive-cookie-settings]')) return;
     var link = document.createElement('a');
     link.href = '#cookie-settings';
+    link.id = 'cookie-settings';
     link.textContent = 'Cookie settings';
     link.setAttribute('data-kawahive-cookie-settings', 'true');
     link.style.cssText = 'display:inline-block;margin:8px 12px 0 0;text-decoration:underline;text-underline-offset:3px;';

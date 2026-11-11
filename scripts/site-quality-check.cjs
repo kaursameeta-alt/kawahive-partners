@@ -22,7 +22,7 @@ const fail = (message) => { results.failures = results.failures || []; results.f
   const page = await context.newPage();
   page.setDefaultTimeout(15000);
 
-  const releaseMarker = '2026-11-10-conversion-seo-geo';
+  const releaseMarker = '2026-11-11-grok-checklist-complete';
   let releaseDetected = false;
   let releaseStatus = null;
   for (let attempt = 0; attempt < 12; attempt++) {
@@ -38,6 +38,12 @@ const fail = (message) => { results.failures = results.failures || []; results.f
   results.release = {marker:releaseMarker, detected:releaseDetected, status:releaseStatus};
   if (!releaseDetected) fail('Latest KawaHive release marker is not live yet; Pages deployment may still be pending');
 
+  const labRootPage = await context.newPage();
+  const labRootResponse = await labRootPage.goto('https://lab.kawahive.com/', {waitUntil:'domcontentloaded',timeout:45000}).catch(()=>null);
+  results.labRoot = {status:labRootResponse?.status() ?? null, finalUrl:labRootPage.url()};
+  if (!labRootResponse || labRootResponse.status() >= 400) fail('Lab root domain does not load successfully');
+  await labRootPage.close();
+
   const trainingPage = await context.newPage();
   const trainingResponse = await trainingPage.goto('https://lab.kawahive.com/kawahive-prospecting-training', {waitUntil:'domcontentloaded',timeout:45000}).catch(()=>null);
   const trainingInfo = await trainingPage.evaluate(() => ({title:document.title,h1:document.querySelector('h1')?.innerText || '',text:(document.body?.innerText || '').slice(0,12000)})).catch(()=>({title:'',h1:'',text:''}));
@@ -45,6 +51,22 @@ const fail = (message) => { results.failures = results.failures || []; results.f
   if (!trainingResponse || trainingResponse.status() >= 400) fail('KawaHive prospecting training page unavailable');
   if (!results.trainingPage.hasProspecting || !results.trainingPage.hasICPScorecard) fail('External training page naming is not aligned with Prospecting Training with ICP Scorecard');
   await trainingPage.close();
+
+  const signupUrls = [
+    'https://lab.kawahive.com/kawahive-free-distributor-continuity-test-sign-up-page',
+    'https://lab.kawahive.com/kawahive-prospecting-training'
+  ];
+  results.labResources = [];
+  for (const signupUrl of signupUrls) {
+    const resourcePage = await context.newPage();
+    const resourceResponse = await resourcePage.goto(signupUrl, {waitUntil:'domcontentloaded',timeout:45000}).catch(()=>null);
+    const resourceInfo = await resourcePage.evaluate(() => ({title:document.title,h1:document.querySelector('h1')?.innerText || '',text:(document.body?.innerText || '').slice(0,8000),formCount:document.querySelectorAll('form').length,iframeCount:document.querySelectorAll('iframe').length,links:[...document.querySelectorAll('a[href]')].map(a=>a.href)})).catch(()=>({title:'',h1:'',text:'',formCount:0,iframeCount:0,links:[]}));
+    const resourceFrame = resourcePage.frames().find(frame=>/hubspot|hsforms/i.test(frame.url()));
+    const resourceForm = resourceFrame ? await resourceFrame.evaluate(()=>({form:!!document.querySelector('form'),fields:document.querySelectorAll('form input,form select,form textarea').length})).catch(()=>({form:false,fields:0})) : {form:false,fields:0};
+    results.labResources.push({url:signupUrl,status:resourceResponse?.status() ?? null,finalUrl:resourcePage.url(),title:resourceInfo.title,h1:resourceInfo.h1,formCount:resourceInfo.formCount,iframeCount:resourceInfo.iframeCount,frameForm:resourceForm,hasDownload:/download|scorecard|pdf/i.test(resourceInfo.text+' '+resourceInfo.links.join(' '))});
+    if (!resourceResponse || resourceResponse.status() >= 400) fail('Lab resource page unavailable: '+signupUrl);
+    await resourcePage.close();
+  }
 
   const retiredPage = await context.newPage();
   const retiredResponse = await retiredPage.goto(base + '/fda-pending-ce-pending-apac-commercial-opportunity.html', {waitUntil:'domcontentloaded',timeout:45000}).catch(()=>null);
@@ -132,7 +154,7 @@ const fail = (message) => { results.failures = results.failures || []; results.f
     }
 
     const axe = await new AxeBuilder({ page }).withTags(['wcag2a','wcag2aa','wcag21a','wcag21aa']).analyze().catch(e=>({violations:[{id:'axe-run-error',impact:'critical',description:e.message,nodes:[]}]}));
-    results.accessibility.push({route, violations:axe.violations.map(v=>({id:v.id,impact:v.impact,description:v.description,nodes:v.nodes.length}))});
+    results.accessibility.push({route, violations:axe.violations.map(v=>({id:v.id,impact:v.impact,description:v.description,nodes:v.nodes.map(n=>({html:n.html,summary:n.failureSummary}))}))});
     for (const v of axe.violations) if (v.impact === 'critical' || v.impact === 'serious') fail('Accessibility ' + v.impact + ' on ' + route + ': ' + v.id);
 
     if (route === '/contact.html') {
@@ -142,24 +164,30 @@ const fail = (message) => { results.failures = results.failures || []; results.f
         const el = document.querySelector('#hubspot-contact-form');
         return !!(el && (el.querySelector('form') || el.querySelector('iframe')));
       }, null, {timeout:30000}).catch(()=>null);
+      const hubspotFrame = page.frames().find(frame => /hubspot|hsforms/i.test(frame.url()));
+      const frameForm = hubspotFrame ? await hubspotFrame.evaluate(() => {
+        const form = document.querySelector('form');
+        return {
+          formPresent: !!form,
+          fields: form ? [...form.querySelectorAll('input,select,textarea')].filter(x=>!['hidden','submit','button'].includes((x.type||'').toLowerCase())).map(x=>({type:x.type||x.tagName.toLowerCase(),name:x.name,required:x.required,placeholder:x.placeholder,ariaLabel:x.getAttribute('aria-label')})) : [],
+          labels: form ? [...form.querySelectorAll('label')].map(x=>x.innerText.trim()).filter(Boolean) : [],
+          submitPresent: !!form?.querySelector('button[type="submit"],input[type="submit"]')
+        };
+      }).catch(e=>({formPresent:false,fields:[],labels:[],submitPresent:false,error:e.message})) : {formPresent:false,fields:[],labels:[],submitPresent:false};
       results.form = await page.evaluate(() => {
         const el = document.querySelector('#hubspot-contact-form');
-        const form = el?.querySelector('form');
-        return {
-          containerPresent: !!el,
-          formRendered: !!form || !!el?.querySelector('iframe'),
-          formCount: el?.querySelectorAll('form').length || 0,
-          iframeCount: el?.querySelectorAll('iframe').length || 0,
-          fields: form ? [...form.querySelectorAll('input,select,textarea')].filter(x=>!['hidden','submit'].includes((x.type||'').toLowerCase())).map(x=>({type:x.type||x.tagName.toLowerCase(),name:x.name,required:x.required,placeholder:x.placeholder})) : [],
-          requiredEmailPresent: !!form?.querySelector('input[type="email"][required]'),
-          hasNameField: !!form?.querySelector('input[name*="firstname"], input[name*="lastname"], input[name*="name"]'),
-          hasChallengeField: !!form?.querySelector('textarea, input[name*="message"], input[name*="challenge"]')
-        };
+        return {containerPresent:!!el,iframeCount:el?.querySelectorAll('iframe').length||0,iframeSrc:el?.querySelector('iframe')?.src||''};
       });
-      if (!results.form.formRendered) fail('HubSpot form did not render on Contact page');
-      if (results.form.formRendered && results.form.formCount && !results.form.requiredEmailPresent) fail('Contact form has no required email field');
-      if (results.form.formRendered && results.form.formCount && !results.form.hasNameField) fail('Contact form has no name field');
-      if (results.form.formRendered && results.form.formCount && !results.form.hasChallengeField) fail('Contact form has no current-challenge/message field');
+      results.form.frame = frameForm;
+      results.form.formRendered = frameForm.formPresent && frameForm.fields.length > 0;
+      results.form.requiredEmailPresent = frameForm.fields.some(x=>x.type==='email' && x.required);
+      results.form.hasNameField = frameForm.fields.some(x=>/name|firstname|lastname/i.test(x.name+' '+x.ariaLabel+' '+x.placeholder));
+      results.form.hasChallengeField = frameForm.fields.some(x=>/textarea|message|challenge|company|product|country|market/i.test(x.type+' '+x.name+' '+x.ariaLabel+' '+x.placeholder));
+      if (!results.form.formRendered) fail('HubSpot form iframe did not expose a rendered form with input fields');
+      if (!results.form.requiredEmailPresent) fail('Contact form has no required email field');
+      if (!results.form.hasNameField) fail('Contact form has no name field');
+      if (!results.form.hasChallengeField) fail('Contact form has no qualification/challenge field');
+      if (!frameForm.submitPresent) fail('Contact form has no submit control');
     }
 
     await page.setViewportSize({width:390,height:844});
@@ -173,7 +201,7 @@ const fail = (message) => { results.failures = results.failures || []; results.f
     }));
     if (entry.mobile.horizontalOverflow) fail('Horizontal overflow at 390px on ' + route);
     const axeMobile = await new AxeBuilder({ page }).withTags(['wcag2a','wcag2aa','wcag21a','wcag21aa']).analyze().catch(e=>({violations:[{id:'axe-mobile-run-error',impact:'critical',description:e.message,nodes:[]}]}));
-    results.accessibility.push({route, viewport:'mobile', violations:axeMobile.violations.map(v=>({id:v.id,impact:v.impact,description:v.description,nodes:v.nodes.length}))});
+    results.accessibility.push({route, viewport:'mobile', violations:axeMobile.violations.map(v=>({id:v.id,impact:v.impact,description:v.description,nodes:v.nodes.map(n=>({html:n.html,summary:n.failureSummary}))}))});
     for (const v of axeMobile.violations) if (v.impact === 'critical' || v.impact === 'serious') fail('Mobile accessibility ' + v.impact + ' on ' + route + ': ' + v.id);
     if (!entry.mobile.h1Visible) fail('H1 not visible at 390px on ' + route);
     await page.screenshot({path:path.join('audit-results', route==='/'?'home-mobile.png':route.replaceAll('/','').replace('.html','')+'-mobile.png'), fullPage:true}).catch(()=>null);

@@ -114,7 +114,7 @@ const fail = (message) => { results.failures = results.failures || []; results.f
     if (!meta.ogImage || !meta.twitterImage || !meta.ogSiteName) fail('Missing social sharing metadata: ' + route);
     if (meta.ogImage !== meta.twitterImage || !meta.ogImage.endsWith('.png')) fail('Social preview must use the same PNG for Open Graph and Twitter: ' + route);
     if (meta.h1 !== 1) fail('Expected exactly one H1 on ' + route + ', got ' + meta.h1);
-    if (meta.canonical !== url) fail('Canonical mismatch on ' + route + ': ' + meta.canonical);
+    const expectedCanonical = 'https://kawahive.com' + (route === '/' ? '/' : route); if (meta.canonical !== expectedCanonical) fail('Canonical mismatch on ' + route + ': expected ' + expectedCanonical + ', got ' + meta.canonical);
     if (entry.meta.missingAlt.length) fail('Images missing alt on ' + route);
     if (route === '/about.html' && meta.images.length) fail('About page includes images; review that no individual is presented as the public face');
     for (const raw of meta.jsonld) { try { JSON.parse(raw); } catch (e) { fail('Invalid JSON-LD on ' + route + ': ' + e.message); } }
@@ -232,8 +232,8 @@ const fail = (message) => { results.failures = results.failures || []; results.f
       analyticsScriptLoaded:[...document.scripts].some(s=>(s.src||'').includes('googletagmanager.com/gtag/js'))
     }));
     results.cookieInteractions[choice] = {firstChoice,afterReload};
-    if (choice==='reject' && (firstChoice.stored!=='denied' || firstChoice.analyticsScriptLoaded || afterReload.stored!=='denied' || afterReload.analyticsScriptLoaded)) fail('Reject analytics interaction did not persist a denied state');
-    if (choice==='accept' && (firstChoice.stored!=='granted' || !firstChoice.analyticsScriptLoaded || afterReload.stored!=='granted')) fail('Accept analytics interaction did not persist a granted state');
+    if (choice==='reject' && (firstChoice.stored!=='rejected' || firstChoice.analyticsScriptLoaded || afterReload.stored!=='rejected' || afterReload.analyticsScriptLoaded)) fail('Reject analytics interaction did not persist a denied state');
+    if (choice==='accept' && (firstChoice.stored!=='accepted' || !firstChoice.analyticsScriptLoaded || afterReload.stored!=='accepted' || !afterReload.analyticsScriptLoaded)) fail('Accept analytics interaction did not persist a granted state');
     if (firstChoice.bannerVisible) fail('Cookie banner remained visible after '+choice+' choice');
     await consentContext.close();
   }

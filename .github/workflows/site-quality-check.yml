@@ -21,11 +21,15 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
+      - name: Create audit output directory
+        run: mkdir -p audit-results
       - name: Install browser test dependencies
         run: |
           npm install --no-save playwright @axe-core/playwright lighthouse http-server
-          npx playwright install --with-deps chromium
+          # Use the runner's preinstalled system libraries; avoid apt mirror installs.
+          npx playwright install chromium
       - name: Start local preview of the pull-request branch
+        id: preview
         run: |
           npx http-server . -p 8080 -s > /tmp/kawahive-preview.log 2>&1 &
           for attempt in {1..20}; do
@@ -36,10 +40,9 @@ jobs:
         env:
           SITE_BASE_URL: http://127.0.0.1:8080
         run: |
-          mkdir -p audit-results
           node scripts/site-quality-check.cjs
       - name: Run Lighthouse on key conversion pages
-        if: always()
+        if: always() && steps.preview.outcome == 'success'
         run: |
           for page in / /contact.html /insights.html; do
             name=$(echo "$page" | sed 's#^/$#home#; s#^/##; s#\.html$##')

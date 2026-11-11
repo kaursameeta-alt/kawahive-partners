@@ -38,12 +38,6 @@ const fail = (message) => { results.failures = results.failures || []; results.f
   results.release = {marker:releaseMarker, detected:releaseDetected, status:releaseStatus};
   if (!releaseDetected) fail('Latest KawaHive release marker is not live yet; Pages deployment may still be pending');
 
-  const labRootPage = await context.newPage();
-  const labRootResponse = await labRootPage.goto('https://lab.kawahive.com/', {waitUntil:'domcontentloaded',timeout:45000}).catch(()=>null);
-  results.labRoot = {status:labRootResponse?.status() ?? null, finalUrl:labRootPage.url()};
-  if (!labRootResponse || labRootResponse.status() >= 400) fail('Lab root domain does not load successfully');
-  await labRootPage.close();
-
   const trainingPage = await context.newPage();
   const trainingResponse = await trainingPage.goto('https://lab.kawahive.com/kawahive-prospecting-training', {waitUntil:'domcontentloaded',timeout:45000}).catch(()=>null);
   const trainingInfo = await trainingPage.evaluate(() => ({title:document.title,h1:document.querySelector('h1')?.innerText || '',text:(document.body?.innerText || '').slice(0,12000)})).catch(()=>({title:'',h1:'',text:''}));

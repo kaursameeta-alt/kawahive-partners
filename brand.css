@@ -192,3 +192,8 @@ button, input, select, textarea { max-width: 100%; }
   html { scroll-behavior: auto !important; }
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
+
+
+/* Accessible skip link: hidden until keyboard focus. */
+.skip-link{position:absolute;top:8px;left:8px;z-index:1000;transform:translateY(-160%);padding:10px 14px;border-radius:6px;background:#fff;color:#0b1f3a;border:2px solid #0b1f3a;font-weight:700;text-decoration:underline;box-shadow:0 2px 8px rgba(0,0,0,.18)}
+.skip-link:focus,.skip-link:focus-visible{transform:translateY(0);outline:3px solid #d6b66b;outline-offset:3px}

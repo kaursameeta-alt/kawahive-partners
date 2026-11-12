@@ -1,6 +1,6 @@
 # KawaHive & Partners
 
-> KawaHive & Partners provides APAC go-to-market (GTM) strategy and structured execution support for founders with registered products in **MedTech and medical devices**. KawaHive helps manufacturers assess market demand, prioritise target accounts, understand hospital buying decisions, strengthen distributor performance and turn market interest into customer orders.
+> KawaHive & Partners provides go-to-market (GTM) strategy for founders with registered MedTech and medical devices in APAC: hospital demand, distributor sell-through and purchase orders. KawaHive helps manufacturers understand hospital buying decisions, prioritise target accounts and convert customer interest into documented purchasing progress.
 
 ## Who KawaHive supports
 
@@ -45,7 +45,7 @@ A structured, dedicated engagement for manufacturers with registered products in
 ## Free resources and insights
 
 - [KawaHive Lab](https://kawahive.com/lab.html): free prospecting training, an ICP scorecard and practical distributor assessment tools.
-- [Insights](https://kawahive.com/insights.html): five articles on APAC market demand, hospital buying decisions, distributor sell-through and distributor performance.
+- [Insights](https://kawahive.com/insights.html): five articles on APAC hospital and customer demand, hospital buying decisions, distributor sell-through and distributor performance.
 
 ## Key pages
 
@@ -57,7 +57,7 @@ A structured, dedicated engagement for manufacturers with registered products in
 - [Why MedTech Products Don't Sell After Regulatory Approval](https://kawahive.com/why-medtech-products-dont-sell-after-regulatory-approval.html)
 - [Why Hospital Demos Don't Convert to Purchase Orders](https://kawahive.com/why-hospital-demos-dont-convert-to-purchase-orders-asia-pacific.html)
 - [Stocked by the Distributor. Bought by Whom?](https://kawahive.com/stocked-by-the-distributor-bought-by-whom.html)
-- [How to Assess APAC Market Demand for a Registered MedTech Product](https://kawahive.com/registered-medtech-apac-market-demand.html)
+- [Registered MedTech and Medical Devices: How to Assess Hospital Demand in APAC](https://kawahive.com/registered-medtech-apac-market-demand.html)
 - [Underperforming APAC Medical Device Distributor?](https://kawahive.com/apac-medical-device-distributor-underperforming-customer-revenue.html)
 
 ## Important boundaries

@@ -1,6 +1,6 @@
 # KawaHive & Partners
 
-> KawaHive & Partners provides go-to-market (GTM) strategy for founders with registered MedTech and medical devices in APAC: hospital demand, distributor sell-through and purchase orders. KawaHive helps manufacturers understand hospital buying decisions, prioritise target accounts and convert customer interest into documented purchasing progress.
+> KawaHive & Partners provides go-to-market (GTM) strategy for founders with registered MedTech and medical devices in APAC, focusing on hospital demand, distributor sell-through and customer orders. KawaHive helps manufacturers understand hospital buying decisions, prioritise target accounts and convert customer interest into documented purchasing progress.
 
 ## Who KawaHive supports
 
